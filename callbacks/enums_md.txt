@@ -1,0 +1,8 @@
+Enums
+Callback enumerations.
+📄️
+CallbackResult
+Callback result
+📄️
+CallbackType
+Callback type

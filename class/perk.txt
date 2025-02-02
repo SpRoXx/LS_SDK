@@ -1,0 +1,17 @@
+Perk
+Perk class.
+Properties​
+id
+: number - integer​
+name
+: string​
+tooltip
+: string​
+longDescription
+: string​
+shortDescription
+: string​
+displayName
+: string​
+displayStat
+: string​

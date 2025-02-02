@@ -1,0 +1,120 @@
+AIHeroClient :
+AIBaseClient
+'Inherited from GameObject , AIBaseClient and AttackableUnit class.'
+Properties​
+canShop
+: boolean​
+summonerLevel
+: number​
+avatarClient
+:
+AvatarClient
+​
+Functions​
+CanLevelSpellSlot​
+AIHeroClient:CanLevelSpellSlot(
+slot
+:
+SpellSlot
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+| Given slot.
+Returns whether hero can level up a spell in given SpellSlot or not.
+CanEvolveSpellSlot​
+AIHeroClient:CanEvolveSpellSlot(
+slot
+:
+SpellSlot
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+| Given slot.
+Returns whether hero can evolve a spell in given SpellSlot or not.
+BuyItem​
+AIHeroClient:BuyItem(
+id
+: number - integer
+)
+→ void
+Argument| Type| Description
+---|---|---
+id| number - integer| Given item id.
+Buy an item by given id.
+SellItem​
+AIHeroClient:SellItem(
+slot
+: number - integer
+)
+→ void
+Argument| Type| Description
+---|---|---
+slot| number - integer| Given item slot.
+Sell an item by given slot.
+SwapItem​
+AIHeroClient:SwapItem(
+from
+: number - integer,
+to
+: number - integer
+)
+→ void
+Argument| Type| Description
+---|---|---
+from| number - integer| Move from this slot.
+to| number - integer| Move to this slot.
+Swap an item from one slot to another.
+GetItem​
+AIHeroClient:GetItem(
+slot
+: number - integer
+)
+→
+InventorySlot
+Argument| Type| Description
+---|---|---
+slot| number - integer| Given item slot.
+Get inventory slot from given item slot.
+FindItem​
+AIHeroClient:FindItem(
+id
+: number - integer
+)
+→
+InventorySlot
+Argument| Type| Description
+---|---|---
+id| number - integer| Given item id.
+Get inventory slot from given item id.
+FindItemSlot​
+AIHeroClient:FindItemSlot(
+id
+: number - integer
+)
+→
+SpellSlot
+Argument| Type| Description
+---|---|---
+id| number - integer| Given item id.
+Get spell slot from given item id.
+CanUseItem​
+AIHeroClient:CanUseItem(
+id
+: number - integer
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+id| number - integer| Given item id.
+Returns whether hero can use item with given item id.
+GetStatsCollection​
+AIHeroClient:GetStatsCollection()
+→
+HeroStatsCollection
+Returns HeroStatsCollection

@@ -1,0 +1,102 @@
+CallbackType
+Callback type
+Properties​
+OnDraw
+: number​
+Fired every time the game renders a frame. Can be used to draw to the screen using renderer functions.
+OnImguiDraw
+: number​
+Fired every time the game renders a frame with ImGui. Can be used to draw to the screen using ImGui functions.
+OnTick
+: number​
+Fired every time the game update object. Can be used to run champion logic.
+OnFastTick
+: number​
+Fired every time the game update object. Can be used to run champion logic. Faster than on tick, do not use if not necessary.
+OnUnload
+: number​
+Fired when script unload. Make sure to dispose of your objects and clean up with this callback.
+OnBeforeAttack
+: number​
+Fired before orbwalker want to attack someone.
+OnAfterAttack
+: number​
+Fired when orbwalker finishes an attack.
+OnIssueOrder
+: number​
+Fired when issuing movement or attack order.
+OnCastHud
+: number​
+Fired on manual spell cast by the user (before OnSpellCast).
+OnSpellCast
+: number​
+Fired on client-side spell cast.
+OnValidateInput
+: number​
+OnSpellCast2
+: number​
+OnUpdateChargeableSpell
+: number​
+OnSpellAnimationStart
+: number​
+Fired when a spell cast is started.
+OnSpellCastComplete
+: number​
+Fired when a spell cast is finished.
+OnSpellAnimationCancel
+: number​
+Fired when a spell cast is stopped.
+OnUpdateMissile
+: number​
+Fired when missile is being updated. For example for Yuumi Q. You can edit the position.
+OnChangeSlotSpellName
+: number​
+Fired when a spell slot name change.
+OnEvolve
+: number​
+Fired when evolving a spell.
+OnObjectCreate
+: number​
+Fired when GameObject is created.
+OnObjectRemove
+: number​
+Fired when GameObject is removed.
+OnPrintChat
+: number​
+Fired when a message is printed to game chat.
+OnNewPath
+: number​
+Fired when when unit gets a new path.
+OnGainLoseBuff
+: number​
+Fired when unit gains or loses a buff.
+OnUpdateBuff
+: number​
+Fired when one of unit buffs is updated.
+OnPlayAnimation
+: number​
+Fired when unit plays some animation.
+OnNotify
+: number​
+Fired on various game events such as surrender vote.
+OnSendPing
+: number​
+Fired when player pings something. This event can be cancelled similar to OnSpellCast or OnIssueOrder.
+OnShowPing
+: number​
+Fired on any ping.
+OnMinimapIconChange
+: number​
+Fired on minimap icon change.
+OnPacketReceive
+: number​
+Fired when we receive packet from server.
+OnWndProc
+: number​
+Fired on user keyboard and mouse input.
+OnEvade
+: number​
+Fired when Evade takes action to dodge something.
+OnSkillshotCreate
+: number​
+Fired when Evade creates an instance of skillshot.

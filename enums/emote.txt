@@ -1,0 +1,18 @@
+Emote
+Emote type
+Properties​
+Dance
+: number​
+0
+Taunt
+: number​
+1
+Laugh
+: number​
+2
+Joke
+: number​
+3
+Toggle
+: number​
+4

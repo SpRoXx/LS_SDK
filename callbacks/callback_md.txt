@@ -1,0 +1,78 @@
+Callback
+Bind / Unbind event handlers (callbacks).
+Functions
+​
+Bind
+​
+Callback.Bind(
+type
+:
+CallbackType
+,
+callback
+:
+CallbackSignatures
+,
+priority
+: number - integer
+)
+→
+number
+Argument
+Type
+Description
+type
+CallbackType
+Callback type.
+callback
+CallbackSignatures
+Callback function. Check CallbackSignatures for examples.
+priority
+number - integer
+Callback priority. 0 by default.
+Binds specified callback functions and returns unique handler.
+Unbind
+​
+Callback.Unbind(
+handle
+: number
+)
+→
+void
+Argument
+Type
+Description
+handle
+number
+Callback handle to unbind.
+Unbind callback by unique handler.
+Examples
+​
+Basic example of binding OnTick event handler and unbinding it.
+local
+onTickHandle
+=
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnTick
+,
+function
+(
+)
+-- ...
+end
+)
+if
+onTickHandle
+then
+Callback
+.
+Unbind
+(
+onTickHandle
+)
+end

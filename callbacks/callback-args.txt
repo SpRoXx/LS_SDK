@@ -1,0 +1,13 @@
+Arguments
+Reference for arguments used in various callbacks.
+📄️ AfterAttackOrbwalkerArgsAfterAttackOrbwalkerArgs
+##
+📄️ BeforeAttackOrbwalkerArgsBeforeAttackOrbwalkerArgs
+##
+📄️ CastArgsCastArgs
+##
+📄️ CastSpellArgsCastSpellArgs
+##
+📄️ hweicast_argshweicast_args
+##
+📄️ IssueOrderArgsIssueOrderArgs

@@ -1,0 +1,8 @@
+AITurretClient :
+AIBaseClient
+'Inherited from GameObject , AIBaseClient and AttackableUnit class.'
+Properties​
+tier
+: number​
+targetNetworkID
+: number​

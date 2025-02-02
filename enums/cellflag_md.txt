@@ -1,0 +1,19 @@
+CellFlag
+CellFlag
+Properties
+​
+None
+: number
+​
+Grass
+: number
+​
+Wall
+: number
+​
+CanSeeThrough
+: number
+​
+Prop
+: number
+​

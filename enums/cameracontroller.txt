@@ -1,0 +1,13 @@
+CameraController
+Camera controller type
+Properties​
+Free
+: number​
+FirstPerson
+: number​
+ThirdPerson
+: number​
+Focus
+: number​
+PathFollowing
+: number​

@@ -1,0 +1,124 @@
+BuffType
+Buff type
+Properties
+​
+Invalid
+: number
+​
+Internal
+: number
+​
+Aura
+: number
+​
+CombatEnchancer
+: number
+​
+CombatDehancer
+: number
+​
+SpellShield
+: number
+​
+Stun
+: number
+​
+Invisibility
+: number
+​
+Silence
+: number
+​
+Taunt
+: number
+​
+Polymorph
+: number
+​
+Slow
+: number
+​
+Snare
+: number
+​
+Damage
+: number
+​
+Heal
+: number
+​
+Haste
+: number
+​
+SpellImmunity
+: number
+​
+PhysicalImmunity
+: number
+​
+Invulnerability
+: number
+​
+Taunt
+: number
+​
+AttackSpeedSlow
+: number
+​
+NearSight
+: number
+​
+Currency
+: number
+​
+Fear
+: number
+​
+Charm
+: number
+​
+Poison
+: number
+​
+Suppression
+: number
+​
+Blind
+: number
+​
+Counter
+: number
+​
+Shred
+: number
+​
+Flee
+: number
+​
+Knockup
+: number
+​
+Knockback
+: number
+​
+Disarm
+: number
+​
+Grounded
+: number
+​
+Drowsy
+: number
+​
+Asleep
+: number
+​
+Obscured
+: number
+​
+ClickproofToEnemies
+: number
+​
+UnKillable
+: number
+​

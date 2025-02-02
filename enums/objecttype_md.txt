@@ -1,0 +1,97 @@
+ObjectType
+GameObject type
+Properties
+​
+NeutralMinionCamp
+: number
+​
+AIHeroClient
+: number
+​
+AIMarker
+: number
+​
+AIMinionClient
+: number
+​
+FollowerObject
+: number
+​
+LevelPropAIClient
+: number
+​
+AITurretCommon
+: number
+​
+AITurretClient
+: number
+​
+obj_GeneralParticleEmitter
+: number
+​
+GameObject
+: number
+​
+Pawn
+: number
+​
+MissileClient
+: number
+​
+DrawFX
+: number
+​
+UnrevealedTarget
+: number
+​
+TFTSlotObject
+: number
+​
+Barracks
+: number
+​
+BarracksDampener
+: number
+​
+obj_Levelsizer
+: number
+​
+obj_NavPoint
+: number
+​
+obj_SpawnPoint
+: number
+​
+AnimatedBuilding
+: number
+​
+BuildingClient
+: number
+​
+GrassObject
+: number
+​
+HQ
+: number
+​
+obj_InfoPoint
+: number
+​
+MapProp
+: number
+​
+LevelPropGameObject
+: number
+​
+LevelPropSpawnerPoint
+: number
+​
+Shop
+: number
+​
+obj_Turret
+: number
+​
+Unknown
+: number
+​

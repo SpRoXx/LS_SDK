@@ -1,0 +1,15 @@
+CallbackResult
+Callback result
+Properties​
+Success
+: number​
+Default result.
+Dispose
+: number​
+Unload this callback.
+Cancel
+: number​
+Prevent this event called by game.
+CancelAndDispose
+: number​
+Prevent this event and unload this callback.

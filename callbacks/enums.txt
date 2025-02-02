@@ -1,0 +1,5 @@
+Enums
+Callback enumerations.
+📄️ CallbackResultCallback result
+##
+📄️ CallbackTypeCallback type

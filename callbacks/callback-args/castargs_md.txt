@@ -1,0 +1,78 @@
+CastArgs
+CastArgs
+Properties
+​
+spell
+:
+Spell
+​
+slot
+:
+SpellSlot
+​
+handleCaster
+: integer
+​
+networkIdMissile
+: integer
+​
+from
+:
+Vector3
+​
+to
+:
+Vector3
+​
+limit
+:
+Vector3
+​
+target
+:
+AttackableUnit
+​
+timeAnimStart
+: number
+​
+timeWindupEnd
+: number
+​
+timeAnimEnd
+: number
+​
+cooldown
+: number
+​
+isChanneling
+: boolean
+​
+isCharging
+: boolean
+​
+wasCast
+: boolean
+​
+isStopped
+: boolean
+​
+level
+: number
+​
+delay
+: number
+​
+animationTime
+: number
+​
+isAutoAttack
+: boolean
+​
+Functions
+​
+GetDelayPartial
+​
+CastArgs.GetDelayPartial()
+→
+number, number
+Returns the spell delay0 and spell delay1.

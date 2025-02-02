@@ -1,0 +1,73 @@
+OrbwalkerMode
+OrbwalkerMode bitflag
+tip
+You can use
+bit
+operations to set multiple active modes at once. See
+bit library
+.
+Example
+​
+Programmatically set Orbwalker active mode(s) using bit library.
+Orbwalker
+.
+activeMode
+=
+bit
+.
+bxor
+(
+Orbwalker
+.
+activeMode
+,
+OrbwalkerMode
+.
+Combo
+)
+-- Set Combo
+Orbwalker
+.
+activeMode
+=
+bit
+.
+band
+(
+Orbwalker
+.
+activeMode
+,
+bit
+.
+bnot
+(
+OrbwalkerMode
+.
+Combo
+)
+)
+-- Unset Combo
+Properties
+​
+None
+: number
+​
+Combo
+: number
+​
+Harass
+: number
+​
+LastHit
+: number
+​
+LaneClear
+: number
+​
+JungleClear
+: number
+​
+Flee
+: number
+​

@@ -1,0 +1,47 @@
+BuffManager
+Buff Manager.
+Properties
+​
+buffs
+:
+Buff
+[] - std::vector
+<
+Buff
+>
+​
+owner
+:
+AIBaseClient
+​
+ownerHandle
+: integer
+​
+ownerNetworkID
+: integer
+​
+Functions
+​
+GetDragonBuffCount
+​
+BuffManager:GetDragonBuffCount(
+type
+:
+DragonType
+,
+team
+:
+Team
+)
+→
+integer
+Argument
+Type
+Description
+type
+DragonType
+DragonType enum.
+team
+Team
+Team number.
+Returns team dragon buff count.

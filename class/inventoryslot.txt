@@ -1,0 +1,14 @@
+InventorySlot
+InventorySlot struct
+Properties​
+stacks
+: number​
+Amount of stacks
+updateTime
+: number​
+Update time
+scriptBaseItem
+:
+ScriptBaseItem
+​
+Base item instance

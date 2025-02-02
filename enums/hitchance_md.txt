@@ -1,0 +1,31 @@
+HitChance
+Prediction hit chance
+Properties
+​
+Collision
+: number
+​
+OutOfRange
+: number
+​
+Impossible
+: number
+​
+Low
+: number
+​
+Medium
+: number
+​
+High
+: number
+​
+VeryHigh
+: number
+​
+Dashing
+: number
+​
+Immobile
+: number
+​

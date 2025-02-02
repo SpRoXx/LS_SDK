@@ -1,0 +1,23 @@
+IssueOrderArgs
+IssueOrderArgs
+Properties​
+source
+:
+AIBaseClient
+​
+type
+:
+IssueOrderType
+​
+targetPos
+:
+Vector3
+​
+targetEntity
+:
+AttackableUnit
+​
+isAttackMove
+: boolean​
+isPetCommand
+: boolean​

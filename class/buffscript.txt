@@ -1,0 +1,13 @@
+BuffScript
+BuffScript.
+Properties​
+casterHandle
+: integer​
+casterNetworkID
+: integer​
+buffInstance
+:
+Buff
+​
+sourceName
+: string​

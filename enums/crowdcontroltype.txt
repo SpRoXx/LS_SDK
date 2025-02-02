@@ -1,0 +1,82 @@
+CrowdControlType
+Data.CrowdControlType
+tip
+This is a part of
+Data
+namespace (table).
+Properties​
+Airborne
+: number​
+Can't move, can't cast, can't aa. you can remove stun effect by cleansing effects (except Cleanse), but you can't remove airborne movement part.after you removed stun effect and you can cast spells again - you can use any mobility spell to override airborne movement.
+Blind
+: number​
+Makes you miss all your aa
+Entangle
+: number​
+Root + disarm: can't move, can't use mobility spells, can't attack
+Taunt
+: number​
+Can't move, can't cast, can't control aa.
+Charm
+: number​
+Can't move, can't cast, can't aa
+Fear
+: number​
+Can't move, can't cast, can't aa.
+Flee
+: number​
+Can't move, can't cast, can't aa.
+Ground
+: number​
+Can move but can't use mobility spells
+Nearsight
+: number​
+Limits your vision
+Root
+: number​
+Can't move, can't use mobility spells such as : dash / flash / teleport / shen R etc
+Silence
+: number​
+Can't cast
+Slow
+: number​
+Slows your movement
+Stasis
+: number​
+Can't move, can't cast, can't aa, makes you untargetable. basically immunity (zhonya etc):
+Stun
+: number​
+Can't move, can't cast, can't aa
+Suppression
+: number​
+Can't move, can't cast, can't aa
+Disarm
+: number​
+Can't aa
+Cripple
+: number​
+Slows attack speed
+Disrupt
+: number​
+Interrupt of channeled and charged spells
+Knockdown
+: number​
+Not really a CC. puts you back on the ground from airborne or dash.It does not trigger Yasuo R.
+Suspension
+: number​
+Same as airborne but can be fully removed by cleansing effects
+Sleep
+: number​
+Can't move, can't cast, can't aa. interrupted if target takes damage.
+Pacify
+: number​
+Disarm + silence: can't aa, can't cast
+Polymorph
+: number​
+Disarm + silence + slow ? : can't aa, can't cast
+Berserk
+: number​
+Can't move, can't cast, can't aa (like stun or charm). A unit that is berserk will attempt to perform basic attacks on a nearby unit regardless of being ally, enemy, or neutral for the duration.
+Opener
+: number​
+Custom (fake) CC type which represents spells with opener capabilities. Such spells usually will be followed up by some dangerous combo. For example Lee Sin Q, Amumu Q and so on.

@@ -1,0 +1,34 @@
+Buff
+Buff class.
+Properties​
+isValid
+: boolean​
+startTime
+: number​
+expireTime
+: number​
+leftTime
+: number​
+short
+: integer​
+int
+: integer​
+type
+:
+BuffType
+​
+owner
+:
+AIBaseClient
+​
+source
+:
+AIBaseClient
+​
+hash
+: integer​
+Functions​
+GetName​
+Buff:GetName()
+→ string
+Returns buff name.

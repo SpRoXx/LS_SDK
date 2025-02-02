@@ -1,0 +1,15 @@
+hweicast_args
+hweicast_args
+Properties
+​
+slot
+:
+SpellSlot
+​
+currentSlot
+:
+SpellSlot
+​
+lastTime
+: number
+​

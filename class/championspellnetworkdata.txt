@@ -1,0 +1,33 @@
+ChampionSpellNetworkData
+ChampionSpellNetworkData singleton. Can be accessed via
+ChampionSpellNetworkData.Instance()
+.
+Properties​
+lastTime
+: number - time​
+currentSlot
+:
+SpellSlot
+​
+Functions​
+ValidateInput​
+ChampionSpellNetworkData:ValidateInput(
+slot
+:
+SpellSlot
+,
+bTriggerEvent
+: boolean
+)
+→ void
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+|
+bTriggerEvent| boolean|
+Validate input, can be useful for Hwei spells and similar.
+RestoreHweiSpell​
+ChampionSpellNetworkData:RestoreHweiSpell()
+→ void
+Restores Hwei spell.

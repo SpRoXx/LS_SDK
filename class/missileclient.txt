@@ -1,0 +1,28 @@
+MissileClient :
+GameObject
+Inherited from GameObject class.
+Properties​
+handleMissileOwner
+: integer​
+handleMissileTarget
+: integer​
+startTime
+: number​
+width
+: number​
+destroyed
+: boolean​
+speed
+: number​
+missileOrigin
+:
+Vector3
+​
+missileDestination
+:
+Vector3
+​
+spell
+:
+Spell
+​

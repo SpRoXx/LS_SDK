@@ -1,0 +1,21 @@
+PerkInfo
+PerkInfo class.
+Properties
+​
+data
+:
+Perk
+​
+Perk data.
+baseStat
+: number - double
+​
+bonusMagicStat
+: number - double
+​
+bonusPhysicalStat
+: number - double
+​
+fValue
+: number
+​

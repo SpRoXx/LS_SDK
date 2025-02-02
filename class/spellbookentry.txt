@@ -1,0 +1,97 @@
+SpellBookEntry
+SpellBookEntry class.
+Properties​
+info
+:
+SpellInfo
+​
+spell
+:
+Spell
+- Spelldata Class​
+isToggled
+: boolean​
+internalState
+: boolean​
+level
+: number​
+timeCooldownOver
+: number​
+timeNextRecharge
+: number​
+ammo
+: number​
+cooldown
+: number​
+rechargeTime
+: number​
+fValue
+: float[]​
+Contains special f tooltip values. See example for more info.
+Functions​
+IsValid​
+SpellBookEntry:IsValid()
+→ boolean
+Returns if entry is valid.
+GetName​
+SpellBookEntry:GetName()
+→ string
+Returns SpellData Name.
+ManaCost​
+SpellBookEntry:ManaCost()
+→ number
+Returns spell mana cost.
+DisplayRange​
+SpellBookEntry:DisplayRange()
+→ number
+Returns spell displayRange.
+GetCalculateInfo​
+SpellBookEntry:GetCalculateInfo(
+source
+:
+AIBaseClient
+,
+hash
+: number - integer,
+slot
+:
+SpellSlot
+- integer0-64
+)
+→ number
+Argument| Type| Description
+---|---|---
+source|
+AIBaseClient
+| Souce for calculate.
+hash| number - integer| Calculation name hash.
+slot|
+SpellSlot
+- integer0-64| SpellSlot enum.
+Returns calculation result
+Example: Get total damage from Lux Q tooltip
+local TotalDamageHash = Game.fnvhash("TotalDamageTT")  
+local entry = Game.localPlayer:GetSpellEntry(SpellSlot.Q)  
+local totalDamage = entry:GetCalculateInfo(Game.localPlayer, TotalDamageHash, SpellSlot.Q)
+PrintTooltip​
+SpellBookEntry:PrintTooltip(
+extended
+: boolean
+)
+→ void
+Argument| Type| Description
+---|---|---
+extended| boolean| Print extended tooltip.
+Print spell tooltip text in game. you can use
+GetCalculateInfo
+to get tooltip tag value
+.
+Examples​
+Accessing damage fValue from Ignite tooltip
+local slot = SpellSlot.F
+
+-- Print tooltip to see which f value we need to use:  
+Game.localPlayer:GetSpellEntry(slot):PrintTooltip(false)
+
+-- Access 1st fValue:  
+print(Game.localPlayer:GetSpellEntry(slot).fValue[1]) -- Index starts from 1. In this example if Ignite is in F slot it will print Ignite damage

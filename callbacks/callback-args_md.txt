@@ -1,0 +1,20 @@
+Arguments
+Reference for arguments used in various callbacks.
+📄️
+AfterAttackOrbwalkerArgs
+AfterAttackOrbwalkerArgs
+📄️
+BeforeAttackOrbwalkerArgs
+BeforeAttackOrbwalkerArgs
+📄️
+CastArgs
+CastArgs
+📄️
+CastSpellArgs
+CastSpellArgs
+📄️
+hweicast_args
+hweicast_args
+📄️
+IssueOrderArgs
+IssueOrderArgs

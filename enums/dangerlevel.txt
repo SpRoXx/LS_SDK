@@ -1,0 +1,21 @@
+DangerLevel
+Data.DangerLevel - Spell danger level type
+tip
+This is a part of
+Data
+namespace (table).
+Properties​
+None
+: number​
+Low
+: number​
+Spells which can be ignored most of the time.
+Medium
+: number​
+Spells which may deal medium damage or apply light crowd control.
+High
+: number​
+Dangerous spells which deal significant damage or apply hard crowd control.
+Extreme
+: number​
+Most dangerous spells such as Ashe R, Malphite R and so on.

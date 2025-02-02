@@ -1,0 +1,56 @@
+ItemData
+ItemData struct
+Properties
+​
+id
+: number
+​
+Item ID
+name
+: string
+​
+Item name
+displayName
+: string
+​
+Display name
+spellName
+: string
+​
+Spell name
+description
+: string
+​
+Item description
+tooltip
+: string
+​
+Tooltip string key argument to be used in Game.TranslateString function.
+price
+: number
+​
+Item price in the shop
+Functions
+​
+GetCalculateInfo
+​
+ItemData:GetCalculateInfo(
+source
+:
+AIBaseClient
+,
+hash
+: number - integer
+)
+→
+number
+Argument
+Type
+Description
+source
+AIBaseClient
+Souce for calculate.
+hash
+number - integer
+Calculation name hash.
+Returns calculation result similar to SpellBookEntry.GetCalculateInfo

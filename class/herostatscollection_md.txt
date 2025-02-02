@@ -1,0 +1,16 @@
+HeroStatsCollection
+HeroStatsCollection struct
+Properties
+​
+kills
+: number
+​
+Kills count
+deaths
+: number
+​
+Deaths count
+assists
+: number
+​
+Assists count

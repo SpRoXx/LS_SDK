@@ -1,0 +1,22 @@
+DragonType
+Dragon type
+Properties
+​
+Normal
+: number
+​
+Infernal
+: number
+​
+Cloud
+: number
+​
+Ocean
+: number
+​
+Mountain
+: number
+​
+Elder
+: number
+​

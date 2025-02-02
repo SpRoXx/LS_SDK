@@ -1,0 +1,462 @@
+AIBaseClient :
+AttackableUnit
+Inherited from GameObject and AttackableUnit class.
+Properties​
+spellBook
+:
+SpellBook
+​
+buffManager
+:
+BuffManager
+​
+activeSpell
+:
+CastArgs
+​
+isZombie
+: boolean​
+charName
+: string​
+actionState
+: number - integer​
+actionState2
+: number - integer​
+isMoving
+: boolean​
+path
+:
+Vector3
+[] - std::vector<
+Vector3
+>​
+nextWaypointIndex
+: number - integer​
+petOwner
+:
+AIBaseClient
+​
+attackDelay
+: number​
+attackCastDelay
+: number​
+isClone
+: boolean​
+dashSpeed
+: number​
+isDashing
+: boolean​
+serverPosition
+:
+Vector3
+​
+isMagicImmune
+: boolean​
+isPhysicalImmune
+: boolean​
+isUnstoppable
+: boolean​
+totalHealth
+: number​
+missingHealth
+: number​
+totalMaxHealth
+: number​
+healthMaxFromStats
+: number​
+totalShield
+: number​
+canAttack
+: boolean​
+canCrit
+: boolean​
+canCast
+: boolean​
+canMove
+: boolean​
+isSlowed
+: boolean​
+isImmovable
+: boolean​
+isStealthed
+: boolean​
+isTaunted
+: boolean​
+isFeared
+: boolean​
+isFleeing
+: boolean​
+isSupressed
+: boolean​
+isAsleep
+: boolean​
+isGhosted
+: boolean​
+isCharmed
+: boolean​
+isDisarmed
+: boolean​
+isRooted
+: boolean​
+isSilenced
+: boolean​
+isStunned
+: boolean​
+hasAABlockingBuff
+: boolean​
+isMelee
+: boolean​
+isRanged
+: boolean​
+hash
+: number - integer​
+totalBaseAttackDamage
+: number​
+totalBonusAttackDamage
+: number​
+totalAttackDamage
+: number​
+totalAbilityPower
+: number​
+isCasting
+: boolean​
+isLaneMinion
+: boolean​
+isSiegeMinion
+: boolean​
+isSuperMinion
+: boolean​
+isCasterMinion
+: boolean​
+isMeleeMinion
+: boolean​
+isPet
+: boolean​
+isWard
+: boolean​
+isWardNoBlue
+: boolean​
+isTrap
+: boolean​
+isPlant
+: boolean​
+isLargeMonster
+: boolean​
+isBaron
+: boolean​
+isDragon
+: boolean​
+isEpicMonster
+: boolean​
+isSmiteMonster
+: boolean​
+charIntermediate
+:
+CharIntermediate
+​
+gold
+: number​
+goldTotal
+: number​
+minimumGold
+: number​
+Functions​
+IsBot​
+AIBaseClient:IsBot()
+→ boolean
+Returns the entity is a bot.
+GetDirection​
+AIBaseClient:GetDirection()
+→
+Vector3
+Returns the entity's direction vector.
+GetPetHandleSize​
+AIBaseClient:GetPetHandleSize()
+→ number
+Returns the size of entity's pet array. Entities may have multiple pets. Index starts from 0.
+GetPetHandleByIndex​
+AIBaseClient:GetPetHandleByIndex()
+→
+AIBaseClient
+Returns entity's pet handle by index. Entities may have multiple pets. Index starts from 0.
+Example: Get first pet
+local petHandleSize = Game.localPlayer:GetPetHandleSize()  
+if petHandleSize > 0 then  
+    for i=0, petHandleSize-1 do  
+        local petHandle = Game.localPlayer:GetPetHandleByIndex(i)  
+        local pet = petHandle and ObjectManager.ResolveHandle(petHandle)  
+        if pet and pet:IsValid() then  
+            print(pet:GetUniqueName())  
+        end  
+    end  
+end
+GetTarget​
+AIBaseClient:GetTarget()
+→
+AttackableUnit
+Returns the entity's active target.
+GetWayPoint​
+AIBaseClient:GetWayPoint()
+→
+Vector3
+Returns the entity's last waypoint.
+GetRemainingPath2D​
+AIBaseClient:GetRemainingPath2D()
+→
+Vector2
+[] - std::vector<
+Vector2
+>
+Returns the entity's remaining path array.
+GetSpellEntry​
+AIBaseClient:GetSpellEntry(
+slot
+:
+SpellSlot
+- integer0-64
+)
+→
+SpellBookEntry
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+- integer0-64| SpellSlot enum.
+Returns a SpellBookEntry.
+GetSpellSlot​
+AIBaseClient:GetSpellSlot(
+spellName
+: string
+)
+→
+SpellSlot
+Argument| Type| Description
+---|---|---
+spellName| string| Spell Name for finding spell.
+Returns SpellSlot or SpellSlot.NullSlot.
+GetSpellState​
+AIBaseClient:GetSpellState(
+slot
+:
+SpellSlot
+- integer0-64
+)
+→
+SpellState
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+- integer0-64| SpellSlot enum.
+Returns SpellState for given SpellSlot.
+GetAutoAttackDamage​
+AIBaseClient:GetAutoAttackDamage(
+target
+:
+AttackableUnit
+)
+→ number
+Argument| Type| Description
+---|---|---
+target|
+AttackableUnit
+| Target.
+Returns a entity's auto attack damage to target.
+IsFacing​
+AIBaseClient:IsFacing(
+source
+:
+AIBaseClient
+,
+angle
+: number - float,
+range
+: number - float
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+source|
+AIBaseClient
+| Check from source.
+angle| number - float| Cone angle.
+range| number - float| Max check range.
+Returns if entity is facing source (inside cone).
+UseObject​
+AIBaseClient:UseObject(
+target
+:
+AttackableUnit
+)
+→ void
+Argument| Type| Description
+---|---|---
+target|
+AttackableUnit
+| Target to use.
+Use an object like lantern etc.
+HasBuffOfType​
+AIBaseClient:HasBuffOfType(
+type
+:
+BuffType
+- integer
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+type|
+BuffType
+- integer| BuffType enum.
+Returns if has buff of type.
+IsCloneFrom​
+AIBaseClient:IsCloneFrom(
+source
+:
+AIBaseClient
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+source|
+AIBaseClient
+| Source of clone.
+Returns if entity is a clone from source entity.
+CanUseSpell​
+AIBaseClient:CanUseSpell(
+slot
+: SpellSot - integer0-64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+slot| SpellSot - integer0-64| SpellSlot enum.
+Returns if entity can use spell of given slot.
+GetRealHealth​
+AIBaseClient:GetRealHealth(
+msTime
+: number - float,
+type
+:
+DamageType
+)
+→ number
+Argument| Type| Description
+---|---|---
+msTime| number - float| Time to predict HPRegenRate.
+type|
+DamageType
+| DamageType enum.
+Returns entity real health include Shields and Blitzcrank's passive.
+GetBuff​
+AIBaseClient:GetBuff(
+index
+: Integer
+)
+→
+Buff
+Argument| Type| Description
+---|---|---
+index| Integer| Buff array index.
+Returns a buff at
+index
+.
+FindBuff​
+AIBaseClient:FindBuff(
+hash
+: number - Integer
+)
+→
+Buff
+Argument| Type| Description
+---|---|---
+hash| number - Integer| Buff name Hash
+Returns Buff find by fnv_hash(name).
+GetBuffStacks​
+AIBaseClient:GetBuffStacks(
+hash
+: number - Integer
+)
+→ number
+Argument| Type| Description
+---|---|---
+hash| number - Integer| Buff name Hash
+Returns Buff stacks find by fnv_hash(name).
+GetAutoAttackRange​
+AIBaseClient:GetAutoAttackRange(
+target
+:
+AttackableUnit
+)
+→ number
+Argument| Type| Description
+---|---|---
+target|
+AttackableUnit
+| Target could be null.
+Returns real auto attack range (worked for Azir, Aphelios, Caitlyn and most heroes).
+IsPlayingAnimation​
+AIBaseClient:IsPlayingAnimation(
+animationHash
+: number
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+animationHash| number| Animation hash. Can be taken with Game.fnvhash(animationName).
+Returns whether entity is playing specific animation.
+HasTimeRemainingForAnimation​
+AIBaseClient:HasTimeRemainingForAnimation(
+animationHash
+: number,
+remainingTime
+: number
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+animationHash| number| Animation hash. Can be taken with Game.fnvhash(animationName).
+remainingTime| number| Remaining time to check.
+Returns whether entity is still have given remaining time for certain playing animation.
+GetGrassGroupToIgnore​
+AIBaseClient:GetGrassGroupToIgnore()
+→ number
+Returns current grass group ID.
+IsRecalling​
+AIBaseClient:IsRecalling()
+→ boolean
+Returns if entity is recalling.
+FindSafeSpot​
+AIBaseClient:FindSafeSpot(
+position
+:
+Vector3
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+position|
+Vector3
+| nil
+Finds safe spot using game function.
+GetNavConditionFlags​
+AIBaseClient:GetNavConditionFlags()
+→ number
+Returns TeamFlag / NavConditionFlag.
+IsCastingInterruptibleSpell​
+AIBaseClient:IsCastingInterruptibleSpell()
+→ number - integer
+Returns whether enemy is casting or channeling interruptible spell or not.
+tip
+0 - Not casting. 1 - Medium danger level spell. 2 - Dangerous spell.
+IsInvulnerable​
+AIBaseClient:IsInvulnerable(
+source
+: number
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+source| number| Entity to check invulnerability against
+Returns whether entity is invulnerable towards damage from another entity (source).

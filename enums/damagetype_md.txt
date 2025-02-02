@@ -1,0 +1,16 @@
+DamageType
+Damage type
+Properties
+​
+Physical
+: number
+​
+Magical
+: number
+​
+True
+: number
+​
+Mixed
+: number
+​

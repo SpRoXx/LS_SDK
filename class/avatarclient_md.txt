@@ -1,0 +1,34 @@
+AvatarClient
+AvatarClient class.
+Properties
+​
+owner
+:
+AIHeroClient
+​
+AvaterClient owner.
+ownerHandle
+: number - integer
+​
+AvatarClient owner's handler.
+keystonePerkID
+: number - integer
+​
+Keystone perk ID.
+perks
+:
+PerkInfo
+[] - std::vector
+<
+PerkInfo
+>
+​
+Container with all perks PerkInfo.
+Functions
+​
+GetKeystonePerk
+​
+AvatarClient:GetKeystonePerk()
+→
+Perk
+Returns Keystone Perk.

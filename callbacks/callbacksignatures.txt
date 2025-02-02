@@ -1,0 +1,593 @@
+CallbackSignatures
+Callback Usage
+note
+Not all callbacks utilize
+CallbackResult
+return.
+Functions​
+OnDraw​
+CallbackSignatures.OnDraw()
+→
+CallbackResult
+Fired every time the game renders a frame. Can be used to draw to the screen using renderer functions.
+OnImguiDraw​
+CallbackSignatures.OnImguiDraw()
+→
+CallbackResult
+Fired every time the game renders a frame with ImGui. Can be used to draw to the screen using ImGui functions.
+OnTick​
+CallbackSignatures.OnTick()
+→
+CallbackResult
+Fired every time the game update object. Can be used to run champion logic.
+OnFastTick​
+CallbackSignatures.OnFastTick()
+→
+CallbackResult
+Fired every time the game update object. Can be used to run champion logic. Faster than on tick, do not use if not necessary.
+OnUnload​
+CallbackSignatures.OnUnload()
+→
+CallbackResult
+Fired when script unload. Make sure to dispose of your objects and clean up with this callback.
+OnBeforeAttack​
+CallbackSignatures.OnBeforeAttack(
+beforeAttackOrbwalkerArgs
+:
+BeforeAttackOrbwalkerArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+beforeAttackOrbwalkerArgs|
+BeforeAttackOrbwalkerArgs
+|
+Fired before orbwalker want to attack someone.
+OnAfterAttack​
+CallbackSignatures.OnAfterAttack(
+afterAttackOrbwalkerArgs
+:
+AfterAttackOrbwalkerArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+afterAttackOrbwalkerArgs|
+AfterAttackOrbwalkerArgs
+|
+Fired when orbwalker finishes an attack.
+OnIssueOrder​
+CallbackSignatures.OnIssueOrder(
+issueOrderArgs
+:
+IssueOrderArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+issueOrderArgs|
+IssueOrderArgs
+|
+Fired when issuing movement or attack order.
+Example: Example: Cancel any IssueOrder
+Callback.Bind(CallbackType.OnIssueOrder, function(issueOrderArgs)  
+    return CallbackResult.Cancel -- Read more about CallbackResult and alternative options  
+end)
+OnCastHud​
+CallbackSignatures.OnCastHud(
+spellData
+:
+Spell
+- Spelldata Class,
+targetHandle
+: number - integer
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+spellData|
+Spell
+- Spelldata Class|
+targetHandle| number - integer|
+Fired on manual spell cast by the user (before OnSpellCast).
+OnSpellCast​
+CallbackSignatures.OnSpellCast(
+castSpellArgs
+:
+CastSpellArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+castSpellArgs|
+CastSpellArgs
+|
+Fired on client-side spell cast.
+OnSpellCast2​
+CallbackSignatures.OnSpellCast2(
+castSpellArgs
+:
+CastSpellArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+castSpellArgs|
+CastSpellArgs
+|
+Fired on client-side spell cast 2 (alternate).
+OnValidateInput​
+CallbackSignatures.OnValidateInput(
+hweicastArgs
+:
+hweicast_args
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+hweicastArgs|
+hweicast_args
+|
+Fired on input validate (Hwei).
+OnSpellAnimationStart​
+CallbackSignatures.OnSpellAnimationStart(
+sender
+:
+AIBaseClient
+,
+castArgs
+:
+CastArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+AIBaseClient
+|
+castArgs|
+CastArgs
+|
+Fired when a spell cast is started.
+OnSpellCastComplete​
+CallbackSignatures.OnSpellCastComplete(
+sender
+:
+AIBaseClient
+,
+castArgs
+:
+CastArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+AIBaseClient
+|
+castArgs|
+CastArgs
+|
+Fired when a spell cast is finished.
+OnSpellAnimationCancel​
+CallbackSignatures.OnSpellAnimationCancel(
+sender
+:
+AIBaseClient
+,
+castArgs
+:
+CastArgs
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+AIBaseClient
+|
+castArgs|
+CastArgs
+|
+Fired when a spell cast is stopped.
+OnUpdateMissile​
+CallbackSignatures.OnUpdateMissile(
+pos
+:
+Vector3
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+pos|
+Vector3
+|
+Fired when missile is being updated. For example for Yuumi Q. You can edit the position.
+Example: OnUpdateMissile example
+Callback.Bind(CallbackType.OnUpdateMissile, function(pos)  
+    pos.x = Game.GetCursorWorldPosition().x + 500  
+end)
+OnUpdateChargeableSpell​
+CallbackSignatures.OnUpdateChargeableSpell(
+spellBook
+:
+SpellBook
+,
+spellBookEntry
+:
+SpellBookEntry
+,
+slot
+:
+SpellSlot
+,
+pos
+:
+Vector3
+,
+isRelease
+: boolean
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+spellBook|
+SpellBook
+|
+spellBookEntry|
+SpellBookEntry
+|
+slot|
+SpellSlot
+|
+pos|
+Vector3
+|
+isRelease| boolean|
+Fired when chargeable spell is updated.
+OnChangeSlotSpellName​
+CallbackSignatures.OnChangeSlotSpellName(
+sender
+:
+AIBaseClient
+,
+slot
+:
+SpellSlot
+,
+name
+: string
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+AIBaseClient
+|
+slot|
+SpellSlot
+|
+name| string|
+Fired when a spell slot name change.
+OnEvolve​
+CallbackSignatures.OnEvolve(
+slot
+:
+SpellSlot
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+|
+Fired when evolving a spell.
+OnObjectCreate​
+CallbackSignatures.OnObjectCreate(
+sender
+:
+GameObject
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+GameObject
+|
+Fired when GameObject is created.
+OnObjectRemove​
+CallbackSignatures.OnObjectRemove(
+sender
+:
+GameObject
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+GameObject
+|
+Fired when GameObject is removed.
+OnPrintChat​
+CallbackSignatures.OnPrintChat(
+message
+: string,
+flags
+: number - integer
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+message| string|
+flags| number - integer|
+Fired when a message is printed to game chat.
+OnNewPath​
+CallbackSignatures.OnNewPath(
+sender
+: AIbaseClient,
+isDash
+: boolean,
+dashSpeed
+: number,
+path
+:
+Vector3
+[] - std::vector<
+Vector3
+>
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender| AIbaseClient|
+isDash| boolean|
+dashSpeed| number|
+path|
+Vector3
+[] - std::vector<
+Vector3
+>| Path
+Fired when when unit gets a new path.
+caution
+I think sometimes this callback is not reliable. When Leesin R kick someone path may incorrect.
+Example: OnNewPath Callback Example
+Callback.Bind(CallbackType.OnNewPath,function(sender,isDash,dashSpeed,path)  
+    for i, v in path:pairs() do  
+         PrintChat(tostring(i))  
+         PrintChat(tostring(v))  
+    end  
+end)
+OnGainLoseBuff​
+CallbackSignatures.OnGainLoseBuff(
+buffScriptInstance
+:
+BuffScript
+,
+isGain
+: boolean
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+buffScriptInstance|
+BuffScript
+|
+isGain| boolean|
+Fired when unit gains or loses a buff.
+OnUpdateBuff​
+CallbackSignatures.OnUpdateBuff(
+sender
+:
+AIBaseClient
+,
+buffInstance
+:
+Buff
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+AIBaseClient
+|
+buffInstance|
+Buff
+|
+Fired when one of unit buffs is updated.
+OnPlayAnimation​
+CallbackSignatures.OnPlayAnimation(
+sender
+:
+AIBaseClient
+,
+animationName
+: string
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+AIBaseClient
+|
+animationName| string|
+Fired when unit plays some animation.
+OnNotify​
+CallbackSignatures.OnNotify(
+eventName
+: string,
+eventID
+: number - integer,
+sourceNetworkID
+: number - integer
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+eventName| string| Event name string
+eventID| number - integer| Event name ID
+sourceNetworkID| number - integer| Source entity network ID
+Fired on various game events such as surrender vote.
+OnSendPing​
+CallbackSignatures.OnSendPing(
+pos
+:
+Vector3
+,
+targetNetworkID
+: number - integer,
+type
+:
+PingType
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+pos|
+Vector3
+| Pinged position
+targetNetworkID| number - integer| Pinged target network ID
+type|
+PingType
+| Used ping type
+Fired when player pings something. This event can be cancelled similar to OnSpellCast or OnIssueOrder.
+OnShowPing​
+CallbackSignatures.OnShowPing(
+pos
+:
+Vector3
+,
+targetHandle
+: number - integer,
+sourceHandle
+: number - integer,
+type
+:
+PingType
+,
+isPlaySound
+: boolean
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+pos|
+Vector3
+| Pinged position
+targetHandle| number - integer| Pinged target handle
+sourceHandle| number - integer| Source handle
+type|
+PingType
+| Used ping type
+isPlaySound| boolean| Is playing sound
+Fired on any ping.
+OnMinimapIconChange​
+CallbackSignatures.OnMinimapIconChange(
+sender
+:
+AIBaseClient
+,
+name
+: string,
+type
+: string
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+sender|
+AIBaseClient
+| Sender entity
+name| string| Icon name
+type| string| Icon type
+Fired on minimap icon change.
+OnPacketReceive​
+CallbackSignatures.OnPacketReceive(
+opcode
+: string,
+networkID
+: number
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+opcode| string|
+networkID| number|
+Fired when we receive packet from server.
+OnWndProc​
+CallbackSignatures.OnWndProc(
+hwnd
+: string,
+message
+: string,
+wParam
+: string,
+lParam
+: string
+)
+→
+CallbackResult
+Argument| Type| Description
+---|---|---
+hwnd| string|
+message| string|
+wParam| string|
+lParam| string|
+Fired on user keyboard or mouse input.
+OnEvade​
+CallbackSignatures.OnEvade(
+position
+:
+Vector2
+,
+spellData?
+:
+SpellData
+)
+→ void
+Argument| Type| Description
+---|---|---
+position|
+Vector2
+| Position where evade will try to dodge.
+spellData?|
+SpellData
+| Spell data of evading ability spell unless it was movement.
+Fired when Evade takes action to dodge something.
+OnSkillshotCreate​
+CallbackSignatures.OnSkillshotCreate(
+skillshot
+:
+Skillshot
+)
+→ void
+Argument| Type| Description
+---|---|---
+skillshot|
+Skillshot
+| Skillshot instance created by Evade.
+Fired when Evade creates an instance of skillshot.

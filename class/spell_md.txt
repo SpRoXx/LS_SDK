@@ -1,0 +1,19 @@
+Spell
+Spelldata class.
+Properties
+​
+info
+:
+SpellInfo
+​
+hash
+: number
+​
+Functions
+​
+GetName
+​
+Spell:GetName()
+→
+string
+Returns SpellData Name.

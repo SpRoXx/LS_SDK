@@ -1,0 +1,58 @@
+SpellBook
+SpellBook class.
+Functions​
+GetSpellEntry​
+SpellBook:GetSpellEntry(
+slot
+:
+SpellSlot
+- integer0-64
+)
+→
+SpellBookEntry
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+- integer0-64| SpellSlot enum.
+Returns SpellBookEntry.
+PrintSpells​
+SpellBook:PrintSpells(
+slot
+:
+SpellSlot
+- integer0-64
+)
+→ void
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+- integer0-64| SpellSlot enum.
+Print spell range,cost and missile speed on console.
+LevelSpell​
+SpellBook:LevelSpell(
+slot
+:
+SpellSlot
+)
+→ void
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+| Given slot.
+Level up a spell in given SpellSlot.
+EvolveSpell​
+SpellBook:EvolveSpell(
+slot
+:
+SpellSlot
+)
+→ void
+Argument| Type| Description
+---|---|---
+slot|
+SpellSlot
+| Given slot.
+Evolve a spell in given SpellSlot.

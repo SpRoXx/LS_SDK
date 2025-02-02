@@ -1,0 +1,127 @@
+AttackableUnit :
+GameObject
+Inherited from GameObject class.
+Properties
+​
+mp
+: number
+​
+maxMp
+: number
+​
+resourceType
+: integer
+​
+secondaryResource
+: number
+​
+maxSecondaryResource
+: number
+​
+statusFlags
+: integer
+​
+pathfindingCollisionRadius
+: number
+​
+lifetime
+: number
+​
+maxLifetime
+: number
+​
+lifetimeTicks
+: number
+​
+physicalDamagePercentageModifier
+: number
+​
+magicalDamagePercentageModifier
+: number
+​
+hpPercent
+: number
+​
+mpPercent
+: number
+​
+isVisible
+: boolean
+​
+isTargetable
+: boolean
+​
+isHPBarRendered
+: boolean
+​
+infoBarPos
+:
+Vector2
+​
+Healthbar position.
+infoBarSize
+:
+Vector2
+​
+Healthbar size.
+infoBarOffset
+:
+Vector2
+​
+Healthbar offset.
+Functions
+​
+IsWindingUp
+​
+AttackableUnit:IsWindingUp()
+→
+boolean
+Returns if this entity is winding up.
+danger
+If you want to utilize spell queue then avoid using this check for spells which do not interrupt basic attacks. Instead use Orbwalker.CanUseSpell function.
+IsValidTarget
+​
+AttackableUnit:IsValidTarget(
+range
+: number,
+onlyEnemyTeam
+: bool,
+from
+:
+Vector2
+or
+Vector3
+)
+→
+boolean
+Argument
+Type
+Description
+range
+number
+Check range.
+onlyEnemyTeam
+bool
+Check target team.
+from
+Vector2
+or
+Vector3
+Check from pos.
+Returns if this entity is valid target.
+IsTargetableByUnit
+​
+AttackableUnit:IsTargetableByUnit(
+unit
+:
+AttackableUnit
+)
+→
+void
+Argument
+Type
+Description
+unit
+AttackableUnit
+Given unit
+Returns if this unit can be targeted by given unit.

@@ -1,0 +1,73 @@
+CollisionFlag
+CollisionFlag bitflag
+tip
+You can use bit operations to construct multi flag. See
+bit library
+.
+Example
+​
+Set Collides with Minions, YasuoWall and Heroes
+collisionFlags
+=
+bit
+.
+bor
+(
+CollisionFlag
+.
+CollidesWithYasuoWall
+,
+CollisionFlag
+.
+CollidesWithMinions
+,
+CollisionFlag
+.
+CollidesWithHeroes
+)
+Champions
+.
+Q
+:
+SetSkillshot
+(
+0.25
+,
+60
+,
+1000
+,
+SkillshotType
+.
+SkillshotLine
+,
+true
+,
+collisionFlags
+,
+HitChance
+.
+High
+,
+true
+)
+Properties
+​
+CollidesWithNothing
+: number
+​
+CollidesWithYasuoWall
+: number
+​
+CollidesWithMinions
+: number
+​
+CollidesWithWalls
+: number
+​
+CollidesWithStructures
+: number
+​
+CollidesWithHeroes
+: number
+​

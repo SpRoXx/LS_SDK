@@ -1,0 +1,6 @@
+AIMinionClient :
+AIBaseClient
+'Inherited from GameObject , AIBaseClient and AttackableUnit class.'
+Properties​
+minionLevel
+: number​

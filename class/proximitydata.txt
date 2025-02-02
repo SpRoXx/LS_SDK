@@ -1,0 +1,9 @@
+ProximityData
+ProximityData struct. Used by TurretTracker.
+Properties​
+IsInsideRange
+: boolean​
+Distance
+: float​
+IsCloseToEdge
+: boolean​

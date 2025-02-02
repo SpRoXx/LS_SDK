@@ -1,0 +1,13 @@
+ScriptBaseItem
+ScriptBaseItem struct
+Properties
+​
+buffName
+: string
+​
+Buff name
+itemData
+:
+ItemData
+​
+Item data
