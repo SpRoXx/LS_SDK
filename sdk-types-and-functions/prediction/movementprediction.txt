@@ -1,0 +1,88 @@
+MovementPrediction
+Class which allows to predict unit movement
+Functions​
+GetPrediction​
+MovementPrediction.GetPrediction(
+unit
+:
+AIBaseClient
+,
+delay
+: float
+)
+→
+PredictionOutput
+Argument| Type| Description
+---|---|---
+unit|
+AIBaseClient
+| Given entity for movement prediction
+delay| float| Delay to be used in calculations besides latency and serverTick
+Get movement prediction.
+danger
+Be aware that this overload has bFt boolean argument as true by default. Therefore this will add extra delay (latency and serverTick) in calculations. If used in wrong way it may lead to inaccurate results.
+GetPrediction​
+MovementPrediction.GetPrediction(
+input
+:
+PredictionInput
+,
+bFt
+: boolean,
+bCheckCollision
+: boolean
+)
+→
+PredictionOutput
+Argument| Type| Description
+---|---|---
+input|
+PredictionInput
+| Given prediction input
+bFt| boolean| If true - this will add latency and serverTick to delay in calculations
+bCheckCollision| boolean| If true - this will also check for collision
+Get movement prediction.
+GetCollision​
+MovementPrediction.GetCollision(
+positions
+:
+Vector3
+[],
+input
+:
+PredictionInput
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+positions|
+Vector3
+[]| Given positions
+input|
+PredictionInput
+| Given prediction input
+Get collision. This returns if there is any collision.
+GetCollisionEx​
+MovementPrediction.GetCollisionEx(
+positions
+:
+Vector3
+[],
+input
+:
+PredictionInput
+)
+→
+CollisionResult
+[]
+Argument| Type| Description
+---|---|---
+positions|
+Vector3
+[]| Given positions
+input|
+PredictionInput
+| Given prediction input
+Get collision. This returns multiple results. May be useful for logic of spells which explode with their colliders.
+danger
+This is expensive function. Please use with caution or use MovementPrediction.GetCollision instead.

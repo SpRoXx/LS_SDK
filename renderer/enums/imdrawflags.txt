@@ -1,0 +1,37 @@
+ImDrawFlags
+Renderer.ImDrawFlagsbitflag
+note
+Part of Renderer namespace.
+tip
+You can use bit operations to construct multi flag. See
+bit library
+.
+Properties​
+None
+: number​
+Closed
+: number​
+RoundCornersTopLeft
+: number​
+RoundCornersTopRight
+: number​
+RoundCornersBottomLeft
+: number​
+RoundCornersBottomRight
+: number​
+RoundCornersNone
+: number​
+RoundCornersTop
+: number​
+RoundCornersBottom
+: number​
+RoundCornersLeft
+: number​
+RoundCornersRight
+: number​
+RoundCornersAll
+: number​
+RoundCornersDefault_
+: number​
+RoundCornersMask_
+: number​

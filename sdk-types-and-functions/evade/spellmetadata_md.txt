@@ -1,0 +1,43 @@
+SpellMetaData
+Structure containing spell meta data used by Evade.
+Properties
+​
+Slot
+:
+SpellSlot
+​
+SlotType
+:
+SpellSlotType
+​
+UniqueID
+: number
+​
+Name
+: string
+​
+EvadeDisplayName
+: string
+​
+ChampionName
+: string
+​
+ChampionNameHash
+: number
+​
+DangerLevel
+:
+DangerLevel
+​
+IsCrowdControl
+: boolean
+​
+CrowdControl
+:
+CrowdControlType
+[] - std::vector
+<
+CrowdControlType
+>
+​
+List of crowd control types which this spell may apply.

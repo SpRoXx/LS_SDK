@@ -1,0 +1,15 @@
+PredictionOutput
+Prediction result
+Properties​
+hitchance
+:
+HitChance
+​
+castPosition
+:
+Vector3
+​
+unitPosition
+:
+Vector3
+​

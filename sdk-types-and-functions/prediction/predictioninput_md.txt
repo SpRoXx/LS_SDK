@@ -1,0 +1,140 @@
+PredictionInput
+Prediction input
+Properties
+​
+from
+:
+Vector3
+​
+rangeCheckFrom
+:
+Vector3
+​
+delay
+: number - float
+​
+radius
+: number - float
+​
+range
+: number - float
+​
+speed
+: number - float
+​
+startOffset
+: number - float
+​
+type
+:
+SkillshotType
+​
+target
+:
+AIBaseClient
+​
+useBoundingRadius
+: boolean
+​
+collision
+: boolean
+​
+collisionFlags
+:
+CollisionFlag
+​
+Functions
+​
+new
+​
+PredictionInput.new(
+unit
+:
+AIBaseClient
+,
+delay
+: number
+)
+→
+void
+Argument
+Type
+Description
+unit
+AIBaseClient
+delay
+number
+(float)
+PredictionInput constructor
+new
+​
+PredictionInput.new(
+from
+:
+Vector3
+,
+rangeCheckFrom
+:
+Vector3
+,
+delay
+: float,
+radius
+: float,
+range
+: float,
+speed
+: float,
+type
+:
+SkillshotType
+,
+target
+:
+AIBaseClient
+,
+bUseBoundingRadius
+: boolean,
+bCollision
+: boolean,
+collisionFlags
+:
+CollisionFlag
+,
+bAoe
+: boolean,
+startOffset
+: float
+)
+→
+void
+Argument
+Type
+Description
+from
+Vector3
+rangeCheckFrom
+Vector3
+delay
+float
+radius
+float
+range
+float
+speed
+float
+type
+SkillshotType
+target
+AIBaseClient
+bUseBoundingRadius
+boolean
+bCollision
+boolean
+collisionFlags
+CollisionFlag
+bAoe
+boolean
+startOffset
+float
+comment

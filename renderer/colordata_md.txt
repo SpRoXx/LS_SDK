@@ -1,0 +1,107 @@
+ColorData
+Renderer.ColorData struct. Used by fancy shader drawings.
+note
+Part of Renderer namespace.
+Properties
+​
+from
+: number - D3DCOLOR
+​
+Main color
+to
+: number - D3DCOLOR
+​
+Secondary color - used in gradient
+gradientType
+:
+GradientType
+​
+Gradient type
+gradientAngle
+: number - float
+​
+Gradient angle
+gradientFactor
+: number - float
+​
+Gradient factor
+Functions
+​
+ColorData
+​
+Renderer.ColorData(
+gradientType
+:
+GradientType
+,
+from
+: number - D3DCOLOR,
+to
+: number - D3DCOLOR,
+gradientAngle?
+: number,
+gradientFactor?
+: number
+)
+→
+ColorData
+Argument
+Type
+Description
+gradientType
+GradientType
+Gradient type
+from
+number - D3DCOLOR
+Main color
+to
+number - D3DCOLOR
+Secondary color - used in gradient
+gradientAngle?
+number
+Gradient angle
+gradientFactor?
+number
+Gradient factor
+ColorData constructor from gradient type, two colors, gradient angle and gradient factor.
+ColorData
+​
+Renderer.ColorData(
+from
+: number - D3DCOLOR,
+to
+: number - D3DCOLOR
+)
+→
+ColorData
+Argument
+Type
+Description
+from
+number - D3DCOLOR
+Main color
+to
+number - D3DCOLOR
+Secondary color
+ColorData constructor from two colors with linear gradient.
+ColorData
+​
+Renderer.ColorData(
+from
+: number - D3DCOLOR
+)
+→
+ColorData
+Argument
+Type
+Description
+from
+number - D3DCOLOR
+Main color
+ColorData constructor from single solid color.
+ColorData
+​
+Renderer.ColorData()
+→
+ColorData
+Default ColorData constructor.

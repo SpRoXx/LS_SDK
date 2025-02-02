@@ -1,0 +1,156 @@
+Orbwalker
+Orbwalker.
+Properties​
+activeMode
+:
+OrbwalkerMode
+​
+Flags containing active Orbwalker modes. See example below.
+lastAttackOrder
+: number​
+lastAttackRange
+: number​
+lastTargetNID
+: integer​
+lastAttack
+: number​
+missileID
+: integer​
+forcedPosition
+:
+Vector3
+​
+forcedTarget
+:
+AttackableUnit
+​
+bMove
+: boolean​
+bAttack
+: boolean​
+Functions​
+GetTarget​
+Orbwalker.GetTarget()
+→
+AttackableUnit
+Returns orbwalker target.
+GetAttackCastDelay​
+Orbwalker.GetAttackCastDelay(
+targetAgainst
+:
+AIBaseClient
+)
+→ number
+Argument| Type| Description
+---|---|---
+targetAgainst|
+AIBaseClient
+| Target against player.
+Returns
+local player
+'s attack cast delay against target .
+GetAttackDelay​
+Orbwalker.GetAttackDelay(
+targetAgainst
+:
+AIBaseClient
+)
+→ number
+Argument| Type| Description
+---|---|---
+targetAgainst|
+AIBaseClient
+| Target against player.
+Returns
+local player
+'s attack delay against target .
+GetAttackMissileSpeed​
+Orbwalker.GetAttackMissileSpeed(
+source
+:
+AIHeroClient
+,
+targetAgainst
+:
+AIBaseClient
+)
+→ number
+Argument| Type| Description
+---|---|---
+source|
+AIHeroClient
+| Souce to calculate missile speed.
+targetAgainst|
+AIBaseClient
+| Target against source.
+Returns a
+hero
+'s attack missile speed against target .
+CanAttack​
+Orbwalker.CanAttack()
+→ boolean
+Returns if orbwalker ready for next attack.
+CanUseSpell​
+Orbwalker.CanUseSpell()
+→ boolean
+Returns if player is ready to cast spells using several special checks. Please use this check instead of IsWindingUp.
+tip
+This is important to use this check for casting of spells which do not interrupt AA instead of Orbwalker.CanMove and/or AttackableUnit:IsWindingUp
+CanMove​
+Orbwalker.CanMove()
+→ boolean
+Returns if orbwalker ready for next move.
+IsInAutoAttackRange​
+Orbwalker.IsInAutoAttackRange(
+source
+:
+AIHeroClient
+,
+targetAgainst
+:
+AIBaseClient
+,
+extraRange
+: number
+)
+→ number
+Argument| Type| Description
+---|---|---
+source|
+AIHeroClient
+| Souce to calculate missile speed.
+targetAgainst|
+AIBaseClient
+| Target against source.
+extraRange| number| Extra range for check.
+Returns if target is in source attack range.
+IsMinionLasthited​
+Orbwalker.IsMinionLasthited(
+minion
+:
+AIBaseClient
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+minion|
+AIBaseClient
+| Minion to check.
+Returns if orbwalker already lasthit this minion.
+MasterSwitch​
+Orbwalker.MasterSwitch(
+isEnabled
+: boolean
+)
+→ void
+Argument| Type| Description
+---|---|---
+isEnabled| boolean| If false then core Orbwalker will not be loaded.
+Allows to unload core Orbwalker completely.
+caution
+We do not recommend doing this!
+Even if you decide to make your custom Orbwalker - it will not play well with our Evade.
+Examples​
+Programmatically set Orbwalker active mode(s) using bit library.
+Orbwalker.activeMode = bit.bxor(Orbwalker.activeMode, OrbwalkerMode.Combo) -- Set Combo  
+Orbwalker.activeMode = bit.band(Orbwalker.activeMode, bit.bnot(OrbwalkerMode.Combo)) -- Unset Combo

@@ -1,0 +1,9 @@
+FontStyle
+Renderer.FontStyle
+note
+Part of Renderer namespace.
+Properties​
+Regular
+: number​
+Bold
+: number​

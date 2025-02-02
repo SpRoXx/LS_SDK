@@ -1,0 +1,17 @@
+Enums
+Renderer enumerations.
+📄️ EffectTypeRenderer.EffectType
+##
+📄️ FontSizeRenderer.FontSize
+##
+📄️ FontStyleRenderer.FontStyle
+##
+📄️ GradientTypeRenderer.GradientType
+##
+📄️ ImDrawFlagsRenderer.ImDrawFlagsbitflag
+##
+📄️ RenderStageRenderer.RenderStage
+##
+📄️ TextAlignmentRenderer.TextAlignment
+##
+📄️ TextDisplayTypeRenderer.TextDisplayType

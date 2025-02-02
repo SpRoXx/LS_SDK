@@ -1,0 +1,200 @@
+TurretTracker
+TurretTracker.
+Functions
+​
+IsPlayerInsideTurret
+​
+TurretTracker.IsPlayerInsideTurret()
+→
+boolean
+Returns whether the player is inside enemy turret or not.
+Example: Draw a centered text indicator under player, showing whether he is inside enemy turret range or not.
+local
+fontSize
+=
+16
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+local
+text
+=
+TurretTracker
+.
+IsPlayerInsideTurret
+(
+)
+and
+"Inside"
+or
+"Outside"
+local
+tX
+,
+tY
+=
+Renderer
+.
+CalcTextSize
+(
+text
+,
+fontSize
+)
+Renderer
+.
+DrawWorldText
+(
+text
+,
+Game
+.
+localPlayer
+.
+position
+,
+Math
+.
+Vector2
+(
+-
+tX
+/
+2
+,
+0
+)
+,
+fontSize
+)
+end
+)
+IsPlayerCloseToTurretEdge
+​
+TurretTracker.IsPlayerCloseToTurretEdge()
+→
+boolean
+Returns whether the player is close to the edge of enemy turret range.
+IsPlayerInsideFountain
+​
+TurretTracker.IsPlayerInsideFountain()
+→
+boolean
+Returns whether the player is inside enemy fountain or not.
+IsPlayerCloseToFountainEdge
+​
+TurretTracker.IsPlayerCloseToFountainEdge()
+→
+boolean
+Returns whether the player is close to the edge of enemy fountain range.
+IsPlayerInsideTurretOrFountain
+​
+TurretTracker.IsPlayerInsideTurretOrFountain()
+→
+boolean
+Returns whether the player is inside enemy turret/fountain or not.
+IsPlayerCloseToTurretOrFountainEdge
+​
+TurretTracker.IsPlayerCloseToTurretOrFountainEdge()
+→
+boolean
+Returns whether the player is close to the edge of enemy turret/fountain range.
+IsPlayerFocusedByTurret
+​
+TurretTracker.IsPlayerFocusedByTurret()
+→
+boolean
+Returns whether the player is focused by enemy turret.
+GetClosestAllyTurretPosition
+​
+TurretTracker.GetClosestAllyTurretPosition()
+→
+Vector2
+Returns closest ally turret position.
+GetClosestEnemyTurretPosition
+​
+TurretTracker.GetClosestEnemyTurretPosition()
+→
+Vector2
+Returns closest enemy turret position.
+GetAllySpawnPosition
+​
+TurretTracker.GetAllySpawnPosition()
+→
+Vector2
+Returns ally fountain (spawn) position.
+GetEnemySpawnPosition
+​
+TurretTracker.GetEnemySpawnPosition()
+→
+Vector2
+Returns enemy fountain (spawn) position.
+IsInsideStructureRange
+​
+TurretTracker.IsInsideStructureRange(
+position
+:
+Vector2
+,
+structPosition
+:
+Vector2
+,
+structRange
+: number - float
+)
+→
+ProximityData
+Argument
+Type
+Description
+position
+Vector2
+Checked position.
+structPosition
+Vector2
+Structure position.
+structRange
+number - float
+Structure range.
+Returns ProximityData from given position, structure position and structure range.
+IsInsideEnemyTurret
+​
+TurretTracker.IsInsideEnemyTurret(
+position
+:
+Vector2
+)
+→
+ProximityData
+Argument
+Type
+Description
+position
+Vector2
+Checked position.
+Returns ProximityData from given position, which is checked against all enemy turrets.
+IsInsideEnemyFountain
+​
+TurretTracker.IsInsideEnemyFountain(
+position
+:
+Vector2
+)
+→
+ProximityData
+Argument
+Type
+Description
+position
+Vector2
+Checked position.
+Returns ProximityData from given position, which is checked against enemy fountain.

@@ -1,0 +1,15 @@
+TextAlignment
+Renderer.TextAlignment
+note
+Part of Renderer namespace.
+Properties​
+Left
+: number​
+Center
+: number​
+Right
+: number​
+Bottom
+: number​
+Top
+: number​

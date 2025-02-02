@@ -1,0 +1,21 @@
+CollisionResult
+Collision result
+Properties
+​
+object
+:
+GameObject
+​
+position
+:
+Vector3
+​
+isWall
+: boolean
+​
+isYasuoWall
+: boolean
+​
+isStructure
+: boolean
+​

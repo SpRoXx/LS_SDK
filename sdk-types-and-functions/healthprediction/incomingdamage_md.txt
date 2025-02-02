@@ -1,0 +1,59 @@
+IncomingDamage
+IncomingDamage class
+Properties
+​
+source
+:
+AIBaseClient
+​
+target
+:
+AIBaseClient
+​
+sourceMissile
+:
+MissileClient
+​
+damage
+: number - float
+​
+castDelay
+: number - float
+​
+totalDelay
+: number - float
+​
+hasMissile
+: boolean
+​
+wasCast
+: boolean
+​
+removed
+: boolean
+​
+spellData
+:
+Spell
+​
+missileNID
+: number - unsigned
+​
+timeStart
+: number - float
+​
+buffTrigger
+: boolean
+​
+buff
+:
+Buff
+​
+sourcePosition
+:
+Vector3
+​
+endPosition
+:
+Vector3
+​

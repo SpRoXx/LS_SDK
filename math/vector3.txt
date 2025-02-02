@@ -1,0 +1,439 @@
+Vector3
+Vector3 class.
+Properties​
+x
+: number​
+y
+: number​
+z
+: number​
+Functions​
+IsValid​
+Vector3:IsValid()
+→ boolean
+Returns whether this vector is not (0, 0, 0)
+To2D​
+Vector3:To2D()
+→
+Vector2
+Returns a Vector2 (x =x, y =z).
+To3D​
+Vector3:To3D()
+→
+Vector3
+Returns a Vector3 (x =x, y =y, z=z).
+Copy​
+Vector3:Copy()
+→
+Vector3
+Returns a Vector3 (x =x, y =y, z=z).
+FixHeight​
+Vector3:FixHeight()
+→
+Vector3
+Returns this
+ref
+Vector3 (x =x, y =GameMapHeight, z=z).
+Project​
+Vector3:Project()
+→
+Vector3
+Performs WorldToScreen operation and returns a screen position as Vector3 where X and Y are 2D coordinates and Z can be used for on screen check.
+tip
+Z coordinate can be used to check if position is on screen: If Z > 0.01 - it is on screen.
+ToCell​
+Vector3:ToCell()
+→ NavGridCell
+Returns navGridCell(userdata).
+Length​
+Vector3:Length()
+→ number
+Returns vector length.
+Length2​
+Vector3:Length2()
+→ number
+Returns vector length
+square
+.
+Distance​
+Vector3:Distance(
+v2
+:
+Vector3
+)
+→ number
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+Returns distance from v to v2.
+Distance2​
+Vector3:Distance2(
+v2
+:
+Vector3
+)
+→ number
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+Returns distance
+square
+from v to v2.
+Dot​
+Vector3:Dot(
+v2
+:
+Vector3
+)
+→ number
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+Returns dot product result.
+Cross​
+Vector3:Cross(
+v2
+:
+Vector3
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+Returns cross product result.
+Normalize​
+Vector3:Normalize()
+→ void
+Normalizes this vector
+Normalized​
+Vector3:Normalized()
+→
+Vector3
+Returns a normalized Vector3 from this vector.
+Extend​
+Vector3:Extend(
+v
+:
+Vector3
+,
+distance
+: number
+)
+→ void
+Argument| Type| Description
+---|---|---
+v|
+Vector3
+|
+distance| number| (float)
+Extends this vector towards given vector.
+Extended​
+Vector3:Extended(
+v
+:
+Vector3
+,
+distance
+: number
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+v|
+Vector3
+|
+distance| number| (float)
+Returns extended vector towards given vector.
+Shorten​
+Vector3:Shorten(
+v
+:
+Vector3
+,
+distance
+: number
+)
+→ void
+Argument| Type| Description
+---|---|---
+v|
+Vector3
+|
+distance| number| (float)
+Shortens this vector towards given vector.
+Shortened​
+Vector3:Shortened(
+v
+:
+Vector3
+,
+distance
+: number
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+v|
+Vector3
+|
+distance| number| (float)
+Returns shortened vector towards given vector.
+Lerp​
+Vector3:Lerp(
+v2
+:
+Vector3
+,
+time
+: number - float
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+time| number - float| Time.
+Returns Linear interpolation. V1 + s (V2-V1)
+IsInRange​
+Vector3:IsInRange(
+v2
+:
+Vector3
+,
+range
+: number
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point 2
+range| number| (float)
+Returns whether this vector is within certain range of other given Vector3.
+Unpack​
+Vector3:Unpack()
+→ number, number, number
+Returns two numbers x,y.z
+ToCell​
+Vector3:ToCell()
+→ NavGridCell
+Returns navGridCell(userdata).
+RelativePos​
+Vector3:RelativePos(
+v2
+:
+Vector3
+,
+distance
+: number - float
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+distance| number - float| Distance to extended.
+Returns relative position in direction from v to v2 as Vector3.
+RelativeFlatPos​
+Vector3:RelativeFlatPos(
+v2
+:
+Vector3
+,
+distance
+: number - float
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+distance| number - float| Distance to extended.
+Returns relative flat position in direction from v to v2 as Vector 2 with corrected height.
+Randomize​
+Vector3:Randomize()
+→
+Vector3
+Randomizes vector a little.
+Direction​
+Vector3:Direction()
+→
+Vector3
+Returns normalized direction vector.
+Normal​
+Vector3:Normal()
+→
+Vector3
+Returns normal.
+FlatDistance​
+Vector3:FlatDistance(
+v2
+:
+Vector3
+)
+→ number
+Argument| Type| Description
+---|---|---
+v2|
+Vector3
+| Point2.
+Returns
+flat
+distance from this to v2.
+FlatDistanceToVec2​
+Vector3:FlatDistanceToVec2(
+v2
+:
+Vector2
+)
+→ number
+Argument| Type| Description
+---|---|---
+v2|
+Vector2
+| Point2.
+Returns
+flat
+distance from this to v2.
+IsUnderEnemyTurret​
+Vector3:IsUnderEnemyTurret()
+→ boolean
+Returns if vector3 is under enemy turret.
+IsUnderAllyTurret​
+Vector3:IsUnderAllyTurret()
+→ boolean
+Returns if vector3 is under ally turret.
+CountAlliesInRange​
+Vector3:CountAlliesInRange(
+range
+: number
+)
+→ number
+Argument| Type| Description
+---|---|---
+range| number| Check range.
+Returns if how many
+valid
+allies is in vector3 range(
+include me
+).
+CountAllyLaneMinionsInRange​
+Vector3:CountAllyLaneMinionsInRange(
+range
+: number
+)
+→ number
+Argument| Type| Description
+---|---|---
+range| number| Check range.
+Returns if how many
+valid
+ally minions is in vector3 range.
+CountEnemyLaneMinionsInRange​
+Vector3:CountEnemyLaneMinionsInRange(
+range
+: number
+)
+→ number
+Argument| Type| Description
+---|---|---
+range| number| Check range.
+Returns if how many
+valid
+enemy
+lane
+minions is in vector3 range.
+CountEnemiesInRange​
+Vector3:CountEnemiesInRange(
+range
+: number
+)
+→ number
+Argument| Type| Description
+---|---|---
+range| number| Check range.
+Returns if how many
+valid
+enemies is in vector3 range.
+IsWall​
+Vector3:IsWall(
+actorTeam
+: number - integer
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+actorTeam| number - integer| Actor team to check special air wall (300 == ignore air wall)
+Returns if this position is not passable.
+IsWallDynamic​
+Vector3:IsWallDynamic(
+teamFlag
+: number - integer
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+teamFlag| number - integer| Use AIBaseClient::GetNavConditionFlags(). Use 0 to ignore air walls.
+Returns if this position is not passable through both static and dynamic obstacles.
+IsGrass​
+Vector3:IsGrass()
+→ boolean
+Returns if this position is grass.
+IsWater​
+Vector3:IsWater()
+→ boolean
+Returns if this position is water.
+IsWallOfType​
+Vector3:IsWallOfType(
+cellFlag
+:
+CellFlag
+,
+radius
+: number
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+cellFlag|
+CellFlag
+|
+radius| number|
+Returns if this position has certain CellFlag. Can be used to check position near grass for example.
+GetCircleCollisionPosition​
+Vector3:GetCircleCollisionPosition(
+innerRadius
+: number,
+outerRadius
+: number,
+teamFlag
+: number - integer
+)
+→
+Vector3
+Argument| Type| Description
+---|---|---
+innerRadius| number| Inner radius
+outerRadius| number| Outer radius
+teamFlag| number - integer| NavConditionFlag. Use 0 to ignore air walls.
+Returns collision position with a circle.
+Example: Check for Qiyana W if intersects water.
+Game.localPlayer.position:GetCircleCollisionPosition(0,366,0):IsWater()

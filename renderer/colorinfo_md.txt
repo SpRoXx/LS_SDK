@@ -1,0 +1,161 @@
+ColorInfo
+Renderer.ColorInfo struct. Used by fancy shader drawings.
+note
+Part of Renderer namespace.
+danger
+This is deprecated and kept for backwards compatibility! Use
+ColorData
+instead, it offers way more.
+Functions
+​
+new
+(Deprecated)
+​
+ColorInfo.new(
+colFrom
+: number - D3DCOLOR,
+colTo
+: number - D3DCOLOR,
+gradType
+:
+GradientType
+)
+→
+ColorData
+Argument
+Type
+Description
+colFrom
+number - D3DCOLOR
+Main color
+colTo
+number - D3DCOLOR
+Secondary color - used in gradient
+gradType
+GradientType
+Gradient type
+Wrapped ColorData constructor. Remains in SDK for backwards compatibility.
+new
+(Deprecated)
+​
+ColorInfo.new(
+colFrom
+: number - D3DCOLOR,
+colTo
+: number - D3DCOLOR
+)
+→
+ColorData
+Argument
+Type
+Description
+colFrom
+number - D3DCOLOR
+Main color
+colTo
+number - D3DCOLOR
+Secondary color - used in gradient
+Wrapped ColorData constructor. Remains in SDK for backwards compatibility.
+new
+(Deprecated)
+​
+ColorInfo.new(
+col
+: number - D3DCOLOR
+)
+→
+ColorData
+Argument
+Type
+Description
+col
+number - D3DCOLOR
+Main color
+Wrapped ColorData constructor. Remains in SDK for backwards compatibility.
+Examples
+​
+Draw fancy shader circle around selected target.
+local
+MyGlowingCircleHash
+=
+Game
+.
+fnvhash
+(
+"Example_MyGlowingCircle"
+)
+-- This must be unique hash per drawing. Use unique prefix.
+local
+color
+=
+Renderer
+.
+ColorInfo
+.
+new
+(
+0xFFFFFFFF
+,
+0xFF5555FF
+,
+Renderer
+.
+GradientType
+.
+Linear
+)
+local
+radius
+=
+100
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnDraw
+,
+function
+(
+)
+local
+tar
+=
+Game
+.
+GetSelectedTarget
+(
+)
+if
+tar
+and
+tar
+:
+IsValid
+(
+)
+then
+Renderer
+.
+DrawEffectCircle
+(
+MyGlowingCircleHash
+,
+tar
+.
+position2D
+,
+radius
+,
+color
+,
+Renderer
+.
+EffectType
+.
+MagicalCircle
+)
+end
+end
+)

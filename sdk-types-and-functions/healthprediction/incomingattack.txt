@@ -1,0 +1,38 @@
+IncomingAttack
+IncomingAttack class
+Properties​
+source
+:
+AIBaseClient
+​
+target
+:
+AIBaseClient
+​
+sourcePosition
+:
+Vector3
+​
+castDelay
+: number - float​
+delay
+: number - float​
+startTime
+: number - float​
+damage
+: number - float​
+processed
+: number - int​
+isRangedAttack
+: boolean​
+Functions​
+GetDamage​
+IncomingAttack:GetDamage(
+time
+: number
+)
+→ number - float
+Argument| Type| Description
+---|---|---
+time| number|
+Get damage

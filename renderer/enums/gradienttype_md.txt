@@ -1,0 +1,18 @@
+GradientType
+Renderer.GradientType
+note
+Part of Renderer namespace.
+Properties
+​
+Solid
+: number
+​
+Fills with single color.
+Linear
+: number
+​
+Fills with linear gradient.
+Radial
+: number
+​
+Fills with radial gradient.

@@ -1,0 +1,481 @@
+Champions
+Champions script manager.
+caution
+Q/W/E/R/QMANA/WMANA/EMANA/RMANA should be set by yourself.
+Properties
+​
+Q
+:
+SDKSpell
+​
+W
+:
+SDKSpell
+​
+E
+:
+SDKSpell
+​
+R
+:
+SDKSpell
+​
+QMANA
+: number
+​
+WMANA
+: number
+​
+EMANA
+: number
+​
+RMANA
+: number
+​
+None
+: boolean
+​
+Flee
+: boolean
+​
+Combo
+: boolean
+​
+Harass
+: boolean
+​
+LaneClear
+: boolean
+​
+OnlyHarass
+: boolean
+​
+FastLaneClear
+: boolean
+​
+Freeze
+: boolean
+​
+Hash
+: integer
+​
+FarmMinions
+: UI.
+Slider
+​
+spellFarm
+: UI.
+KeyBind
+​
+harassToggle
+: UI.
+KeyBind
+​
+PredictionType
+: UI.
+List
+​
+isCherry
+: boolean
+​
+Returns whether we are in Arena Game Mode.
+Functions
+​
+CreateBaseMenu
+​
+Champions.CreateBaseMenu(
+menu
+: UI.
+Menu
+,
+predictionType
+: integer - 0-1
+)
+→
+void
+Argument
+Type
+Description
+menu
+UI.
+Menu
+Root menu.
+predictionType
+integer - 0-1
+Default prediction type
+(
+0 = default ,1 = fast
+)
+.
+Create a champion base menu.
+CreateColorMenu
+​
+Champions.CreateColorMenu(
+menu
+: UI.
+Menu
+,
+defaultValue
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+menu
+UI.
+Menu
+Dawing sub menu.
+defaultValue
+boolean
+Default value of range check box.
+Create a champion Q\W\E\R drawing menu
+(
+If Chamipons.Q/W/E/R has been set
+)
+.
+LagFree
+​
+Champions.LagFree(
+index
+: integer - 0-4
+)
+→
+boolean
+Argument
+Type
+Description
+index
+integer - 0-4
+Index.
+Lagfree check for better performance.
+CanHarass
+​
+Champions.CanHarass()
+→
+boolean
+Harass check
+(
+under enemy turret and toggle check
+)
+.
+CanSpellFarm
+​
+Champions.CanSpellFarm(
+checkMinionsNumber
+: boolean - false
+)
+→
+boolean
+Argument
+Type
+Description
+checkMinionsNumber
+boolean - false
+Should check enemy minions aournd with laneclear slider.
+Spell farm check
+(
+check spellFarm toggle,mana setting,minions nearby and orbwalker is LaneClear mode
+)
+.
+CppScriptMaster
+​
+Champions.CppScriptMaster(
+enable
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+enable
+boolean
+Enabled.
+Master switch to control internal Cpp scripts.
+CanMove
+​
+Champions.CanMove(
+target
+:
+AIBaseClient
+,
+delay
+: number
+)
+→
+boolean
+Argument
+Type
+Description
+target
+AIBaseClient
+Target.
+delay
+number
+After the delay target can move.
+Check a target is can move
+(
+not been CCed
+)
+after delay.
+GetIncomingDamage
+​
+Champions.GetIncomingDamage(
+target
+:
+AIBaseClient
+)
+→
+number - float
+Argument
+Type
+Description
+target
+AIBaseClient
+Target.
+Get incoming damage.
+IsMovingInSameDirection
+​
+Champions.IsMovingInSameDirection(
+source
+:
+AIBaseClient
+,
+target
+:
+AIBaseClient
+,
+angle
+: number - default = 20
+)
+→
+boolean
+Argument
+Type
+Description
+source
+AIBaseClient
+Source
+target
+AIBaseClient
+Target.
+angle
+number - default = 20
+Angle for check.
+Returns if souce and target is moving in same direction.
+ValidKillTarget
+​
+Champions.ValidKillTarget(
+target
+:
+AIBaseClient
+,
+delay
+: number
+)
+→
+boolean
+Argument
+Type
+Description
+target
+AIBaseClient
+Target.
+delay
+number
+Spell delay.
+Returns if target is unkillable after delay.
+ValidUlt
+​
+Champions.ValidUlt(
+target
+:
+AIBaseClient
+,
+delay
+: number
+)
+→
+boolean
+Argument
+Type
+Description
+target
+AIBaseClient
+Target.
+delay
+number
+Spell delay.
+Returns if target is unkillable or
+overkill
+after delay.
+Clean
+​
+Champions.Clean()
+→
+void
+Clean base menu  and QWER instance. Should be called when
+unload
+.
+Examples
+​
+SDKSpell and SDKSpell:SetSkillshot example
+-- Creating SDKSpell instances:
+-- IMPORTANT: Make sure to call Champions.Clean() OnUnload to clear these instances!
+Champions
+.
+Q
+=
+SDKSpell
+.
+Create
+(
+SpellSlot
+.
+Q
+,
+1400
+,
+DamageType
+.
+Magical
+)
+Champions
+.
+W
+=
+SDKSpell
+.
+Create
+(
+SpellSlot
+.
+W
+,
+100
+,
+DamageType
+.
+Magical
+)
+Champions
+.
+E
+=
+SDKSpell
+.
+Create
+(
+SpellSlot
+.
+E
+,
+1200
+,
+DamageType
+.
+Magical
+)
+Champions
+.
+R
+=
+SDKSpell
+.
+Create
+(
+SpellSlot
+.
+R
+,
+5500
+,
+DamageType
+.
+Magical
+)
+-- Set skillshot:
+Champions
+.
+Q
+:
+SetSkillshot
+(
+0.25
+,
+60
+,
+1000
+,
+SkillshotType
+.
+SkillshotLine
+,
+true
+,
+CollisionFlag
+.
+CollidesWithYasuoWall
+,
+HitChance
+.
+High
+,
+true
+)
+Champions
+.
+R
+:
+SetSkillshot
+(
+1
+,
+65
+,
+math
+.
+flt_max
+,
+SkillshotType
+.
+SkillshotCircle
+,
+false
+,
+CollisionFlag
+.
+CollidesWithNothing
+,
+HitChance
+.
+High
+,
+true
+)
+-- Please note how we use math.flt_max for speed instead of math.huge, this is important
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnUnload
+,
+function
+(
+)
+Champions
+.
+Clean
+(
+)
+-- Clean up
+return
+CallbackResult
+.
+Dispose
+end
+)

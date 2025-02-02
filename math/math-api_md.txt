@@ -1,0 +1,843 @@
+Math
+Math library.
+Functions
+​
+LineIntersection
+​
+Math.LineIntersection(
+a1
+:
+Vector2
+,
+a2
+:
+Vector2
+,
+b1
+:
+Vector2
+,
+b2
+:
+Vector2
+)
+→
+boolean
+Argument
+Type
+Description
+a1
+Vector2
+Line 1 start.
+a2
+Vector2
+Line 1 end.
+b1
+Vector2
+Line 2 start.
+b2
+Vector2
+Line 2 end.
+Returns if Line1 and Line2 have Intersection.
+LineSegmentIntersection
+​
+Math.LineSegmentIntersection(
+a1
+:
+Vector2
+,
+a2
+:
+Vector2
+,
+b1
+:
+Vector2
+,
+b2
+:
+Vector2
+)
+→
+boolean
+Argument
+Type
+Description
+a1
+Vector2
+Segment 1 start.
+a2
+Vector2
+Segment1 end.
+b1
+Vector2
+Segment2 start.
+b2
+Vector2
+Segment2 end.
+Returns if Line1 and Line2 have Intersection.
+FastSqrt
+​
+Math.FastSqrt(
+value
+: number - float
+)
+→
+number
+Argument
+Type
+Description
+value
+number - float
+Number for sqrt.
+Returns sqrt result.
+QuaternionRotation
+​
+Math.QuaternionRotation(
+yaw
+: number - float,
+pitch
+: number - float,
+roll
+: number - float
+)
+→
+Vector4
+Argument
+Type
+Description
+yaw
+number - float
+Yaw
+pitch
+number - float
+Pitch
+roll
+number - float
+Angle
+Returns Quaternion Rotation Vector4.
+Vector4
+​
+Math.Vector4(
+x
+: number - float,
+y
+: number - float,
+z
+: number - float,
+w
+: number - float
+)
+→
+Vector4
+Argument
+Type
+Description
+x
+number - float
+x
+y
+number - float
+y
+z
+number - float
+z
+w
+number - float
+w
+Returns Vector4.
+Vector3
+​
+Math.Vector3(
+x
+: number - float,
+y
+: number - float,
+z
+: number - float
+)
+→
+Vector3
+Argument
+Type
+Description
+x
+number - float
+x
+y
+number - float
+y
+z
+number - float
+z
+Returns Vector3.
+Vector2
+​
+Math.Vector2(
+x
+: number - float,
+y
+: number - float
+)
+→
+Vector2
+Argument
+Type
+Description
+x
+number - float
+x
+y
+number - float
+y
+Returns Vector2.
+CatmullRom
+​
+Math.CatmullRom(
+a
+:
+Vector2
+,
+b
+:
+Vector2
+,
+c
+:
+Vector2
+,
+d
+:
+Vector2
+,
+t
+: number - float
+)
+→
+Vector2
+Argument
+Type
+Description
+a
+Vector2
+a
+b
+Vector2
+b
+c
+Vector2
+c
+d
+Vector2
+d
+t
+number - float
+Weighting factor.
+Returns the result of the Catmull-Rom interpolation.
+GetAngle
+​
+Math.GetAngle(
+a
+:
+Vector2
+,
+b
+:
+Vector2
+,
+c
+:
+Vector2
+)
+→
+number
+Argument
+Type
+Description
+a
+Vector2
+PA
+b
+Vector2
+PB
+c
+Vector2
+PC
+Returns angle between ba and bc.
+GetAngleDeg
+​
+Math.GetAngleDeg(
+a
+:
+Vector2
+,
+b
+:
+Vector2
+,
+c
+:
+Vector2
+)
+→
+number
+Argument
+Type
+Description
+a
+Vector2
+PA
+b
+Vector2
+PB
+c
+Vector2
+PC
+Returns angle degree between ba and bc
+(
+0-180
+)
+.
+GetFullAngleDeg
+​
+Math.GetFullAngleDeg(
+a
+:
+Vector2
+,
+b
+:
+Vector2
+,
+c
+:
+Vector2
+)
+→
+number
+Argument
+Type
+Description
+a
+Vector2
+PA
+b
+Vector2
+PB
+c
+Vector2
+PC
+Returns angle degree between ba and bc
+(
+-180-180
+)
+.
+LineSegmentIntersection
+​
+Math.LineSegmentIntersection(
+a
+:
+Vector2
+,
+b
+:
+Vector2
+,
+c
+:
+Vector2
+,
+d
+:
+Vector2
+)
+→
+boolean,
+Vector2
+Argument
+Type
+Description
+a
+Vector2
+Line 1 start.
+b
+Vector2
+Line 1 end.
+c
+Vector2
+Line 2 start
+d
+Vector2
+Line 2 end.
+Returns true if line segment 1 and line segment2 has intersection and intersection point
+(
+if false ,defalut return point a
+)
+.
+CircleLineIntersection
+​
+Math.CircleLineIntersection(
+a
+:
+Vector2
+,
+b
+:
+Vector2
+,
+c
+:
+Vector2
+,
+radius
+: number,
+onlySegment
+: boolean
+)
+→
+[Vector2]
+,
+[Vector2]
+Argument
+Type
+Description
+a
+Vector2
+Line start.
+b
+Vector2
+Line end.
+c
+Vector2
+Center.
+radius
+number
+Circle radius.
+onlySegment
+boolean
+Only check ab as line segment.
+Returns two Intersection points if exist or else reutrns nil.
+BuildCircle
+​
+Math.BuildCircle(
+center
+:
+Vector2
+,
+radius
+: number,
+quality
+: number
+)
+→
+Vector2
+[]
+Argument
+Type
+Description
+center
+Vector2
+Center.
+radius
+number
+Circle radius.
+quality
+number
+Circle sides.
+Returns circle points table.
+BuildSafeCircle
+​
+Math.BuildSafeCircle(
+center
+:
+Vector2
+,
+radius
+: number,
+sides
+: number,
+bSafeOffset
+: boolean
+)
+→
+Vector2
+[] - std::vector
+<
+Vector2
+>
+Argument
+Type
+Description
+center
+Vector2
+Center position.
+radius
+number
+Circle radius.
+sides
+number
+Circle sides.
+bSafeOffset
+boolean
+Apply safe offset.
+Returns safe circle points.
+Deg2Rad
+​
+Math.Deg2Rad(
+degrees
+: number
+)
+→
+number - float
+Argument
+Type
+Description
+degrees
+number
+(float)
+Convert degrees to radians
+Rad2Deg
+​
+Math.Rad2Deg(
+radians
+: number
+)
+→
+number - float
+Argument
+Type
+Description
+radians
+number
+(float)
+Convert radians to degrees
+ToDX2D
+​
+Math.ToDX2D(
+vec
+:
+Vector2
+)
+→
+D3DXVECTOR2
+Argument
+Type
+Description
+vec
+Vector2
+Convert Vector2 to D3DXVECTOR2
+ToDX2D
+​
+Math.ToDX2D(
+vec
+:
+Vector3
+)
+→
+D3DXVECTOR2
+Argument
+Type
+Description
+vec
+Vector3
+Convert Vector3 to D3DXVECTOR2
+ToDX3D
+​
+Math.ToDX3D(
+vec
+:
+Vector3
+)
+→
+D3DXVECTOR3
+Argument
+Type
+Description
+vec
+Vector3
+Convert Vector3 to D3DXVECTOR3
+GetDirectionFromOrientation
+​
+Math.GetDirectionFromOrientation(
+obj
+:
+EffectEmitter
+)
+→
+Vector2
+Argument
+Type
+Description
+obj
+EffectEmitter
+Returns direction vector from orientation matrix (taken from given EffectEmitter).
+GetDirectionFromOrientation
+​
+Math.GetDirectionFromOrientation(
+matrix
+: _D3DMATRIX
+)
+→
+Vector2
+Argument
+Type
+Description
+matrix
+_D3DMATRIX
+Returns direction vector from orientation matrix.
+InverseLerp
+​
+Math.InverseLerp(
+A
+:
+Vector2
+,
+B
+:
+Vector2
+,
+C
+:
+Vector2
+)
+→
+number - float
+Argument
+Type
+Description
+A
+Vector2
+Start position
+B
+Vector2
+End position
+C
+Vector2
+Result position from normal Lerp/Extension
+Performs reverse linear interpolation and returns float
+time
+value.
+IsCollinearLines
+​
+Math.IsCollinearLines(
+A
+:
+Vector2
+,
+B
+:
+Vector2
+,
+C
+:
+Vector2
+,
+D
+:
+Vector2
+)
+→
+boolean
+Argument
+Type
+Description
+A
+Vector2
+B
+Vector2
+C
+Vector2
+D
+Vector2
+Returns whether AB and CD are collinear.
+IsCollinearLines
+​
+Math.IsCollinearLines(
+AB
+: LineSegment,
+CD
+: LineSegment
+)
+→
+boolean
+Argument
+Type
+Description
+AB
+LineSegment
+CD
+LineSegment
+Returns whether AB and CD are collinear.
+IsCollinearLines
+​
+Math.IsCollinearLines(
+AB
+: Line,
+CD
+: Line
+)
+→
+boolean
+Argument
+Type
+Description
+AB
+Line
+CD
+Line
+Returns whether AB and CD are collinear.
+IsStraightLine
+​
+Math.IsStraightLine(
+points
+:
+Vector2
+[],
+deviation
+: number - float
+)
+→
+boolean
+Argument
+Type
+Description
+points
+Vector2
+[]
+Given positions to check.
+deviation
+number - float
+Deviation. The closer to 0 the stricter this check is.
+Returns whether given points form a straight line or not (within given deviation).
+IsStraightLine
+​
+Math.IsStraightLine(
+points
+:
+Vector3
+[],
+deviation
+: number - float
+)
+→
+boolean
+Argument
+Type
+Description
+points
+Vector3
+[]
+Given positions to check.
+deviation
+number - float
+Deviation. The closer to 0 the stricter this check is.
+Returns whether given points form a straight line or not (within given deviation).
+GetCentroid
+​
+Math.GetCentroid(
+points
+:
+Vector2
+[]
+)
+→
+Vector2
+Argument
+Type
+Description
+points
+Vector2
+[]
+Lua table of given Vector2 positions.
+Returns calculated centroid from given positions.
+GetCentroid
+​
+Math.GetCentroid(
+points
+:
+Vector3
+[] - std::vector
+<
+Vector3
+>
+)
+→
+Vector2
+Argument
+Type
+Description
+points
+Vector3
+[] - std::vector
+<
+Vector3
+>
+Given positions.
+Returns calculated centroid from given positions.
+GetEnemyCentroid
+​
+Math.GetEnemyCentroid(
+position
+:
+Vector2
+,
+range
+: number - float
+)
+→
+Vector2
+, number
+Argument
+Type
+Description
+position
+Vector2
+Given position.
+range
+number - float
+Given range.
+Returns enemy centroid from enemies at given position within given range, and returns affected enemy count.
+GetMEC
+​
+Math.GetMEC(
+positions
+:
+Vector2
+[]
+)
+→
+Vector2
+, float
+Argument
+Type
+Description
+positions
+Vector2
+[]
+Lua table of given Vector2 positions.
+Get Minimum Enclosing Circle (position and radius) from given Vector2 positions.
+GetMEC
+​
+Math.GetMEC(
+positions
+:
+Vector3
+[] - std::vector
+<
+Vector3
+>
+)
+→
+Vector2
+, float
+Argument
+Type
+Description
+positions
+Vector3
+[] - std::vector
+<
+Vector3
+>
+Given positions.
+Get Minimum Enclosing Circle (position and radius) from given Vector3 positions.

@@ -1,0 +1,17 @@
+RenderStage
+Renderer.RenderStage
+note
+Part of Renderer namespace.
+Properties​
+World
+: number​
+World render stage. After the world, but before grass, structures and entities.
+HUD
+: number​
+HUD render stage. After the world, grass, structures and entities, but before game UI.
+GUI
+: number​
+GUI render stage. After all game UI, but before ImGui.
+ImGui
+: number​
+ImGui render stage.

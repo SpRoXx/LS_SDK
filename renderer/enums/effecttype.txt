@@ -1,0 +1,21 @@
+EffectType
+Renderer.EffectType
+note
+Part of Renderer namespace.
+Properties​
+ShinyCircle
+: number​
+GlowingCircle
+: number​
+GlowingCircle2
+: number​
+HighlightCircle
+: number​
+PulseCircle
+: number​
+PulseCircle2
+: number​
+TargetCircle
+: number​
+MagicalCircle
+: number​

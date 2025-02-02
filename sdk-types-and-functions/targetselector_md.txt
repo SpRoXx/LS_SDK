@@ -1,0 +1,195 @@
+TargetSelector
+TargetSelector.
+Properties
+​
+selectedTarget
+:
+AIHeroClient
+​
+Currently selected target
+Functions
+​
+GetTarget
+​
+TargetSelector.GetTarget(
+range
+: number,
+damageType
+:
+DamageType
+,
+from
+:
+Vector3
+,
+addBoundingRadius
+: boolean
+)
+→
+AIHeroClient
+Argument
+Type
+Description
+range
+number
+Check range.
+damageType
+DamageType
+Damage type.
+from
+Vector3
+Check from.
+addBoundingRadius
+boolean
+Should add target bounding radius.
+Returns best target.
+GetTarget
+​
+TargetSelector.GetTarget(
+range
+: number,
+damageType
+:
+DamageType
+,
+from
+:
+Vector3
+,
+addBoundingRadius
+: boolean,
+filterFn
+: function
+)
+→
+AIHeroClient
+Argument
+Type
+Description
+range
+number
+Check range.
+damageType
+DamageType
+Damage type.
+from
+Vector3
+Check from.
+addBoundingRadius
+boolean
+Should add target bounding radius.
+filterFn
+function
+Custom filter function.
+Returns best target.
+GetTargets
+​
+TargetSelector.GetTargets(
+range
+: number,
+damageType
+:
+DamageType
+,
+from
+:
+Vector3
+,
+addBoundingRadius
+: boolean
+)
+→
+AIHeroClient
+[]
+Argument
+Type
+Description
+range
+number
+Check range.
+damageType
+DamageType
+Damage type.
+from
+Vector3
+Check from.
+addBoundingRadius
+boolean
+Should add target bounding radius.
+Returns a list of possible targets, sorted by priority.
+GetPriority
+​
+TargetSelector.GetPriority(
+hero
+:
+AIHeroClient
+)
+→
+number
+Argument
+Type
+Description
+hero
+AIHeroClient
+Given target.
+Returns TS priority for given target.
+GetSelectedTarget
+​
+TargetSelector.GetSelectedTarget()
+→
+AIHeroClient
+Returns currently selected target.
+SetForcedTarget
+​
+TargetSelector.SetForcedTarget(
+target
+:
+AIHeroClient
+)
+→
+void
+Argument
+Type
+Description
+target
+AIHeroClient
+Target to be forced. nil to clear.
+Set forced target.
+Example: Force target under our cursor.
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnTick
+,
+function
+(
+)
+local
+hover
+=
+Game
+.
+GetHoveredUnit
+(
+)
+TargetSelector
+.
+SetForcedTarget
+(
+hover
+and
+hover
+:
+IsValid
+(
+)
+and
+hover
+or
+nil
+)
+end
+)

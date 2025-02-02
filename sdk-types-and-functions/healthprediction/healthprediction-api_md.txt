@@ -1,0 +1,131 @@
+HealthPrediction
+Health Prediction class
+Properties
+​
+incomingTargetedDamage
+: list - std::map
+<
+unsigned, std::vector
+<
+IncomingDamage
+>
+>
+​
+incomingAttacks
+: list - std::map
+<
+unsigned, std::vector
+<
+IncomingAttack
+>
+>
+​
+incomingAttacksHero
+: list - std::map
+<
+unsigned, std::vector
+<
+IncomingAttack
+>
+>
+​
+Functions
+​
+GetLaneClearHealthPrediction
+​
+HealthPrediction.GetLaneClearHealthPrediction(
+unit
+:
+AIBaseClient
+,
+time
+: number - float
+)
+→
+number, bool,
+AITurretClient
+Argument
+Type
+Description
+unit
+AIBaseClient
+Unit to predict health for.
+time
+number - float
+Prediction time.
+Get health prediction for given unit and time. Returns predicted health and bool if unit has turret aggro and if yes also AITurretClient.
+GetHealthPrediction
+​
+HealthPrediction.GetHealthPrediction(
+unit
+:
+AIBaseClient
+,
+time
+: number - float,
+includeHeroesAttack?
+: boolean
+)
+→
+number - float
+Argument
+Type
+Description
+unit
+AIBaseClient
+Unit to predict health for.
+time
+number - float
+Prediction time.
+includeHeroesAttack?
+boolean
+Whether include hero attacks or not (false by default).
+Get health prediction for given unit, time and specify whether hero attacks should be included or not.
+GetIncomingDamage
+​
+HealthPrediction.GetIncomingDamage(
+unit
+:
+AIBaseClient
+,
+time
+: number - float,
+includeSkillshot?
+: boolean,
+includeAutoAttacks?
+: boolean
+)
+→
+number - float
+Argument
+Type
+Description
+unit
+AIBaseClient
+Unit to predict health for.
+time
+number - float
+Prediction time.
+includeSkillshot?
+boolean
+Whether include skillshots or not (true by default).
+includeAutoAttacks?
+boolean
+Whether include auto attacks or not (true by default).
+Get predicted incoming damage for given unit, time and specify whether it should include skillshots and AA or not.
+GetIncomingDamageFrom
+​
+HealthPrediction.GetIncomingDamageFrom(
+unit
+:
+AIBaseClient
+)
+→
+number - float
+Argument
+Type
+Description
+unit
+AIBaseClient
+Unit to get all damage from.
+Get all incoming damage dealt by given unit.

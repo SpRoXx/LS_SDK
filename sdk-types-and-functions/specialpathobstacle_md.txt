@@ -1,0 +1,13 @@
+SpecialPathObstacle
+SpecialPathObstacle.
+Properties
+​
+position
+:
+Vector2
+​
+Obstacle position.
+radius
+: number - float
+​
+Collision radius.

@@ -1,0 +1,9 @@
+Evade
+Evade classes and functions.
+📄️ EvadeEvade API
+##
+📄️ SkillshotEvade Skillshot class
+##
+📄️ SpellDataStructure containing spell data used by Evade.
+##
+📄️ SpellMetaDataStructure containing spell meta data used by Evade.

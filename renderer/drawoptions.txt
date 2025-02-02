@@ -1,0 +1,15 @@
+Draw Options
+Description of all draw options used by fancy draw functions.
+📄️ BaseMeshDrawOptionsDescription of BaseMeshDrawOptions table
+##
+📄️ DrawCircleGlowOptionsDescription of DrawCircleGlowOptions table
+##
+📄️ DrawCirclePulse2OptionsDescription of DrawCirclePulse2Options table
+##
+📄️ DrawCirclePulseOptionsDescription of DrawCirclePulseOptions table
+##
+📄️ DrawCircleShineOptionsDescription of DrawCircleShineOptions table
+##
+📄️ DrawTextOptionsDescription of DrawTextOptions table
+##
+📄️ DrawTextureOptionsDescription of DrawTextureOptions table

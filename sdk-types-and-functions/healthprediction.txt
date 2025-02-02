@@ -1,0 +1,7 @@
+Health Prediction
+Health Prediction classes and functions.
+📄️ HealthPredictionHealth Prediction class
+##
+📄️ IncomingAttackIncomingAttack class
+##
+📄️ IncomingDamageIncomingDamage class

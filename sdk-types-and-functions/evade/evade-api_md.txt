@@ -1,0 +1,372 @@
+Evade
+Evade API
+Functions
+​
+IsEvading
+​
+Evade.IsEvading()
+→
+boolean
+Returns whether player is evading at this moment or not.
+IsInsideSkillshots
+​
+Evade.IsInsideSkillshots(
+position
+:
+Vector2
+,
+bGetDangerLevel?
+: boolean,
+bIncludeIgnored?
+: boolean
+)
+→
+boolean,
+DangerLevel
+Argument
+Type
+Description
+position
+Vector2
+Checked position.
+bGetDangerLevel?
+boolean
+If true this function will also return highest DangerLevel from all skillshots at given position.
+bIncludeIgnored?
+boolean
+If true this function will include all ignored skillshots.
+Checks if there are any skillshots at given position.
+IsCrossingSkillshots
+​
+Evade.IsCrossingSkillshots(
+path
+:
+Vector2
+[],
+bIncludeIgnored?
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+path
+Vector2
+[]
+Checked path.
+bIncludeIgnored?
+boolean
+If true this function will include all ignored skillshots.
+Checks if Vector2[] path is crossing any skillshots.
+Example: Check if line between player and cursor is crossing any skillshots
+local
+heroPos
+=
+Game
+.
+localPlayer
+.
+position2D
+local
+cursorPos
+=
+Game
+.
+GetCursorWorldPosition
+(
+)
+:
+To2D
+(
+)
+print
+(
+Evade
+.
+IsCrossingSkillshots
+(
+{
+heroPos
+,
+cursorPos
+}
+)
+)
+GetSkillshotsAtPosition
+​
+Evade.GetSkillshotsAtPosition(
+position
+:
+Vector2
+,
+bIncludeIgnored?
+: boolean
+)
+→
+Skillshot
+[] - std::vector
+<
+Skillshot
+>
+Argument
+Type
+Description
+position
+Vector2
+Checked position.
+bIncludeIgnored?
+boolean
+If true this function will include all ignored skillshots.
+Returns skillshots at given position.
+Example: Print all skillshots' names at player position
+local
+skillshots
+=
+Evade
+.
+GetSkillshotsAtPosition
+(
+Game
+.
+localPlayer
+.
+position2D
+)
+if
+skillshots
+and
+#
+skillshots
+>
+0
+then
+for
+i
+,
+ss
+in
+skillshots
+:
+pairs
+(
+)
+do
+print
+(
+ss
+.
+SpellData
+.
+Name
+)
+end
+end
+GetSkillshotsCrossingPath
+​
+Evade.GetSkillshotsCrossingPath(
+path
+:
+Vector2
+[],
+bIncludeIgnored?
+: boolean
+)
+→
+Skillshot
+[] - std::vector
+<
+Skillshot
+>
+Argument
+Type
+Description
+path
+Vector2
+[]
+Given path.
+bIncludeIgnored?
+boolean
+If true this function will include all ignored skillshots.
+Returns skillshots which intersect with given path.
+IgnoreSkillshotsAtPosition
+​
+Evade.IgnoreSkillshotsAtPosition(
+position
+:
+Vector2
+)
+→
+void
+Argument
+Type
+Description
+position
+Vector2
+Given position.
+Ignores all skillshots at given position.
+SetCustomShouldSpellBeIgnored
+​
+Evade.SetCustomShouldSpellBeIgnored(
+fn
+: fun(ss: Skillshot): boolean
+)
+→
+void
+Argument
+Type
+Description
+fn
+fun(ss: Skillshot): boolean
+Custom function which accepts Skillshot as parameter and must return true or false if given skillshot should be ignored by Evade.
+Set custom hook function which determines which spells should be ignored by Evade.
+tip
+This may be useful to create a script with custom rules, which will determine what skillshots should be ignored by Evade.
+danger
+If your code is using this, please make sure to call this function with nil argument in OnUnload to avoid weird bugs.
+Example: Ignore absolutely all skillshots
+Evade
+.
+SetCustomShouldSpellBeIgnored
+(
+function
+(
+skillshot
+)
+return
+true
+-- Ignore this skillshot
+end
+)
+-- Dispose:
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnUnload
+,
+function
+(
+)
+Evade
+.
+SetCustomShouldSpellBeIgnored
+(
+nil
+)
+end
+)
+GetSkillshotsDamage
+​
+Evade.GetSkillshotsDamage(
+position
+:
+Vector2
+,
+bCheckIfCanEvade
+: boolean
+)
+→
+number - float
+Argument
+Type
+Description
+position
+Vector2
+Checked position.
+bCheckIfCanEvade
+boolean
+If true then only spells which can't be dodged will be taken in count.
+Returns damage from skillshots at given position.
+GetSkillshotsDamageFrom
+​
+Evade.GetSkillshotsDamageFrom(
+caster
+:
+AIBaseClient
+)
+→
+number - float
+Argument
+Type
+Description
+caster
+AIBaseClient
+Checked source unit.
+Returns damage from skillshots casted by certain caster source.
+GetSupportedSpellsMetaData
+​
+Evade.GetSupportedSpellsMetaData()
+→
+std::map
+<
+string, std::map
+<
+string,
+SpellMetaData
+>
+>
+Returns meta data of all skillshots supported by Evade in current game.
+tip
+This may be useful for developers to retrieve supported spells by Evade and their metadata so you can add specific settings in your scripts.
+note
+Signature with keys:
+std::map<charName, std::map<spellName, SpellMetaData>>
+Example: Basic usage with some explanation
+-- First make sure that Evade is loaded and initialized.
+-- Then call this function to retrieve meta data for all supported spells.
+-- You can match skillshot's spell data to this meta data by comparing SpellMetaData.UniqueID and SpellData:GetUniqueID()
+-- If you want to create in your script a special menu with settings for each supported skillshots - this function will be helpful to you, but keep in mind:
+-- UniqueID is not static and doesn't remain the same between games. It is important to understand this - never use UniqueID in keys for your menus.
+local
+evadeSpellMetaData
+=
+Evade
+.
+GetSupportedSpellsMetaData
+(
+)
+if
+evadeSpellMetaData
+then
+for
+i
+,
+v
+in
+evadeSpellMetaData
+:
+pairs
+(
+)
+do
+print
+(
+i
+)
+for
+k
+,
+b
+in
+v
+:
+pairs
+(
+)
+do
+print
+(
+""
+,
+k
+,
+b
+.
+UniqueID
+)
+end
+end
+end

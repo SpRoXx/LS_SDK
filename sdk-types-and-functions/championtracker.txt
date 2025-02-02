@@ -1,0 +1,42 @@
+ChampionTracker
+ChampionTracker
+Properties​
+source
+:
+AIHeroClient
+​
+lastPosition
+:
+Vector3
+​
+lastWayPoint
+:
+Vector3
+​
+invisibleSince
+: number​
+invisibleTimeCount
+: number​
+lastAuroWardTime
+: number​
+teleportInfo
+:
+TeleportInfo
+​
+Functions​
+GetChampionInfomation​
+ChampionTracker.GetChampionInfomation(
+nethandle
+: integer
+)
+→
+ChampionTracker
+Argument| Type| Description
+---|---|---
+nethandle| integer| Champion network id.
+Returns a ChampionTracker instance if find.
+GetSkirmishData​
+ChampionTracker.GetSkirmishData()
+→
+skirmishData
+Returns skirmishData for a championtracker info.

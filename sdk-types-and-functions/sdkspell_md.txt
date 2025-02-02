@@ -1,0 +1,662 @@
+SDKSpell
+SDKSpell for easy cast spell.
+Properties
+​
+slot
+:
+SpellSlot
+​
+lastCastAttempt
+: integer
+​
+isSkillShot
+: boolean
+​
+boundingRadiusMod
+: boolean
+​
+isChargeSpell
+: boolean
+​
+chargedBuffNameHash
+: integer
+​
+chargedMaxRange
+: number
+​
+chargedMinRange
+: number
+​
+chargedSpellNameHash
+: integer
+​
+forceSpellHash
+: integer
+​
+chargedBuffNameHash
+: integer
+​
+chargeDuration
+: number
+​
+collision
+: boolean
+​
+damageType
+:
+DamageType
+​
+collisionFlags
+:
+CollisionFlag
+​
+type
+:
+SkillshotType
+​
+width
+: number
+​
+speed
+: number
+​
+delay
+: number
+​
+hitchance
+:
+HitChance
+​
+rangeCheckFrom
+:
+Vector3
+​
+from
+:
+Vector3
+​
+range
+: number
+​
+Functions
+​
+Create
+​
+SDKSpell.Create(
+slot
+:
+SpellSlot
+,
+range
+: number,
+damageType
+:
+DamageType
+)
+→
+SDKSpell
+Argument
+Type
+Description
+slot
+SpellSlot
+Spell slot.
+range
+number
+Spell range.
+damageType
+DamageType
+Damage type.
+Create a sdk spell instance.
+SetSkillshot
+​
+SDKSpell:SetSkillshot(
+delay
+: number,
+width
+: number,
+speed
+: number,
+type
+:
+SkillshotType
+,
+collision
+: boolean,
+collisionFlags
+:
+CollisionFlag
+,
+minHitChance
+:
+HitChance
+,
+boundingRadiusMod
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+delay
+number
+Spell delay.
+width
+number
+Spell width.
+speed
+number
+Spell missile speed.
+type
+SkillshotType
+.
+collision
+boolean
+Should calculate collision.
+collisionFlags
+CollisionFlag
+.
+minHitChance
+HitChance
+Min hitchance for cast.
+boundingRadiusMod
+boolean
+Should include target bounding radius.
+Set skillshot spell.
+SetTargetted
+​
+SDKSpell:SetTargetted(
+delay
+: number,
+speed
+: number,
+type
+:
+SkillshotType
+,
+collision
+: boolean,
+collisionFlags
+:
+CollisionFlag
+,
+minHitChance
+:
+HitChance
+,
+boundingRadiusMod
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+delay
+number
+Spell delay.
+speed
+number
+Spell missile speed.
+type
+SkillshotType
+.
+collision
+boolean
+Should calculate collision.
+collisionFlags
+CollisionFlag
+.
+minHitChance
+HitChance
+Min hitchance for cast.
+boundingRadiusMod
+boolean
+Should include target bounding radius.
+Set targetted spell.
+Delete
+​
+SDKSpell:Delete()
+→
+void
+Delete spell instance and clean memory.
+(
+Do it when unload if you create a spell and not manage it to Champions class Q/W/E/R
+)
+Ready
+​
+SDKSpell:Ready()
+→
+boolean
+Returns if spell is ready to cast.
+ReadyPredCast
+​
+SDKSpell:ReadyPredCast(
+time?
+: number
+)
+→
+boolean
+Argument
+Type
+Description
+time?
+number
+Remaining time to check.
+Returns if spell will be ready to cast after certain time. This includes latency internally.
+tip
+This can be useful to pre-cast spells when they are about to get off cooldown.
+caution
+Be careful with certain spells like
+Ashe Q
+because with SpellState.Suppressed it will also return true.
+IsCharging
+​
+SDKSpell:IsCharging()
+→
+boolean
+Returns if spell is charging.
+DataInstance
+​
+SDKSpell:DataInstance()
+→
+SpellBookEntry
+Returns datainstance.
+SetCharged
+​
+SDKSpell:SetCharged(
+spellName
+: string,
+buffName
+: string,
+minRange
+: number,
+maxRange
+: number,
+duration
+: number
+)
+→
+void
+Argument
+Type
+Description
+spellName
+string
+Spell name.
+buffName
+string
+Charge buff name.
+minRange
+number
+Min charge range.
+maxRange
+number
+Max charge range.
+duration
+number
+Charge max duration.
+Set charge spell like varus Q etc.
+ManaCost
+​
+SDKSpell:ManaCost()
+→
+number
+Returns spell mana cost.
+ChargePercent
+​
+SDKSpell:ChargePercent()
+→
+number
+Returns spell charge percent.
+Cooldown
+​
+SDKSpell:Cooldown()
+→
+number
+Returns spell cooldown.
+Level
+​
+SDKSpell:Level()
+→
+number
+Returns spell level.
+CastOnUnit
+​
+SDKSpell:CastOnUnit(
+target
+:
+AIBaseClient
+,
+usePacket
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+target
+AIBaseClient
+Spell target.
+usePacket
+boolean
+false
+Returns if cast sucessfully.
+Cast
+​
+SDKSpell:Cast(
+usePacket
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+usePacket
+boolean
+false
+Returns if cast sucessfully.
+Cast
+​
+SDKSpell:Cast(
+target
+:
+AIBaseClient
+,
+hitChanceMenu
+: UI.
+List
+,
+usePacket
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+target
+AIBaseClient
+Spell target.
+hitChanceMenu
+UI.
+List
+Use menu to check min hitchance.
+usePacket
+boolean
+false
+Returns if cast sucessfully.
+Cast
+​
+SDKSpell:Cast(
+pos
+:
+Vector3
+,
+limit
+:
+Vector3
+,
+usePacket
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+pos
+Vector3
+Cast position.
+limit
+Vector3
+Cast posiiton limit, use for Viktor E etc.
+usePacket
+boolean
+false
+Returns if cast sucessfully.
+CastSpell2
+​
+SDKSpell:CastSpell2(
+slot
+:
+SpellSlot
+,
+pos1
+:
+Vector3
+,
+pos2
+:
+Vector3
+,
+bTriggerEvent
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+slot
+SpellSlot
+pos1
+Vector3
+pos2
+Vector3
+bTriggerEvent
+boolean
+Special CastSpell variation which can be useful for some champions.
+CastSpell2
+​
+SDKSpell:CastSpell2(
+slot
+:
+SpellSlot
+,
+target
+:
+AttackableUnit
+,
+bTriggerEvent
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+slot
+SpellSlot
+target
+AttackableUnit
+bTriggerEvent
+boolean
+Special CastSpell variation which can be useful for some champions.
+GetPrediction
+​
+SDKSpell:GetPrediction(
+target
+:
+AIBaseClient
+)
+→
+PredictionOutput
+Argument
+Type
+Description
+target
+AIBaseClient
+Target.
+Returns prediction output.
+GetDamage
+​
+SDKSpell:GetDamage(
+target
+:
+AIBaseClient
+,
+stage
+: integer
+)
+→
+number
+Argument
+Type
+Description
+target
+AIBaseClient
+Target.
+stage
+integer
+Damage stage.
+Returns spell damage to target.
+IsCollision
+​
+SDKSpell:IsCollision(
+from
+:
+Vector3
+,
+to
+:
+Vector3
+,
+target
+:
+AIBaseClient
+)
+→
+boolean
+Argument
+Type
+Description
+from
+Vector3
+From pos.
+to
+Vector3
+To pos.
+target
+AIBaseClient
+Target to ignore.
+Returns if spell is coliision from A to B.
+CastSpecialImmobileTarget
+​
+SDKSpell:CastSpecialImmobileTarget(
+from
+:
+Vector3
+,
+isSnare
+: boolean,
+strictlyTimeCheck
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+from
+Vector3
+From pos.
+isSnare
+boolean
+Is snare spell Jinx E etc.
+strictlyTimeCheck
+boolean
+Strictly time check for some important R spell.
+Returns ture if cast sucessfully to a retrive/zhonya/teleport target.
+StartCharging
+​
+SDKSpell:StartCharging(
+pos
+:
+Vector3
+,
+usePacket
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+pos
+Vector3
+Cast position.
+usePacket
+boolean
+false
+Returns if cast sucessfully.
+ShootChargedSpell
+​
+SDKSpell:ShootChargedSpell(
+pos
+:
+Vector3
+,
+releaseCast
+: boolean,
+extraRange
+: number,
+usePacket
+: boolean
+)
+→
+boolean
+Argument
+Type
+Description
+pos
+Vector3
+Cast position.
+releaseCast
+boolean
+Is release cast.
+extraRange
+number
+extra cast end pos.
+usePacket
+boolean
+false
+Returns if cast sucessfully.
+GetCastOnBestFarmPosition
+​
+SDKSpell:GetCastOnBestFarmPosition(
+minMinions
+: number - integer,
+isJungleMinions
+: boolean
+)
+→
+Vector3
+Argument
+Type
+Description
+minMinions
+number - integer
+Minimum amount of minions to hit.
+isJungleMinions
+boolean
+Run this logic on jungle camps.
+Returns optimal position for spell farm.
+GetCastOnBestAOEPosition
+​
+SDKSpell:GetCastOnBestAOEPosition(
+minTargets
+: number - integer
+)
+→
+Vector3
+Argument
+Type
+Description
+minTargets
+number - integer
+Minimum amount of targets to hit.
+Returns optimal position for AOE on enemy heroes.

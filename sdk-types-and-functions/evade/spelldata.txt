@@ -1,0 +1,18 @@
+SpellData
+Structure containing spell data used by Evade.
+Properties​
+Slot
+:
+SpellSlot
+​
+DangerLevel
+:
+DangerLevel
+​
+CrowdControl
+:
+CrowdControlType
+[] - std::vector<
+CrowdControlType
+>​
+List of crowd control types which this spell may apply.

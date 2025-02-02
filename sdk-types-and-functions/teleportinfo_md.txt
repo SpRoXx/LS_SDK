@@ -1,0 +1,31 @@
+TeleportInfo
+TeleportInfo contains data related to tracked recalling or teleporting.
+Properties
+​
+startTime
+: number
+​
+endTime
+: number
+​
+duration
+: number
+​
+sender
+:
+AIHeroClient
+​
+status
+:
+TeleportStatus
+​
+type
+:
+TeleportType
+​
+teleportName
+: string
+​
+teleportTypeName
+: string
+​

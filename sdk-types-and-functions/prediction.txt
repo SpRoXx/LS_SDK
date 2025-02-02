@@ -1,0 +1,9 @@
+Prediction
+Prediction classes and functions.
+📄️ CollisionResultCollision result
+##
+📄️ MovementPredictionClass which allows to predict unit movement
+##
+📄️ PredictionInputPrediction input
+##
+📄️ PredictionOutputPrediction result

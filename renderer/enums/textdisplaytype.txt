@@ -1,0 +1,11 @@
+TextDisplayType
+Renderer.TextDisplayType
+note
+Part of Renderer namespace.
+Properties​
+Flat
+: number​
+Upright
+: number​
+Overlay
+: number​

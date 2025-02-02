@@ -1,0 +1,93 @@
+Skillshot
+Evade Skillshot class
+Properties
+​
+SpellData
+:
+SpellData
+​
+Spell data of this skillshot.
+Caster
+:
+AIBaseClient
+​
+Caster of this spell.
+StartPosition
+:
+Vector2
+​
+Start position of this spell.
+EndPosition
+:
+Vector2
+​
+End position of this spell.
+DirectionVector
+:
+Vector2
+​
+Direction vector of this spell.
+Functions
+​
+IsIgnored
+​
+Skillshot:IsIgnored()
+→
+boolean
+Returns whether this skillshot is ignored or not.
+IgnoreTemporarily
+​
+Skillshot:IgnoreTemporarily()
+→
+void
+Ignore this skillshot (same effect as double clicking on skillshot area).
+tip
+To ignore multiple spells at given position you may use Evade.IgnoreSkillshotsAtPosition(position) function.
+Contains
+​
+Skillshot:Contains(
+position
+:
+Vector2
+)
+→
+boolean
+Argument
+Type
+Description
+position
+Vector2
+Checked position.
+Returns if given position is within spell area.
+GetHitTime
+​
+Skillshot:GetHitTime(
+position
+:
+Vector2
+)
+→
+number - float
+Argument
+Type
+Description
+position
+Vector2
+Checked position. Does not have to be inside skillshot area (it will be projected).
+Returns calculated time when certain position will get hit by this spell. Position is irrelevant for some types of spells.
+GetHitRemainingTime
+​
+Skillshot:GetHitRemainingTime(
+position
+:
+Vector2
+)
+→
+number - float
+Argument
+Type
+Description
+position
+Vector2
+Checked position. Does not have to be inside skillshot area (it will be projected).
+Returns calculated remaining time when certain position will get hit by this spell. Position is irrelevant for some types of spells.

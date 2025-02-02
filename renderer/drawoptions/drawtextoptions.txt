@@ -1,0 +1,74 @@
+DrawTextOptions
+Description of DrawTextOptions table
+note
+This structure is not exported to Lua. The draw functions using this as parameter are expecting Lua table containing certain properties as described on this page.
+Properties​
+renderStage
+:
+RenderStage
+​
+Which render stage this will be rendered at. See more at
+RenderStage
+page.
+Default for 2D text:
+RenderStage.HUD
+Default for 3D text:
+RenderStage.World
+fontSize
+:
+FontSize
+​
+Font size.
+Default:
+FontSize.Medium
+fontStyle
+:
+FontStyle
+​
+Font style.
+Default:
+FontStyle.Regular
+scale
+: number​
+Font scale.
+Default:
+1.0
+rotation
+: number​
+Font rotation.
+Default:
+0.0
+offset
+:
+Vector2
+​
+Text offset.
+Default:
+Math.Vector2(0, 0)
+alignmentX
+:
+TextAlignment
+​
+Horizontal text alignment.
+Default for 2D text:
+TextAlignment.Left
+Default for 3D text:
+TextAlignment.Center
+alignmentY
+:
+TextAlignment
+​
+Vertical text alignment.
+Default for 2D text:
+TextAlignment.Top
+Default for 3D text:
+TextAlignment.Center
+displayType
+:
+TextDisplayType
+​
+Text display orientation type.
+Default for 2D text:
+TextDisplayType.Overlay
+Default for 3D text:
+TextDisplayType.Flat

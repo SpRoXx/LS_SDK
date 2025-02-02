@@ -1,0 +1,1885 @@
+Renderer
+Renderer namespace with useful drawing functions utilizing ImGui.
+tip
+Besides raw DrawList functions, we also exported normal ImGui API, which is not documented here.
+You can read more about it here:
+sol2_ImGui_Bindings
+.
+Don't forget to check example at the bottom of the page.
+caution
+Most
+ImGui
+drawing functions should be used in
+OnImguiDraw
+callback. Some functions can be used in
+OnDraw
+too.
+Functions
+​
+RGBA
+​
+Renderer.RGBA(
+r
+: number,
+g
+: number,
+b
+: number,
+a
+: number
+)
+→
+number
+Argument
+Type
+Description
+r
+number
+Red 0-255
+g
+number
+Green 0-255
+b
+number
+Blue 0-255
+a
+number
+Alpha 0-255
+Get proper color value
+DrawMinimapCircle
+​
+Renderer.DrawMinimapCircle(
+worldPosition
+:
+Vector3
+,
+color
+: number - D3DCOLOR,
+radius
+: number,
+thickness
+: number
+)
+→
+void
+Argument
+Type
+Description
+worldPosition
+Vector3
+Center in world coordinates.
+color
+number - D3DCOLOR
+Color.
+radius
+number
+Radius.
+thickness
+number
+Line thickness.
+Draw a circle on minimap from world coordinate and radius in game units.
+Example: Basic DrawMinimapCircle example.
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+Renderer
+.
+DrawMinimapCircle
+(
+Game
+.
+localPlayer
+.
+position
+,
+Renderer
+.
+RGBA
+(
+255
+,
+255
+,
+255
+,
+255
+)
+,
+2000
+,
+1
+)
+end
+)
+DamageIndicatorRendering
+​
+Renderer.DamageIndicatorRendering(
+target
+:
+AIBaseClient
+,
+damage
+: number,
+damageType
+:
+DamageType
+,
+forcedColor
+: number - D3DCOLOR,
+isDrawHeal
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+target
+AIBaseClient
+Target.
+damage
+number
+Damage amount.
+damageType
+DamageType
+Damage type.
+forcedColor
+number - D3DCOLOR
+Color.
+isDrawHeal
+boolean
+True if it's heal instead of damage.
+Draw damage indicator on specific target's healthbar.
+Example: Basic DamageIndicatorRendering example.
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+for
+i
+,
+entity
+in
+ObjectManager
+.
+allyHeroes
+:
+pairs
+(
+)
+do
+if
+entity
+~=
+nil
+then
+Renderer
+.
+DamageIndicatorRendering
+(
+entity
+,
+600
+,
+DamageType
+.
+Physical
+,
+0
+,
+false
+)
+end
+end
+for
+i
+,
+entity
+in
+ObjectManager
+.
+enemyHeroes
+:
+pairs
+(
+)
+do
+if
+entity
+~=
+nil
+then
+Renderer
+.
+DamageIndicatorRendering
+(
+entity
+,
+600
+,
+DamageType
+.
+Physical
+,
+0
+,
+false
+)
+end
+end
+end
+)
+DrawText
+​
+Renderer.DrawText(
+text
+: string,
+position
+:
+Vector2
+,
+size?
+: number - float,
+color?
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+text
+string
+Text you want to display.
+position
+Vector2
+On-screen position for your text. Starts from top-left corner.
+size?
+number - float
+Font size. 12 by default.
+color?
+number - D3DCOLOR
+Font color. White by default.
+Draw basic
+ImGui
+text. This is
+ImGui
+function.
+caution
+While this function is okay to use, we recommend to use
+DrawTextEx
+instead in your final production code.
+DrawWorldText
+​
+Renderer.DrawWorldText(
+text
+: string,
+position
+:
+Vector3
+,
+offset?
+:
+Vector2
+,
+size?
+: number - float,
+color?
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+text
+string
+Text you want to display.
+position
+Vector3
+World position.
+offset?
+Vector2
+On-screen offset. Vector2(0,0) by default.
+size?
+number - float
+Font size. 12 by default.
+color?
+number - D3DCOLOR
+Font color. White by default.
+Draw basic
+ImGui
+text in game world. This is
+ImGui
+function.
+caution
+While this function is okay to use, we recommend to use
+DrawTextEx
+instead in your final production code.
+CalcTextSize
+​
+Renderer.CalcTextSize(
+text
+: string,
+fontSize
+: number - float
+)
+→
+number, number
+Argument
+Type
+Description
+text
+string
+Text string.
+fontSize
+number - float
+Text font size.
+Returns calculated text width and height. This is
+ImGui
+function.
+caution
+This is useful only for
+ImGui
+DrawText
+and
+DrawWorldText
+functions. This has no use with
+DrawTextEx
+function.
+Example: Draw a centered text indicator under player, showing whether he is inside enemy turret range or not.
+local
+fontSize
+=
+16
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+local
+text
+=
+TurretTracker
+.
+IsPlayerInsideTurret
+(
+)
+and
+"Inside"
+or
+"Outside"
+local
+tX
+,
+tY
+=
+Renderer
+.
+CalcTextSize
+(
+text
+,
+fontSize
+)
+Renderer
+.
+DrawWorldText
+(
+text
+,
+Game
+.
+localPlayer
+.
+position
+,
+Math
+.
+Vector2
+(
+-
+tX
+/
+2
+,
+0
+)
+,
+fontSize
+)
+end
+)
+DrawLine2D
+​
+Renderer.DrawLine2D(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Start position.
+p2
+Vector2
+End position.
+color
+number - D3DCOLOR
+Line color.
+thickness
+number - float
+Line thickness.
+Draw 2D Line.
+DrawLine3D
+​
+Renderer.DrawLine3D(
+p1
+:
+Vector3
+,
+p2
+:
+Vector3
+,
+color
+: number - D3DCOLOR,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector3
+Start position.
+p2
+Vector3
+End position.
+color
+number - D3DCOLOR
+Line color.
+thickness
+number - float
+Line thickness.
+Draw 3D Line.
+DrawLine3D
+​
+Renderer.DrawLine3D(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Start position.
+p2
+Vector2
+End position.
+color
+number - D3DCOLOR
+Line color.
+thickness
+number - float
+Line thickness.
+Draw 3D Line.
+DrawRect
+​
+Renderer.DrawRect(
+min
+:
+Vector2
+,
+max
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+rounding
+: number - float,
+flags
+:
+ImDrawFlags
+,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+min
+Vector2
+Top-left corner.
+max
+Vector2
+Bottom-right corner.
+color
+number - D3DCOLOR
+Color.
+rounding
+number - float
+Corner rounding.
+flags
+ImDrawFlags
+ImGui Draw Flags.
+thickness
+number - float
+Line thickness.
+Draw 2D Rect.
+DrawRectFilled
+​
+Renderer.DrawRectFilled(
+min
+:
+Vector2
+,
+max
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+rounding
+: number - float,
+flags
+:
+ImDrawFlags
+)
+→
+void
+Argument
+Type
+Description
+min
+Vector2
+Top-left corner.
+max
+Vector2
+Bottom-right corner.
+color
+number - D3DCOLOR
+Color.
+rounding
+number - float
+Corner rounding.
+flags
+ImDrawFlags
+ImGui Draw Flags.
+Draw 2D Filled Rect.
+DrawRectFilledMultiColor
+​
+Renderer.DrawRectFilledMultiColor(
+min
+:
+Vector2
+,
+max
+:
+Vector2
+,
+colorTopLeft
+: number - D3DCOLOR,
+colorTopRight
+: number - D3DCOLOR,
+colorBotRight
+: number - D3DCOLOR,
+colorBotLeft
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+min
+Vector2
+Top-left corner.
+max
+Vector2
+Bottom-right corner.
+colorTopLeft
+number - D3DCOLOR
+Top Left Color.
+colorTopRight
+number - D3DCOLOR
+Top Right Color.
+colorBotRight
+number - D3DCOLOR
+Bot Right Color.
+colorBotLeft
+number - D3DCOLOR
+Bot Left Color.
+Draw 2D Filled Rect MultiColor.
+DrawQuad
+​
+Renderer.DrawQuad(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+p3
+:
+Vector2
+,
+p4
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Point 1.
+p2
+Vector2
+Point 2.
+p3
+Vector2
+Point 3.
+p4
+Vector2
+Point 4.
+color
+number - D3DCOLOR
+Line color.
+thickness
+number - float
+Line thickness.
+Draw 2D Quad.
+DrawQuadFilled
+​
+Renderer.DrawQuadFilled(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+p3
+:
+Vector2
+,
+p4
+:
+Vector2
+,
+color
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Point 1.
+p2
+Vector2
+Point 2.
+p3
+Vector2
+Point 3.
+p4
+Vector2
+Point 4.
+color
+number - D3DCOLOR
+Line color.
+Draw 2D Filled Quad.
+caution
+Filled shapes must always use clockwise winding order. The anti-aliasing fringe depends on it. Counter-clockwise shapes will have "inward" anti-aliasing.
+DrawTriangle
+​
+Renderer.DrawTriangle(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+p3
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Point 1.
+p2
+Vector2
+Point 2.
+p3
+Vector2
+Point 3.
+color
+number - D3DCOLOR
+Line color.
+thickness
+number - float
+Line thickness.
+Draw 2D Triangle.
+DrawTriangleFilled
+​
+Renderer.DrawTriangleFilled(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+p3
+:
+Vector2
+,
+color
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Point 1.
+p2
+Vector2
+Point 2.
+p3
+Vector2
+Point 3.
+color
+number - D3DCOLOR
+Line color.
+Draw 2D Filled Triangle.
+caution
+Filled shapes must always use clockwise winding order. The anti-aliasing fringe depends on it. Counter-clockwise shapes will have "inward" anti-aliasing.
+DrawCircle2D
+​
+Renderer.DrawCircle2D(
+center
+:
+Vector2
+,
+radius
+: number,
+color
+: number - D3DCOLOR,
+numSegments
+: number - integer,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+center
+Vector2
+Center position.
+radius
+number
+Radius.
+color
+number - D3DCOLOR
+Color.
+numSegments
+number - integer
+Number of segments.
+thickness
+number - float
+Line thickness. Use
+0
+to automatically calculate tessellation (preferred).
+Draw 2D Circle.
+DrawCircleFilled2D
+​
+Renderer.DrawCircleFilled2D(
+center
+:
+Vector2
+,
+radius
+: number,
+color
+: number - D3DCOLOR,
+numSegments
+: number - integer
+)
+→
+void
+Argument
+Type
+Description
+center
+Vector2
+Center position.
+radius
+number
+Radius.
+color
+number - D3DCOLOR
+Color.
+numSegments
+number - integer
+Number of segments. Use
+0
+to automatically calculate tessellation (preferred).
+Draw 2D Filled Circle.
+DrawNgon
+​
+Renderer.DrawNgon(
+center
+:
+Vector2
+,
+radius
+: number,
+color
+: number - D3DCOLOR,
+numSegments
+: number - integer,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+center
+Vector2
+Center position.
+radius
+number
+Radius.
+color
+number - D3DCOLOR
+Color.
+numSegments
+number - integer
+Number of segments.
+thickness
+number - float
+Line thickness.
+Draw 2D Ngon. It's similar to DrawCircle2D, but will have guaranteed specific number of sides.
+DrawNgonFilled
+​
+Renderer.DrawNgonFilled(
+center
+:
+Vector2
+,
+radius
+: number,
+color
+: number - D3DCOLOR,
+numSegments
+: number - integer
+)
+→
+void
+Argument
+Type
+Description
+center
+Vector2
+Center position.
+radius
+number
+Radius.
+color
+number - D3DCOLOR
+Color.
+numSegments
+number - integer
+Number of segments.
+Draw 2D Filled Ngon. It's similar to DrawCircleFilled2D, but will have guaranteed specific number of sides.
+DrawPolyLine
+​
+Renderer.DrawPolyLine(
+points
+:
+Vector2
+[],
+numPoints
+: number - integer,
+color
+: number - D3DCOLOR,
+flags
+:
+ImDrawFlags
+,
+thickness
+: number - float
+)
+→
+void
+Argument
+Type
+Description
+points
+Vector2
+[]
+Points to form a poly line.
+numPoints
+number - integer
+Number of points.
+color
+number - D3DCOLOR
+Color.
+flags
+ImDrawFlags
+ImGui Draw Flags.
+thickness
+number - float
+Line thickness.
+Draw 2D Poly Line.
+Example: Basic poly line example.
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+Renderer
+.
+DrawPolyline
+(
+{
+Math
+.
+Vector2
+(
+300
+,
+300
+)
+,
+Math
+.
+Vector2
+(
+350
+,
+350
+)
+,
+Math
+.
+Vector2
+(
+400
+,
+320
+)
+,
+Math
+.
+Vector2
+(
+450
+,
+370
+)
+,
+Math
+.
+Vector2
+(
+500
+,
+360
+)
+,
+Math
+.
+Vector2
+(
+550
+,
+300
+)
+,
+Math
+.
+Vector2
+(
+600
+,
+330
+)
+,
+Math
+.
+Vector2
+(
+650
+,
+280
+)
+,
+Math
+.
+Vector2
+(
+700
+,
+240
+)
+,
+Math
+.
+Vector2
+(
+750
+,
+320
+)
+,
+Math
+.
+Vector2
+(
+800
+,
+300
+)
+,
+}
+,
+11
+,
+0xFFFF0000
+,
+Renderer
+.
+ImDrawFlags
+.
+None
+,
+15.0
+)
+end
+)
+DrawConvexPolyFilled
+​
+Renderer.DrawConvexPolyFilled(
+points
+:
+Vector2
+[],
+numPoints
+: number - integer,
+color
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+points
+Vector2
+[]
+Points to form a poly.
+numPoints
+number - integer
+Number of points.
+color
+number - D3DCOLOR
+Color.
+Draw 2D Convex Filled Poly.
+caution
+Filled shapes must always use clockwise winding order. The anti-aliasing fringe depends on it. Counter-clockwise shapes will have "inward" anti-aliasing.
+Example: Basic convex filled poly example.
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+Renderer
+.
+DrawConvexPolyFilled
+(
+{
+Math
+.
+Vector2
+(
+500
+,
+350
+)
+,
+Math
+.
+Vector2
+(
+600
+,
+340
+)
+,
+Math
+.
+Vector2
+(
+580
+,
+450
+)
+,
+Math
+.
+Vector2
+(
+480
+,
+430
+)
+,
+}
+,
+4
+,
+0x99FFFF00
+)
+end
+)
+DrawBezierCubic
+​
+Renderer.DrawBezierCubic(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+p3
+:
+Vector2
+,
+p4
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+thickness
+: number - float,
+numSegments
+: number - integer
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Point 1.
+p2
+Vector2
+Point 2.
+p3
+Vector2
+Point 3.
+p4
+Vector2
+Point 4.
+color
+number - D3DCOLOR
+Line color.
+thickness
+number - float
+Line thickness.
+numSegments
+number - integer
+Number of segments. Use
+0
+to automatically calculate tessellation (preferred).
+Draw 2D Bezier Cubic.
+Example: Basic bezier cubic example.
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+Renderer
+.
+DrawBezierCubic
+(
+Math
+.
+Vector2
+(
+300
+,
+400
+)
+,
+Math
+.
+Vector2
+(
+400
+,
+300
+)
+,
+Math
+.
+Vector2
+(
+700
+,
+500
+)
+,
+Math
+.
+Vector2
+(
+800
+,
+400
+)
+,
+0xFF9999FF
+,
+10.0
+,
+0
+)
+Renderer
+.
+DrawBezierCubic
+(
+Math
+.
+Vector2
+(
+300
+,
+400
+)
+,
+Math
+.
+Vector2
+(
+400
+,
+300
+)
+,
+Math
+.
+Vector2
+(
+700
+,
+500
+)
+,
+Math
+.
+Vector2
+(
+800
+,
+400
+)
+,
+0xFF000000
+,
+1.0
+,
+6
+)
+end
+)
+DrawBezierQuadratic
+​
+Renderer.DrawBezierQuadratic(
+p1
+:
+Vector2
+,
+p2
+:
+Vector2
+,
+p3
+:
+Vector2
+,
+color
+: number - D3DCOLOR,
+thickness
+: number - float,
+numSegments
+: number - integer
+)
+→
+void
+Argument
+Type
+Description
+p1
+Vector2
+Point 1.
+p2
+Vector2
+Point 2.
+p3
+Vector2
+Point 3.
+color
+number - D3DCOLOR
+Line color.
+thickness
+number - float
+Line thickness.
+numSegments
+number - integer
+Number of segments. Use
+0
+to automatically calculate tessellation (preferred).
+Draw 2D Bezier Quadratic.
+Example: Basic bezier quadratic example.
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+Renderer
+.
+DrawBezierQuadratic
+(
+Math
+.
+Vector2
+(
+300
+,
+420
+)
+,
+Math
+.
+Vector2
+(
+550
+,
+520
+)
+,
+Math
+.
+Vector2
+(
+800
+,
+420
+)
+,
+0xFFFF9999
+,
+3.0
+,
+0
+)
+end
+)
+LoadImageFromFile
+​
+Renderer.LoadImageFromFile(
+filePath
+: string
+)
+→
+number - handle
+Argument
+Type
+Description
+filePath
+string
+Relative path to your image. Make sure to use double slash
+\\
+instead of
+/
+.
+Load image (sprite) so it can be used with ImGui functions such as
+DrawImage
+. Returns unique image handle.
+caution
+This is different from
+AddTexture
+.
+Unless you want to draw images specifically with ImGui - we recommend using
+AddTexture
+and
+DrawTexture
+.
+danger
+Unlike
+AddTexture
+, you must dispose of all image resources loaded with this function by using
+ReleaseImage
+in
+OnUnload
+callback.
+Also make sure to use double slash
+\\
+instead of
+/
+.
+Although
+/
+will work during your development, it will not work in production script when you upload it to our server.
+ReleaseImage
+​
+Renderer.ReleaseImage(
+imageHandle
+: number
+)
+→
+void
+Argument
+Type
+Description
+imageHandle
+number
+(handle)
+Release image resource. Make sure to call this inside
+OnUnload
+callback for all your images.
+DrawImage
+​
+Renderer.DrawImage(
+imageHandle
+: number - integer,
+position
+:
+Vector2
+,
+size
+:
+Vector2
+,
+uv0?
+:
+Vector2
+,
+uv1?
+:
+Vector2
+,
+tintColor?
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+imageHandle
+number - integer
+Unique ImGui image handle returned from
+LoadImageFromFile
+.
+position
+Vector2
+Draw position.
+size
+Vector2
+Image size.
+uv0?
+Vector2
+Optional UV0.
+uv1?
+Vector2
+Optional UV1.
+tintColor?
+number - D3DCOLOR
+Optional tintColor.
+Draw 2D image (sprite) with ImGui.
+Example: Basic DrawImage example.
+local
+imageHandle
+=
+Renderer
+.
+LoadImageFromFile
+(
+"assets\\Default_Texture_A.png"
+)
+-- Load image
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+if
+imageHandle
+then
+Renderer
+.
+DrawImage
+(
+imageHandle
+,
+Math
+.
+Vector2
+(
+100
+,
+50
+)
+,
+Math
+.
+Vector2
+(
+600
+,
+100
+)
+)
+end
+end
+)
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnUnload
+,
+function
+(
+)
+Renderer
+.
+ReleaseImage
+(
+imageHandle
+)
+-- IMPORTANT: Release it when disposing
+end
+)
+DrawImageInWindow
+​
+Renderer.DrawImageInWindow(
+imageHandle
+: number - integer,
+size
+:
+Vector2
+,
+uv0?
+:
+Vector2
+,
+uv1?
+:
+Vector2
+,
+tintColor?
+: number - D3DCOLOR,
+borderColor?
+: number - D3DCOLOR
+)
+→
+void
+Argument
+Type
+Description
+imageHandle
+number - integer
+Unique ImGui image handle returned from
+LoadImageFromFile
+.
+size
+Vector2
+Image size.
+uv0?
+Vector2
+Optional UV0.
+uv1?
+Vector2
+Optional UV1.
+tintColor?
+number - D3DCOLOR
+Optional tint color.
+borderColor?
+number - D3DCOLOR
+Optional border color.
+Draw 2D image (sprite) inside ImGui window.
+caution
+Must be used inside ImGui window, so basically between
+ImGui.Begin
+and
+ImGui.End
+calls.
+Examples
+​
+Basic example of using ImGui to build some simple UI. This can be handy for debugging and devtools, but we do not recommend using it for custom UIs in your final production code.
+local
+mainWindowOpen
+=
+true
+local
+myCheckBox
+=
+true
+Callback
+.
+Bind
+(
+CallbackType
+.
+OnImguiDraw
+,
+function
+(
+)
+ImGui
+.
+SetNextWindowSize
+(
+500
+,
+500
+)
+mainWindowOpen
+=
+ImGui
+.
+Begin
+(
+"My Window"
+,
+mainWindowOpen
+,
+ImGuiWindowFlags
+.
+NoResize
+)
+ImGui
+.
+Text
+(
+"Well hello there, General Kenobi"
+)
+ImGui
+.
+TextColored
+(
+1
+,
+1
+,
+0
+,
+1
+,
+"Well hello there, General Kenobi"
+)
+ImGui
+.
+TextDisabled
+(
+"List:"
+)
+ImGui
+.
+BulletText
+(
+"One"
+)
+ImGui
+.
+BulletText
+(
+"Two"
+)
+ImGui
+.
+Text
+(
+"Buttons:"
+)
+ImGui
+.
+Button
+(
+"50x50"
+,
+50
+,
+50
+)
+ImGui
+.
+SameLine
+(
+)
+ImGui
+.
+SmallButton
+(
+"Small Button"
+)
+myCheckBox
+=
+ImGui
+.
+Checkbox
+(
+"My Checkbox"
+,
+myCheckBox
+)
+ImGui
+.
+Text
+(
+"Progress bar:"
+)
+ImGui
+.
+ProgressBar
+(
+0.4
+,
+400
+,
+25
+,
+"40%"
+)
+ImGui
+.
+End
+(
+)
+end
+)

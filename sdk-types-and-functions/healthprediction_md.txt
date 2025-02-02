@@ -1,0 +1,11 @@
+Health Prediction
+Health Prediction classes and functions.
+📄️
+HealthPrediction
+Health Prediction class
+📄️
+IncomingAttack
+IncomingAttack class
+📄️
+IncomingDamage
+IncomingDamage class
