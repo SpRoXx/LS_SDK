@@ -1,0 +1,931 @@
+Clipper
+Clipper namespace exports and helper functions.
+Official Documentation
+tip
+Make sure to read
+Official Clipper Documentation
+for more notes.
+caution
+LS uses slightly modified version of Clipper2 and it's not up to date with latest official version.
+Functions​
+Point64​
+Clipper.Point64(
+x
+: number,
+y
+: number
+)
+→
+Point64
+Argument| Type| Description
+---|---|---
+x| number|
+y| number|
+Point64 constructor from non-premultiplied (unscaled) float coordinates.
+Rect64​
+Clipper.Rect64(
+left
+: number,
+top
+: number,
+right
+: number,
+bottom
+: number
+)
+→
+Rect64
+Argument| Type| Description
+---|---|---
+left| number|
+top| number|
+right| number|
+bottom| number|
+Rect64 constructor from non-premultiplied (unscaled) float sides.
+Area​
+Clipper.Area(
+path
+:
+Path64
+)
+→ number
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+Returns the area of a given polygon.
+Official Documentation
+Area​
+Clipper.Area(
+paths
+:
+Paths64
+)
+→ number
+Argument| Type| Description
+---|---|---
+paths|
+Paths64
+|
+Returns the area of given polygons.
+Official Documentation
+BooleanOp​
+Clipper.BooleanOp(
+clipType
+:
+ClipType
+,
+fillRule
+:
+FillRule
+,
+subjects
+:
+Paths64
+,
+clips
+:
+Paths64
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+clipType|
+ClipType
+|
+fillRule|
+FillRule
+|
+subjects|
+Paths64
+|
+clips|
+Paths64
+|
+This function is a generic alternative to the Intersect, Difference, Union and XOR functions.
+Official Documentation
+Union​
+Clipper.Union(
+subjects
+:
+Paths64
+,
+fillRule
+:
+FillRule
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+subjects|
+Paths64
+|
+fillRule|
+FillRule
+|
+This function 'unions' closed subject paths without clip paths.
+Official Documentation
+tip
+With more complex clipping operations (eg when clipping open paths), you'll need to use the
+Clipper64
+class directly.
+Union​
+Clipper.Union(
+subjects
+:
+Paths64
+,
+clips
+:
+Paths64
+,
+fillRule
+:
+FillRule
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+subjects|
+Paths64
+|
+clips|
+Paths64
+|
+fillRule|
+FillRule
+|
+This function 'unions' closed subject paths with clip paths.
+Official Documentation
+tip
+With more complex clipping operations (eg when clipping open paths), you'll need to use the
+Clipper64
+class directly.
+Example: Full Union example.
+Callback.Bind(CallbackType.OnDraw, function()  
+    local pos = Game.localPlayer.position2D
+
+    local path1 = Clipper.CreatePath64FromVectors({  
+        Math.Vector2(pos.x - 300, pos.y - 300),  
+        Math.Vector2(pos.x + 300, pos.y - 300),  
+        Math.Vector2(pos.x + 300, pos.y + 300),  
+        Math.Vector2(pos.x - 300, pos.y + 300),  
+    })
+
+    local path2 = Clipper.CreatePath64FromVectors({  
+        Math.Vector2(pos.x - 200 + 300, pos.y - 200),  
+        Math.Vector2(pos.x + 200 + 300, pos.y - 200),  
+        Math.Vector2(pos.x + 200 + 300, pos.y + 200),  
+        Math.Vector2(pos.x - 200 + 300, pos.y + 200),  
+    })
+
+    local union = Clipper.Union(Clipper.CreatePaths64({path1}), Clipper.CreatePaths64({path2}), Clipper.FillRule.NonZero)
+
+    Renderer.DrawPaths(union, 1, Clipper.PointInPolygons(Game.GetCursorWorldPosition(), union) and 0xFF00FF00 or 0xFFFF0000)  
+end)
+Intersect​
+Clipper.Intersect(
+subjects
+:
+Paths64
+,
+clips
+:
+Paths64
+,
+fillRule
+:
+FillRule
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+subjects|
+Paths64
+|
+clips|
+Paths64
+|
+fillRule|
+FillRule
+|
+This function intersects closed subject paths with clip paths.
+Official Documentation
+tip
+With more complex clipping operations (eg when clipping open paths), you'll need to use the
+Clipper64
+class directly.
+Difference​
+Clipper.Difference(
+subjects
+:
+Paths64
+,
+clips
+:
+Paths64
+,
+fillRule
+:
+FillRule
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+subjects|
+Paths64
+|
+clips|
+Paths64
+|
+fillRule|
+FillRule
+|
+This function differences closed subject paths from clip paths.
+Official Documentation
+tip
+With more complex clipping operations (eg when clipping open paths), you'll need to use the
+Clipper64
+class directly.
+Xor​
+Clipper.Xor(
+subjects
+:
+Paths64
+,
+clips
+:
+Paths64
+,
+fillRule
+:
+FillRule
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+subjects|
+Paths64
+|
+clips|
+Paths64
+|
+fillRule|
+FillRule
+|
+This function 'XORs' closed subject paths and clip paths.
+Official Documentation
+tip
+With more complex clipping operations (eg when clipping open paths), you'll need to use the
+Clipper64
+class directly.
+InflatePaths​
+Clipper.InflatePaths(
+paths
+:
+Paths64
+,
+delta
+: number,
+joinType
+:
+JoinType
+,
+endType
+:
+EndType
+,
+miterLimit
+: number
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+paths|
+Paths64
+|
+delta| number|
+joinType|
+JoinType
+|
+endType|
+EndType
+|
+miterLimit| number|
+This function encapsulates
+ClipperOffset
+, the class that performs both polygon and open path offsetting.
+Official Documentation
+PointInPolygon​
+Clipper.PointInPolygon(
+point
+:
+Point64
+,
+path
+:
+Path64
+)
+→
+PointInPolygonResult
+Argument| Type| Description
+---|---|---
+point|
+Point64
+|
+path|
+Path64
+|
+The function result indicates whether the point is inside, or outside, or on one of the specified polygon's edges.
+Official Documentation
+PointInPolygonBool​
+Clipper.PointInPolygonBool(
+point
+:
+Point64
+,
+path
+:
+Path64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+point|
+Point64
+|
+path|
+Path64
+|
+Returns whether given position is inside given polygon.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+PointInPolygonBool​
+Clipper.PointInPolygonBool(
+point
+:
+Vector2
+,
+path
+:
+Path64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+point|
+Vector2
+| Position with non-premultiplied (unscaled) coordinates.
+path|
+Path64
+|
+Returns whether given position is inside given polygon. Accepts Vector2 with non-premultiplied (unscaled) coordinates.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+PointInPolygonBool​
+Clipper.PointInPolygonBool(
+point
+:
+Vector3
+,
+path
+:
+Path64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+point|
+Vector3
+| Position with non-premultiplied (unscaled) coordinates.
+path|
+Path64
+|
+Returns whether given position is inside given polygon. Accepts Vector3 with non-premultiplied (unscaled) coordinates.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+PointInPolygons​
+Clipper.PointInPolygons(
+point
+:
+Point64
+,
+paths
+:
+Paths64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+point|
+Point64
+|
+paths|
+Paths64
+|
+Returns whether given position is inside given polygons.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+PointInPolygons​
+Clipper.PointInPolygons(
+point
+:
+Vector2
+,
+paths
+:
+Paths64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+point|
+Vector2
+| Position with non-premultiplied (unscaled) coordinates.
+paths|
+Paths64
+|
+Returns whether given position is inside given polygons. Accepts Vector2 with non-premultiplied (unscaled) coordinates.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+Example: PointInPolygons example.
+local isInside = Clipper.PointInPolygons(Game.GetCursorWorldPosition():To2D(), polygonPaths)
+PointInPolygons​
+Clipper.PointInPolygons(
+point
+:
+Vector3
+,
+paths
+:
+Paths64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+point|
+Vector3
+| Position with non-premultiplied (unscaled) coordinates.
+paths|
+Paths64
+|
+Returns whether given position is inside given polygons. Accepts Vector3 with non-premultiplied (unscaled) coordinates.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+IsPositive​
+Clipper.IsPositive(
+path
+:
+Path64
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+This function assesses the winding orientation of closed paths.
+Official Documentation
+note
+Positive winding paths will be oriented in an anti-clockwise direction in Cartesian coordinates (where x coordinate values increase toward the right and y coordinate values increase upward). However, in graphics display libraries that use an inverted Y-axis, Positive winding paths will be oriented clockwise.
+Note: Self-intersecting polygons have indeterminate orientation since some path segments will wind in opposite directions to other segments.
+MakePath​
+Clipper.MakePath(
+pathStr
+: string
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+pathStr| string|
+Builds Path64 from a string with given coordinates.
+Official Documentation
+caution
+This function is different in most recent Clipper version.
+MinkowskiSum​
+Clipper.MinkowskiSum(
+pattern
+:
+Path64
+,
+path
+:
+Path64
+,
+isClosed
+: boolean
+)
+→ void
+Argument| Type| Description
+---|---|---
+pattern|
+Path64
+|
+path|
+Path64
+|
+isClosed| boolean|
+This function performs Minkowski Addition.
+Official Documentation
+tip
+For an explanation of this function see
+Minkowski Addition at Wikipedia
+.
+MinkowskiDiff​
+Clipper.MinkowskiDiff(
+pattern
+:
+Path64
+,
+path
+:
+Path64
+,
+isClosed
+: boolean
+)
+→ void
+Argument| Type| Description
+---|---|---
+pattern|
+Path64
+|
+path|
+Path64
+|
+isClosed| boolean|
+This function performs Minkowski Difference.
+Official Documentation
+tip
+For an explanation of this function see
+Minkowski Addition at Wikipedia
+.
+RectClip​
+Clipper.RectClip(
+rect
+:
+Rect64
+,
+subject
+:
+Path64
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+rect|
+Rect64
+|
+subject|
+Path64
+|
+Clips given path with a given Rect64 clipping region.
+Official Documentation
+tip
+This function is extremely fast when compared to the general purpose clipper. Read more at Clipper's official documentation page.
+RectClip​
+Clipper.RectClip(
+rect
+:
+Rect64
+,
+subjects
+:
+Paths64
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+rect|
+Rect64
+|
+subjects|
+Paths64
+|
+Clips given paths with a given Rect64 clipping region.
+Official Documentation
+tip
+This function is extremely fast when compared to the general purpose clipper. Read more at Clipper's official documentation page.
+RectClipLines​
+Clipper.RectClipLines(
+rect
+:
+Rect64
+,
+subject
+:
+Path64
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+rect|
+Rect64
+|
+subject|
+Path64
+|
+Intersects open subject path (polylines) with specified Rect64 clipping region.
+Official Documentation
+tip
+This function is extremely fast when compared to the general purpose clipper. Read more at Clipper's official documentation page.
+RectClipLines​
+Clipper.RectClipLines(
+rect
+:
+Rect64
+,
+subjects
+:
+Paths64
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+rect|
+Rect64
+|
+subjects|
+Paths64
+|
+Intersects open subject paths (polylines) with specified Rect64 clipping region.
+Official Documentation
+tip
+This function is extremely fast when compared to the general purpose clipper. Read more at Clipper's official documentation page.
+ReversePath​
+Clipper.ReversePath(
+path
+:
+Path64
+)
+→ void
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+Reverses the vertex order (and hence orientation) in the specified path.
+Official Documentation
+SimplifyPath​
+Clipper.SimplifyPath(
+path
+:
+Path64
+,
+epsilon
+: number,
+isOpenPath
+: boolean
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+epsilon| number|
+isOpenPath| boolean|
+This function removes vertices that are less than the specified epsilon distance from an imaginary line that passes through its 2 adjacent vertices.
+Official Documentation
+tip
+This function is strongly recommended following offsetting (ie inflating/shrinking), especially when offsetting paths multiple times. Offsetting often creates tiny segments that don't improve path quality. Further these tiny segments can be at angles that have been affected by integer rounding. While these tiny segments are too small to be noticeable following a single offset procedure, they can degrade both the shape quality and the performance of subsequent offsets.
+SimplifyPaths​
+Clipper.SimplifyPaths(
+paths
+:
+Paths64
+,
+epsilon
+: number,
+isOpenPath
+: boolean
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+paths|
+Paths64
+|
+epsilon| number|
+isOpenPath| boolean|
+This function removes vertices that are less than the specified epsilon distance from an imaginary line that passes through its 2 adjacent vertices.
+Official Documentation
+tip
+This function is strongly recommended following offsetting (ie inflating/shrinking), especially when offsetting paths multiple times. Offsetting often creates tiny segments that don't improve path quality. Further these tiny segments can be at angles that have been affected by integer rounding. While these tiny segments are too small to be noticeable following a single offset procedure, they can degrade both the shape quality and the performance of subsequent offsets.
+SafeSimplifyPath​
+Clipper.SafeSimplifyPath(
+path
+:
+Path64
+,
+epsilon
+: number,
+isOpenPath
+: boolean
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+epsilon| number|
+isOpenPath| boolean|
+Custom variation of SimplifyPath.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+SafeSimplifyPaths​
+Clipper.SafeSimplifyPaths(
+paths
+:
+Paths64
+,
+epsilon
+: number,
+isOpenPath
+: boolean
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+paths|
+Paths64
+|
+epsilon| number|
+isOpenPath| boolean|
+Custom variation of SimplifyPaths.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+TranslatePath​
+Clipper.TranslatePath(
+path
+:
+Path64
+,
+dx
+: number,
+dy
+: number
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+dx| number|
+dy| number|
+This function translates a path the specified distances relative to the X and Y axes.
+Official Documentation
+caution
+You must scale up dx and dy with multiplying by used Clipper Scale (
+Clipper.GetScale()
+)
+TrimCollinear​
+Clipper.TrimCollinear(
+path
+:
+Path64
+,
+isOpenPath
+: boolean
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+isOpenPath| boolean|
+This function removes the vertices between adjacent collinear segments. It will also remove duplicate vertices (adjacent vertices with identical coordinates).
+Official Documentation
+tip
+While duplicate vertices will be removed automatically from clipping solutions, collinear edges will not unless the Clipper object's PreserveCollinear property had been disabled.
+CreatePath64​
+Clipper.CreatePath64(
+pathTable
+: table -
+Point64
+[]
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+pathTable| table -
+Point64
+[]| Lua table with
+Point64
+Creates Path64 (
+std::vector<Point64>
+) container from a given Lua table of
+Point64
+.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+tip
+This is useful to create
+Path64
+container to be used with various Clipper functions.
+It can be used with empty table to create empty container.
+CreatePath64FromVectors​
+Clipper.CreatePath64FromVectors(
+pathTable
+: table -
+Vector2
+[]
+)
+→
+Path64
+Argument| Type| Description
+---|---|---
+pathTable| table -
+Vector2
+[]| Lua table with
+Vector2
+Creates Path64 (
+std::vector<Point64>
+) container from a given Lua table of
+Vector2
+with non-premultiplied (unscaled) coordinates.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+tip
+This is useful to create
+Path64
+container to be used with various Clipper functions.
+Unlike
+CreatePath64
+, this function is extremely useful because you can provide normal Vector2 positions.
+It can be used with empty table to create empty container.
+Example: Basic CreatePath64FromVectors usage example.
+local pos = Game.localPlayer.position2D
+
+local path = Clipper.CreatePath64FromVectors({  
+    Math.Vector2(pos.x - 300, pos.y - 300),  
+    Math.Vector2(pos.x + 300, pos.y - 300),  
+    Math.Vector2(pos.x + 300, pos.y + 300),  
+    Math.Vector2(pos.x - 300, pos.y + 300),  
+})
+CreatePaths64​
+Clipper.CreatePaths64(
+pathsTable
+: table -
+Path64
+[]
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+pathsTable| table -
+Path64
+[]| Lua table with
+Path64
+Creates Paths64 (
+std::vector<Path64>
+) container from a given Lua table of
+Path64
+.
+note
+This function is not a part of official Clipper library. It is a helper function available only in LS SDK.
+tip
+This is useful to create
+Paths64
+container to be used with various Clipper functions.
+It can be used with empty table to create empty container.
+Example: Basic CreatePaths64 usage example.
+local path = Clipper.CreatePath64FromVectors({  
+    -- ...  
+})
+
+local paths = Clipper.CreatePaths64({path})
+GetScale​
+Clipper.GetScale()
+→ number
+Returns scale used in Clipper.
+tip
+You can avoid using it with several helper functions which accept
+Vector2
+or
+Vector3
+with non-premultiplied (unscaled) coordinates.

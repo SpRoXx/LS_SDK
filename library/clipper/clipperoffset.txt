@@ -1,0 +1,111 @@
+ClipperOffset
+ClipperOffset class
+Official Documentation
+note
+Geometric offsetting refers to the process of creating parallel curves that are offset a specified distance from their primary curves.
+The ClipperOffset class manages the process of offsetting (inflating/deflating) both open and closed paths using a number of different join types and end types. The library user will rarely need to access this unit directly since it will generally be easier to use the InflatePaths function when doing polygon offsetting.
+Properties​
+ArcTolerance
+: boolean​
+ArcTolerance is only relevant when offsetting with JoinType.Round and / or EndType.Round (see ClipperOffset.AddPath and ClipperOffset.AddPaths).
+Official Documentation
+MiterLimit
+: boolean​
+This property sets the maximum distance in multiples of delta that vertices can be offset from their original positions before squaring is applied. (Squaring truncates a miter by 'cutting it off' at 1 × delta distance from the original vertex.)
+Official Documentation
+ReverseSolution
+: boolean​
+Reverses the solution's orientation.
+Official Documentation
+Functions​
+new​
+ClipperOffset.new()
+→ void
+ClipperOffset constructor.
+Clear​
+ClipperOffset:Clear()
+→ void
+This method clears all paths from the
+ClipperOffset
+object, allowing new paths to be assigned.
+Official Documentation
+AddPath​
+ClipperOffset:AddPath(
+path
+:
+Path64
+,
+joinType
+:
+JoinType
+,
+endType
+:
+EndType
+)
+→ void
+Argument| Type| Description
+---|---|---
+path|
+Path64
+|
+joinType|
+JoinType
+|
+endType|
+EndType
+|
+Adds
+Path64
+to a
+ClipperOffset
+object in preparation for offsetting.
+Official Documentation
+AddPath​
+ClipperOffset:AddPath(
+paths
+:
+Paths64
+,
+joinType
+:
+JoinType
+,
+endType
+:
+EndType
+)
+→ void
+Argument| Type| Description
+---|---|---
+paths|
+Paths64
+|
+joinType|
+JoinType
+|
+endType|
+EndType
+|
+Adds
+Paths64
+to a
+ClipperOffset
+object in preparation for offsetting.
+Official Documentation
+Execute​
+ClipperOffset:Execute(
+delta
+: number
+)
+→
+Paths64
+Argument| Type| Description
+---|---|---
+delta| number|
+Executes offset (inflating/deflating) operation.
+Official Documentation
+tip
+With closed paths (polygons), a positive delta specifies how much outer polygon contours will expand and how much inner "hole" contours will contract (and the converse with negative deltas).
+With open paths (polylines) including EndType.Joined, delta specifies the width of the inflated line.
+Execute can also be called multiple times (using different deltas).

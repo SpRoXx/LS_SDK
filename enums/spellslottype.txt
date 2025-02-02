@@ -1,0 +1,15 @@
+SpellSlotType
+Data.SpellSlotType - Spell slot type
+tip
+This is a part of
+Data
+namespace (table).
+Properties​
+Invalid
+: number​
+Champion
+: number​
+Summoner
+: number​
+Item
+: number​

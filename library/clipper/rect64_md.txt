@@ -1,0 +1,104 @@
+Rect64
+Rect64 struct
+Official Documentation
+Properties
+​
+left
+: number
+​
+top
+: number
+​
+right
+: number
+​
+bottom
+: number
+​
+Width
+: number
+​
+Setter automatically recalculates right.
+Height
+: number
+​
+Setter automatically recalculates bottom.
+Functions
+​
+MidPoint
+​
+Rect64:MidPoint()
+→
+Point64
+Returns middle point.
+AsPath
+​
+Rect64:AsPath()
+→
+Path64
+Returns this Rect64 corners as path.
+Contains
+​
+Rect64:Contains(
+point
+:
+Point64
+)
+→
+bool
+Argument
+Type
+Description
+point
+Point64
+Checks if this Rect64 contains given Point64.
+Contains
+​
+Rect64:Contains(
+rect
+:
+Rect64
+)
+→
+bool
+Argument
+Type
+Description
+rect
+Rect64
+Checks if this Rect64 contains given Rect64.
+IsEmpty
+​
+Rect64:IsEmpty()
+→
+bool
+Checks whether this Rect64 is empty.
+Intersects
+​
+Rect64:Intersects(
+rect
+:
+Rect64
+)
+→
+bool
+Argument
+Type
+Description
+rect
+Rect64
+Checks whether this Rect64 intersects given Rect64.
+Scale
+​
+Rect64:Scale(
+scale
+: number
+)
+→
+void
+Argument
+Type
+Description
+scale
+number
+Multiplies this Rect64 by given multiplicator.

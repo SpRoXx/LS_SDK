@@ -1,0 +1,17 @@
+PointInPolygonResult
+Clipper.PointInPolygonResult
+Official Documentation
+Properties
+​
+IsOn
+: number
+​
+The point is on polygon's edge.
+IsInside
+: number
+​
+The point is inside the polygon.
+IsOutside
+: number
+​
+The point is outside the polygon.

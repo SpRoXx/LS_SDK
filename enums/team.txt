@@ -1,0 +1,21 @@
+Team
+Game team type
+Properties​
+Neutral
+: number​
+300
+Order
+: number​
+100
+Chaos
+: number​
+200
+Unknown
+: number​
+0
+Enemy
+: number​
+Enemy team.
+Ally
+: number​
+Ally team.

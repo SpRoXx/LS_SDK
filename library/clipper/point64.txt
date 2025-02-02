@@ -1,0 +1,62 @@
+Point64
+Point64 struct
+Official Documentation
+note
+The Point64 structure is used to represent a single vertex (or coordinate) in a series that together make a path or contour (see Path64). Closed paths are usually referred to as polygons, and open paths are referred to as lines or polylines.
+caution
+All coordinates are represented internally using integers as this is the only way to ensure numerical robustness. While the library also accepts floating point coordinates (see PointD), these will be converted into integers internally (using user specified scaling).
+Properties​
+x
+: number​
+X coordinate.
+y
+: number​
+Y coordinate.
+Functions​
+Negate​
+Point64:Negate()
+→ void
+Negates coordinates of this Point64.
+__mul​
+Point64:__mul(
+scale
+: number
+)
+→
+Point64
+Argument| Type| Description
+---|---|---
+scale| number| Multiplicator.
+Multiply operator.
+__add​
+Point64:__add(
+point
+:
+Point64
+)
+→
+Point64
+Argument| Type| Description
+---|---|---
+point|
+Point64
+| Second point.
+Addition operator.
+__sub​
+Point64:__sub(
+point
+:
+Point64
+)
+→
+Point64
+Argument| Type| Description
+---|---|---
+point|
+Point64
+| Second point.
+Subtraction operator.
+__tostring​
+Point64:__tostring()
+→ string
+tostring operator.

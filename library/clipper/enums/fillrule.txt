@@ -1,0 +1,16 @@
+FillRule
+Clipper.FillRule
+Official Documentation
+Properties​
+EvenOdd
+: number​
+Only odd numbered sub-regions are filled.
+NonZero
+: number​
+Only non-zero sub-regions are filled.
+Positive
+: number​
+Only sub-regions with winding counts > 0 are filled.
+Negative
+: number​
+Only sub-regions with winding counts < 0 are filled.

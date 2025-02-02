@@ -1,0 +1,12 @@
+Paths64
+Paths64 struct
+Official Documentation
+note
+This is basically a
+std::vector<Path64>
+(
+std::vector<std::vector<Path64>>
+) container.
+tip
+Paths64
+represent one or more Path64 structures. While a single path can represent a simple polygon, multiple paths are usually required to define complex polygons that contain one or more holes.

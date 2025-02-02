@@ -1,0 +1,200 @@
+Queue
+Common.Queue class. Queue implementation based on table.insert and table.remove.
+note
+Part of Common namespace.
+tip
+In LuaJIT it's almost as fast as alternative implementation from
+https://www.lua.org/pil/11.4.html
+and even though it's slightly slower - it provides much more functionality.
+Functions
+​
+PushLeft
+​
+Queue:PushLeft(
+val
+: any
+)
+→
+void
+Argument
+Type
+Description
+val
+any
+Any value
+Push the value to the beginning of the queue.
+PushRight
+​
+Queue:PushRight(
+val
+: any
+)
+→
+void
+Argument
+Type
+Description
+val
+any
+Any value
+Push the value to the end of the queue.
+PopLeft
+​
+Queue:PopLeft()
+→
+any
+Pop the value from the beginning of the queue. Returns the popped value.
+PopRight
+​
+Queue:PopRight()
+→
+any
+Pop the value from the end of the queue. Returns the popped value.
+Pairs
+​
+Queue:Pairs()
+→
+void
+Iterator. Implemented as pairs(Queue.list).
+__newindex
+​
+Queue:__newindex(
+key
+: number,
+val
+: any
+)
+→
+void
+Argument
+Type
+Description
+key
+number
+Index
+val
+any
+Any value
+You can push values directly even in the middle of the queue. Implemented as table.insert(Queue.list, key, value).
+Examples
+​
+Basic usage
+local
+q
+=
+Queue
+(
+{
+1
+,
+2
+,
+3
+}
+)
+q
+:
+PushLeft
+(
+1
+)
+q
+:
+PushRight
+(
+2
+)
+q
+:
+PushLeft
+(
+0
+)
+for
+i
+=
+1
+,
+#
+q
+do
+print
+(
+q
+[
+i
+]
+)
+end
+local
+q
+=
+Queue
+(
+)
+q
+:
+PushRight
+(
+function
+(
+)
+print
+(
+"Action 1"
+)
+end
+)
+q
+:
+PushRight
+(
+function
+(
+)
+print
+(
+"Action 2"
+)
+q
+:
+PushLeft
+(
+function
+(
+)
+print
+(
+"Top Priority Action!"
+)
+end
+)
+end
+)
+q
+:
+PushRight
+(
+function
+(
+)
+print
+(
+"Action 3"
+)
+end
+)
+while
+#
+q
+>
+0
+do
+q
+:
+PopLeft
+(
+)
+(
+)
+end

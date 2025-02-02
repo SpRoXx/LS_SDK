@@ -1,0 +1,19 @@
+TeleportType
+Teleport type
+Properties
+​
+Unknown
+: number
+​
+Recall
+: number
+​
+Shen
+: number
+​
+TwistedFate
+: number
+​
+Teleport
+: number
+​

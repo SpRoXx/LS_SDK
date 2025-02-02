@@ -1,0 +1,16 @@
+TeleportStatus
+Teleport status
+Properties
+​
+Unknown
+: number
+​
+Abort
+: number
+​
+Start
+: number
+​
+Finish
+: number
+​

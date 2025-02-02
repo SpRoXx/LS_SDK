@@ -1,0 +1,19 @@
+JoinType
+Clipper.JoinType
+Official Documentation
+note
+The JoinType enumeration is only needed when offsetting (inflating/shrinking). It isn't needed for polygon clipping. It specifies how to manage offsetting at convex angled joins. Concave joins will always be offset with a mitered join.
+When adding paths to a ClipperOffset object via the AddPaths method, the JoinType parameter must specify one of the following types - Miter, Square or Round.
+caution
+Bevel is not supported in LS implementation of Clipper.
+Properties
+​
+Square
+: number
+​
+Round
+: number
+​
+Miter
+: number
+​

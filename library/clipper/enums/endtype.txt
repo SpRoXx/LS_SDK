@@ -1,0 +1,21 @@
+EndType
+Clipper.EndType
+Official Documentation
+note
+The EndType enumerator is only needed when offsetting (inflating/shrinking). It isn't needed for polygon clipping.
+Properties​
+Polygon
+: number​
+The path is treated as a polygon.
+Joined
+: number​
+Ends are joined and the path treated as a polyline.
+Butt
+: number​
+Ends are squared off without any extension.
+Square
+: number​
+Ends extend the offset amount while being squared off.
+Round
+: number​
+Ends extend the offset amount while being rounded off.

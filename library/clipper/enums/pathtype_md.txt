@@ -1,0 +1,11 @@
+PathType
+Clipper.PathType
+Official Documentation
+Properties
+​
+Subject
+: number
+​
+Clip
+: number
+​

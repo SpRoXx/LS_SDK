@@ -1,0 +1,9 @@
+SkillshotType
+Skillshot type
+Properties​
+SkillshotLine
+: number​
+SkillshotCircle
+: number​
+SkillshotCone
+: number​

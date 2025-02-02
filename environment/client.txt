@@ -1,0 +1,11 @@
+client
+client namespace
+Functions​
+GetUserName​
+client.GetUserName()
+→ string
+Get current username.
+GetHwid​
+client.GetHwid()
+→ string
+Get current user HWID.

@@ -1,0 +1,13 @@
+Enums
+Clipper enumerations.
+📄️ ClipTypeClipper.ClipType
+##
+📄️ EndTypeClipper.EndType
+##
+📄️ FillRuleClipper.FillRule
+##
+📄️ JoinTypeClipper.JoinType
+##
+📄️ PathTypeClipper.PathType
+##
+📄️ PointInPolygonResultClipper.PointInPolygonResult

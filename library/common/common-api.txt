@@ -1,0 +1,136 @@
+Common
+Common library with some useful helper functions and classes made by our Lua developers.
+Functions​
+DelayAction​
+Common.DelayAction(
+action
+: function,
+delay
+: number
+)
+→ void
+Argument| Type| Description
+---|---|---
+action| function| Given action function
+delay| number| Given delay
+Executes given action (function) after given delay (in seconds) using OnTick.
+DelayActionPrecise​
+Common.DelayActionPrecise(
+action
+: function,
+delay
+: number
+)
+→ void
+Argument| Type| Description
+---|---|---
+action| function| Given action function
+delay| number| Given delay
+Executes given action (function) after given delay (in seconds) using OnDraw.
+DelayActionFrames​
+Common.DelayActionFrames(
+action
+: function,
+frames
+: number
+)
+→ void
+Argument| Type| Description
+---|---|---
+action| function| Given action function
+frames| number| Given frames to wait
+Executes given action (function) after certain given frames.
+Queue​
+Common.Queue()
+→
+Queue
+Creates and returns empty Queue instance.
+Queue​
+Common.Queue(
+t
+: any[]
+)
+→
+Queue
+Argument| Type| Description
+---|---|---
+t| any[]| Table with elements
+Creates and returns Queue instance based on table with elements with index starting from 1.
+GetEnumName​
+Common.GetEnumName(
+enumTable
+: any[],
+enum
+: any
+)
+→ string
+Argument| Type| Description
+---|---|---
+enumTable| any[]| Enumeration table
+enum| any| Enumeration value
+Returns enum name.
+RollChance​
+Common.RollChance(
+chance
+: number
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+chance| number| Any number in range from 0 to 100
+Rolls a chance. Returns true if roll is successful.
+GetRemainingRecallTime​
+Common.GetRemainingRecallTime()
+→ number
+Returns remaining recall time for player.
+IsUnitImmune​
+Common.IsUnitImmune(
+unit
+:
+AIBaseClient
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+unit|
+AIBaseClient
+| Unit to check
+Returns whether unit has immunity.
+IsUnitSpellImmune​
+Common.IsUnitSpellImmune(
+unit
+:
+AIBaseClient
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+unit|
+AIBaseClient
+| Unit to check
+Returns whether unit has spell immunity (i.e. has spellshield).
+IsFleeing​
+Common.IsFleeing(
+unit
+:
+AIBaseClient
+,
+pos
+:
+Vector3
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+unit|
+AIBaseClient
+| Unit to check
+pos|
+Vector3
+| Position to check
+Returns whether unit is fleeing from gives position.
+ClosestEnemy​
+Common.ClosestEnemy()
+→
+AIHeroClient
+Returns closest enemy to the player.

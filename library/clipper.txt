@@ -1,0 +1,17 @@
+Clipper
+Clipper API and helper functions.
+🗃️ Enums6 items
+##
+📄️ ClipperClipper namespace exports and helper functions.
+##
+📄️ Clipper64Clipper64 class
+##
+📄️ ClipperOffsetClipperOffset class
+##
+📄️ Path64Path64 struct
+##
+📄️ Paths64Paths64 struct
+##
+📄️ Point64Point64 struct
+##
+📄️ Rect64Rect64 struct

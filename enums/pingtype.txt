@@ -1,0 +1,31 @@
+PingType
+Ping type
+Properties​
+Default
+: number​
+Danger
+: number​
+EnemyMissing
+: number​
+OnMyWay
+: number​
+Caution
+: number​
+AssistMe
+: number​
+VisionHere
+: number​
+VisionCleared
+: number​
+NeedVision
+: number​
+Push
+: number​
+AllIn
+: number​
+Retreat
+: number​
+Bait
+: number​
+Hold
+: number​
