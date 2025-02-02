@@ -1,0 +1,55 @@
+KeyBind :
+MenuComponent
+KeyBind.
+Properties
+​
+value
+: integer
+​
+key
+: integer
+​
+isToggle
+: boolean
+​
+Functions
+​
+PermaShow
+​
+KeyBind:PermaShow(
+show
+: boolean,
+overrideSave
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+show
+boolean
+Should draw permashow.
+overrideSave
+boolean
+Force permashow even if save is exist.
+Permashow this item. If not necessary ,
+overrideSave
+should be
+false.
+‌
+AddTooltip
+​
+KeyBind:AddTooltip(
+tooltipString
+: string
+)
+→
+void
+Argument
+Type
+Description
+tooltipString
+string
+Tooltip string.
+Add tooltip to this element.

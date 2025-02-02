@@ -1,0 +1,283 @@
+Menu :
+MenuComponent
+Root Menu.
+Properties
+​
+page
+: integer
+​
+isVisible
+: boolean
+​
+Functions
+​
+CreateMenu
+​
+Menu:CreateMenu(
+name
+: string,
+displayName
+: string,
+page
+: number
+)
+→
+Menu
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+page
+number
+Base menu page.
+Create and returns a root menu item.
+AddTooltip
+​
+Menu:AddTooltip(
+tooltipString
+: string
+)
+→
+void
+Argument
+Type
+Description
+tooltipString
+string
+Tooltip string.
+Add tooltip to this element.
+AddMenu
+​
+Menu:AddMenu(
+name
+: string,
+displayName
+: string
+)
+→
+Menu
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+Create and returns sub menu.
+AddCheckBox
+​
+Menu:AddCheckBox(
+name
+: string,
+displayName
+: string,
+defaultValue
+: boolean,
+callback
+: function
+)
+→
+CheckBox
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+defaultValue
+boolean
+Default value.
+callback
+function
+Callback when value change.
+Add a checkbox to menu.
+AddColorPicker
+​
+Menu:AddColorPicker(
+name
+: string,
+displayName
+: string,
+defaultValue
+: color,
+hasCheckBox
+: boolean,
+checkBoxDefaultValue
+: boolean,
+callback
+: function
+)
+→
+ColorPicker
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+defaultValue
+color
+Default color value.
+hasCheckBox
+boolean
+Has checkbox
+checkBoxDefaultValue
+boolean
+Checkbox default value.
+callback
+function
+Callback when value change.
+Add a colorpicker to menu.
+AddInfo
+​
+Menu:AddInfo(
+name
+: string,
+displayName
+: string
+)
+→
+void
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+Add an info text to menu.
+AddKeyBind
+​
+Menu:AddKeyBind(
+name
+: string,
+displayName
+: string,
+key
+: number - unsigned char,
+defaultValue
+: boolean,
+isToggle
+: boolean,
+callback?
+: function
+)
+→
+KeyBind
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+key
+number - unsigned char
+Key.
+defaultValue
+boolean
+Default value.
+isToggle
+boolean
+Is toggle.
+callback?
+function
+Callback when value change.
+Add a keybind to menu.
+AddList
+​
+Menu:AddList(
+name
+: string,
+displayName
+: string,
+items
+: string table,
+defaultValue
+: integer,
+callback
+: function
+)
+→
+List
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+items
+string table
+Select items.
+defaultValue
+integer
+Default select value.
+callback
+function
+Callback when value change.
+Add a list to menu.
+AddSlider
+​
+Menu:AddSlider(
+name
+: string,
+displayName
+: string,
+defaultValue
+: integer,
+minimumValue
+: integer,
+maximumValue
+: integer,
+step
+: integer,
+callback
+: function
+)
+→
+Slider
+Argument
+Type
+Description
+name
+string
+Internal name.
+displayName
+string
+Display name.
+defaultValue
+integer
+Default value.
+minimumValue
+integer
+Minimum value.
+maximumValue
+integer
+Maximum value.
+step
+integer
+Slider step per pix.
+callback
+function
+Callback when value change.
+Add a slider to menu.

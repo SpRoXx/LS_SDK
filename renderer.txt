@@ -1,0 +1,15 @@
+Renderer
+Renderer classes and functions.
+🗃️ Enums8 items
+##
+🗃️ Draw Options7 items
+##
+📄️ ColorDataRenderer.ColorData struct. Used by fancy shader drawings.
+##
+📄️ ColorInfoRenderer.ColorInfo struct. Used by fancy shader drawings.
+##
+📄️ RendererRenderer namespace with useful drawing functions ready for production.
+##
+📄️ Renderer - Dev / DebugRenderer namespace with useful drawing functions intended for debugging and development.
+##
+📄️ Renderer - ImGuiRenderer namespace with useful drawing functions utilizing ImGui.

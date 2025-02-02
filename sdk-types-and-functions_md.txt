@@ -1,0 +1,44 @@
+SDK Types & Functions
+Reference for Types & Functions used in LS SDK.
+🗃️
+Evade
+4 items
+🗃️
+Health Prediction
+3 items
+🗃️
+Prediction
+4 items
+🗃️
+UI
+8 items
+📄️
+Champions
+Champions script manager.
+📄️
+ChampionTracker
+ChampionTracker
+📄️
+DamageLib
+Damage Library for accurate damage calculations.
+📄️
+Orbwalker
+Orbwalker.
+📄️
+SDKSpell
+SDKSpell for easy cast spell.
+📄️
+skirmishData
+skirmishData.
+📄️
+SpecialPathObstacle
+SpecialPathObstacle.
+📄️
+TargetSelector
+TargetSelector.
+📄️
+TeleportInfo
+TeleportInfo contains data related to tracked recalling or teleporting.
+📄️
+TurretTracker
+TurretTracker.

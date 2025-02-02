@@ -1,0 +1,7 @@
+Libraries
+Common libraries.
+🗃️ Clipper8 items
+##
+🗃️ Common2 items
+##
+📄️ bitLuaJIT library for bitwise operations

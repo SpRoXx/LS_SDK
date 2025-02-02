@@ -1,0 +1,53 @@
+Game Classes
+Reference for game classes and objects used in LS SDK.
+📄️ AIBaseClientInherited from GameObject and AttackableUnit class.
+##
+📄️ AIHeroClientInherited from GameObject , AIBaseClient and AttackableUnit class.
+##
+📄️ AIMinionClientInherited from GameObject , AIBaseClient and AttackableUnit class.
+##
+📄️ AITurretClientInherited from GameObject , AIBaseClient and AttackableUnit class.
+##
+📄️ AttackableUnitInherited from GameObject class.
+##
+📄️ AvatarClientAvatarClient class.
+##
+📄️ BuffBuff class.
+##
+📄️ BuffManagerBuff Manager.
+##
+📄️ BuffScriptBuffScript.
+##
+📄️ ChampionSpellNetworkDataChampionSpellNetworkData singleton. Can be accessed via
+ChampionSpellNetworkData.Instance()
+.
+##
+📄️ CharIntermediateCharIntermediate struct.
+##
+📄️ EffectEmitterEffect object. Inherited from GameObject.
+##
+📄️ GameObjectBase entity class.
+##
+📄️ HeroStatsCollectionHeroStatsCollection struct
+##
+📄️ InventorySlotInventorySlot struct
+##
+📄️ ItemDataItemData struct
+##
+📄️ MissileClientInherited from GameObject class.
+##
+📄️ PerkPerk class.
+##
+📄️ PerkInfoPerkInfo class.
+##
+📄️ ProximityDataProximityData struct. Used by TurretTracker.
+##
+📄️ ScriptBaseItemScriptBaseItem struct
+##
+📄️ SpellSpelldata class.
+##
+📄️ SpellBookSpellBook class.
+##
+📄️ SpellBookEntrySpellBookEntry class.
+##
+📄️ SpellInfoSpellInfo class.

@@ -1,0 +1,38 @@
+MenuComponent
+Base MenuComponent class.
+Properties​
+name
+: string​
+displayName
+: string​
+Functions​
+CastToCheckBox​
+MenuComponent:CastToCheckBox()
+→
+CheckBox
+Casts this component to CheckBox
+CastToColorPicker​
+MenuComponent:CastToColorPicker()
+→
+ColorPicker
+Casts this component to ColorPicker
+CastToList​
+MenuComponent:CastToList()
+→
+List
+Casts this component to List
+CastToSlider​
+MenuComponent:CastToSlider()
+→
+Slider
+Casts this component to Slider
+CastToKeyBind​
+MenuComponent:CastToKeyBind()
+→
+KeyBind
+Casts this component to KeyBind
+CastToMenu​
+MenuComponent:CastToMenu()
+→
+Menu
+Casts this component to Menu

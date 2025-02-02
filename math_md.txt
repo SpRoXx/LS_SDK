@@ -1,0 +1,14 @@
+Math
+Math classes and functions.
+📄️
+Math
+Math library.
+📄️
+Vector2
+Vector2 class
+📄️
+Vector3
+Vector3 class.
+📄️
+Vector4
+Vector4 class

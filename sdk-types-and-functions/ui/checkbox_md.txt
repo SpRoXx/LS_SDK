@@ -1,0 +1,48 @@
+CheckBox :
+MenuComponent
+CheckBox.
+Properties
+​
+value
+: boolean
+​
+Functions
+​
+PermaShow
+​
+CheckBox:PermaShow(
+show
+: boolean,
+overrideSave
+: boolean
+)
+→
+void
+Argument
+Type
+Description
+show
+boolean
+Should draw permashow.
+overrideSave
+boolean
+Force permashow even if save is exist.
+Permashow this item. If not necessary ,
+overrideSave
+should be
+false.
+AddTooltip
+​
+CheckBox:AddTooltip(
+tooltipString
+: string
+)
+→
+void
+Argument
+Type
+Description
+tooltipString
+string
+Tooltip string.
+Add tooltip to this element.

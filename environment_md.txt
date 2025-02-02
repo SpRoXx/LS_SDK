@@ -1,0 +1,19 @@
+Environment
+Environment namespace
+Functions
+​
+LoadModule
+​
+Environment.LoadModule(
+modulePath
+: string
+)
+→
+void
+Argument
+Type
+Description
+modulePath
+string
+Relative path to your Lua submodule.
+Load lua submodule from given path.

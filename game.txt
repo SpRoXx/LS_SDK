@@ -1,0 +1,579 @@
+Game
+Game info and functions.
+Properties​
+localPlayer
+:
+AIHeroClient
+​
+Functions​
+GetLatency​
+Game.GetLatency()
+→ number
+Returns your current latency.
+GetTickCount​
+Game.GetTickCount()
+→ integer
+Returns game tick count now.
+GetTime​
+Game.GetTime()
+→ number
+Returns game clock time now.
+fnvhash​
+Game.fnvhash(
+str
+: string
+)
+→ integer
+Argument| Type| Description
+---|---|---
+str| string| String for calculate(case ignore).
+Returns fnvhash of string.
+spelldataHash​
+Game.spelldataHash(
+str
+: string
+)
+→ integer
+Argument| Type| Description
+---|---|---
+str| string| String for calculate(case ignore).
+Returns spelldataHash of string.
+TranslateString​
+Game.TranslateString(
+str
+: string
+)
+→ string
+Argument| Type| Description
+---|---|---
+str| string| String key to translate. You may use displayName value from
+https://127.0.0.1:2999/liveclientdata/playerlist
+Returns translated string.
+GameID​
+Game.GameID()
+→ number
+Returns game id.
+GameMode​
+Game.GameMode()
+→ string
+Returns game mode.
+GameType​
+Game.GameType()
+→ string
+Returns game type.
+IsMatchmadeGame​
+Game.IsMatchmadeGame()
+→ boolean
+Returns if game is not custom.
+GetCherryStage​
+Game.GetCherryStage()
+→ number
+Returns current Arena stage.
+2
+- combat stage.
+Region​
+Game.Region()
+→ string
+Returns game region.
+MapID​
+Game.MapID()
+→ integer
+Returns game map id.
+MapName​
+Game.MapName()
+→ string
+Returns game map name.
+IsWallOfType​
+Game.IsWallOfType(
+pos
+:
+Vector2
+or
+Vector3
+,
+flag
+:
+CellFlag
+,
+radius
+: number
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+pos|
+Vector2
+or
+Vector3
+| Check pos.
+flag|
+CellFlag
+| Flag for check.
+radius| number| Range for check.
+Returns pos is wall of type wall.
+IsInFoW​
+Game.IsInFoW(
+pos
+:
+Vector3
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+pos|
+Vector3
+| Check pos.
+Returns pos is in fow.
+GetSpellByHash​
+Game.GetSpellByHash(
+spellHash
+: number - integer
+)
+→
+Spell
+Argument| Type| Description
+---|---|---
+spellHash| number - integer| Spell hash.
+Get Spelldata by spell hash.
+Example: Get spell data info value
+local WSpell = Game.GetSpellByHash(Game.spelldataHash("PickACard")) -- You can get spelldata by hash  
+if WSpell then  
+    local sucusss,value = WSpell:GetCalculateInfo(Game.fnvhash("GoldBase"), W:DataInstance().level)  
+    print(value)  
+end
+GetHoveredUnit​
+Game.GetHoveredUnit()
+→
+AttackableUnit
+Get target under our cursor.
+Example: Force target under our cursor.
+Callback.Bind(CallbackType.OnTick, function()  
+    local hover = Game.GetHoveredUnit()  
+    TargetSelector.SetForcedTarget(hover and hover:IsValid() and hover or nil)  
+end)
+GetSelectedTarget​
+Game.GetSelectedTarget()
+→
+AttackableUnit
+Get manually selected (clicked) target.
+GetCursorWorldPosition​
+Game.GetCursorWorldPosition()
+→
+Vector3
+Get cursor world position
+SpecialPathObstacle​
+Game.SpecialPathObstacle(
+position
+:
+Vector2
+,
+radius
+: number - float
+)
+→
+SpecialPathObstacle
+Argument| Type| Description
+---|---|---
+position|
+Vector2
+| Obstacle position.
+radius| number - float| Obstacle radius.
+Create obstacle instance to be used with CreateSpecialPath
+CreatePath​
+Game.CreatePath(
+startPos
+:
+Vector2
+,
+endPos
+:
+Vector2
+,
+bSmoothPath
+: boolean
+)
+→
+Vector2
+[] - std::vector<
+Vector2
+>
+Argument| Type| Description
+---|---|---
+startPos|
+Vector2
+| Start position.
+endPos|
+Vector2
+| End position.
+bSmoothPath| boolean| Return smooth path. Recommended to use true.
+Returns calculated path from given start position to given end position.
+CreatePath​
+Game.CreatePath(
+startPos
+:
+Vector3
+,
+endPos
+:
+Vector3
+,
+bSmoothPath
+: boolean
+)
+→
+Vector2
+[] - std::vector<
+Vector2
+>
+Argument| Type| Description
+---|---|---
+startPos|
+Vector3
+| Start position.
+endPos|
+Vector3
+| End position.
+bSmoothPath| boolean| Return smooth path. Recommended to use true.
+Returns calculated path from given start position to given end position.
+CreatePath​
+Game.CreatePath(
+endPos
+:
+Vector2
+,
+bSmoothPath
+: boolean
+)
+→
+Vector2
+[] - std::vector<
+Vector2
+>
+Argument| Type| Description
+---|---|---
+endPos|
+Vector2
+| End position.
+bSmoothPath| boolean| Return smooth path. Recommended to use true.
+Returns calculated path from player position to given end position.
+CreatePath​
+Game.CreatePath(
+endPos
+:
+Vector2
+,
+bSmoothPath
+: boolean
+)
+→
+Vector2
+[] - std::vector<
+Vector2
+>
+Argument| Type| Description
+---|---|---
+endPos|
+Vector2
+| End position.
+bSmoothPath| boolean| Return smooth path. Recommended to use true.
+Returns calculated path from player position to given end position.
+CreateSpecialPath​
+Game.CreateSpecialPath(
+startPos
+:
+Vector2
+,
+endPos
+:
+Vector2
+,
+includeAllies?
+: boolean,
+rangeFilter?
+: number - float,
+extraCollisionRadius?
+: number - float,
+excludeObjectHandles?
+: table - std::unordered_set
+,
+smoothPath?
+: boolean
+)
+→
+Vector2
+[] - std::vector<
+Vector2
+>
+Argument| Type| Description
+---|---|---
+startPos|
+Vector2
+| Start position.
+endPos|
+Vector2
+| End position.
+includeAllies?| boolean| Include friendly units or not. False by default.
+rangeFilter?| number - float| Add "fake walls" only to units within this range from start position. 500 by default.
+extraCollisionRadius?| number - float| Extra pathfinding collision radius. 0 by default.
+excludeObjectHandles?| table - std::unordered_set
+| Handle list of all objects you want to exclude.
+smoothPath?| boolean| Return smooth path. True by default.
+Returns special calculated path from given start position to given end position, but it adds "fake walls" under each minion and hero within given range.
+Example: Get special path from player position to cursor. Useful for movement checks inside groups of minions and close to heroes.
+Callback.Bind(CallbackType.OnDraw, function()  
+    -- Example 1: Basic usage with friendly units, 1000 rangeFilter:  
+    -- local path = Game.CreateSpecialPath(Game.localPlayer.position2D, Game.GetCursorWorldPosition():To2D(), true, 1000)
+
+    -- Example 2: include friendly units, 1000 rangeFilter, add 100 extra collision radius and ignore currently selected target:  
+    local path = Game.CreateSpecialPath(Game.localPlayer.position2D, Game.GetCursorWorldPosition():To2D(), true, 1000, 100, { Game.GetSelectedTarget() and Game.GetSelectedTarget().handle or 0 })
+
+    if path and #path > 0 then  
+        Renderer.DrawVectorPoly(path, 1, 0xFFFFFFFF) -- Draw full path (overload with std::vector<Vector2> argument)  
+    end  
+end)
+CreateSpecialPathEx​
+Game.CreateSpecialPathEx(
+startPos
+:
+Vector2
+,
+endPos
+:
+Vector2
+,
+customObstacles?
+: table - std::vector<
+SpecialPathObstacle
+>,
+includeObjectTypes?
+: table - std::unordered_set<
+ObjectType
+>,
+includeAllies?
+: boolean,
+rangeFilter?
+: number - float,
+extraCollisionRadius?
+: number - float,
+excludeObjectHandles?
+: table - std::unordered_set
+,
+smoothPath?
+: boolean
+)
+→
+Vector2
+[] - std::vector<
+Vector2
+>
+Argument| Type| Description
+---|---|---
+startPos|
+Vector2
+| Start position.
+endPos|
+Vector2
+| End position.
+customObstacles?| table - std::vector<
+SpecialPathObstacle
+>| A list of custom obstacles.
+includeObjectTypes?| table - std::unordered_set<
+ObjectType
+>| A list of all game object types you want to include.
+includeAllies?| boolean| Include friendly units or not. False by default.
+rangeFilter?| number - float| Add "fake walls" only to units within this range from start position. 500 by default.
+extraCollisionRadius?| number - float| Extra pathfinding collision radius. 0 by default.
+excludeObjectHandles?| table - std::unordered_set
+| Handle list of all objects you want to exclude.
+smoothPath?| boolean| Return smooth path. True by default.
+Returns special calculated path from given start position to given end position, but it adds "fake walls" under selected objects and custom obstacles.
+Example: Get special path from player position to cursor. Useful for movement checks inside groups of minions and close to heroes.
+Callback.Bind(CallbackType.OnDraw, function()  
+    local path = Game.CreateSpecialPathEx(  
+        Game.localPlayer.position2D,  
+        Game.GetCursorWorldPosition():To2D(),  
+        {  
+            Game.SpecialPathObstacle(Game.localPlayer.position2D + Math.Vector2(500, 0), 100),  
+            Game.SpecialPathObstacle(TurretTracker.GetClosestAllyTurretPosition(), 500),  
+        },  
+        { ObjectType.AIHeroClient, ObjectType.AIMinionClient },  
+        true,  
+        1000,  
+        400,  
+        { Game.GetSelectedTarget() and Game.GetSelectedTarget().handle or 0 }  
+    )
+
+    if path and #path > 0 then  
+        Renderer.DrawVectorPoly(path, 1, 0xFFFFFFFF) -- Draw full path (overload with std::vector<Vector2> argument)  
+    end  
+end)
+IssueOrder​
+Game.IssueOrder(
+orderType
+:
+IssueOrderType
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+orderType|
+IssueOrderType
+|
+Issue order in safe way.
+IssueOrder​
+Game.IssueOrder(
+orderType
+:
+IssueOrderType
+,
+position
+:
+Vector2
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+orderType|
+IssueOrderType
+|
+position|
+Vector2
+|
+Issue order in safe way to a position.
+IssueOrder​
+Game.IssueOrder(
+orderType
+:
+IssueOrderType
+,
+position
+:
+Vector3
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+orderType|
+IssueOrderType
+|
+position|
+Vector3
+|
+Issue order in safe way to a position.
+IssueOrder​
+Game.IssueOrder(
+orderType
+:
+IssueOrderType
+,
+target
+:
+AttackableUnit
+)
+→ boolean
+Argument| Type| Description
+---|---|---
+orderType|
+IssueOrderType
+|
+target|
+AttackableUnit
+|
+Issue order in safe way to a target.
+DoEmote​
+Game.DoEmote(
+emoteType
+:
+Emote
+)
+→ void
+Argument| Type| Description
+---|---|---
+emoteType|
+Emote
+|
+Perform emote.
+SendMasteryEmote​
+Game.SendMasteryEmote()
+→ void
+Perform mastery emote.
+SendChat​
+Game.SendChat(
+msg
+: string
+)
+→ void
+Argument| Type| Description
+---|---|---
+msg| string| Message to be sent. Use /all prefix if you want to send to All Chat.
+Send chat message.
+SendPing​
+Game.SendPing(
+targetNetworkID
+: number - integer,
+position
+:
+Vector2
+,
+pingType
+:
+PingType
+)
+→ void
+Argument| Type| Description
+---|---|---
+targetNetworkID| number - integer| Network ID of the target to ping
+position|
+Vector2
+| Positiong to ping
+pingType|
+PingType
+| Used ping type
+Send ping.
+ShowPing​
+Game.ShowPing(
+sourceHandle
+: number - integer,
+targetHandle
+: number - integer,
+position
+:
+Vector2
+,
+pingType
+:
+PingType
+,
+isPlaySound
+: boolean,
+isTriggerEvent
+: boolean
+)
+→ void
+Argument| Type| Description
+---|---|---
+sourceHandle| number - integer| Ping source handle
+targetHandle| number - integer| Pinged target handle
+position|
+Vector2
+| Pinged position
+pingType|
+PingType
+| Used ping type
+isPlaySound| boolean| Play sound or not
+isTriggerEvent| boolean| Trigger event or not
+Show ping locally.
+IsCameraLocked​
+Game.IsCameraLocked()
+→ boolean
+Returns if camera is locked
+CameraLockToggle​
+Game.CameraLockToggle(
+state
+: boolean
+)
+→ void
+Argument| Type| Description
+---|---|---
+state| boolean| Lock state
+Returns if camera is locked

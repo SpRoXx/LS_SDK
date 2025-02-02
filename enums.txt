@@ -1,0 +1,43 @@
+Game & SDK Enums
+Reference for game and SDK specific enums.
+📄️ BuffTypeBuff type
+##
+📄️ CameraControllerCamera controller type
+##
+📄️ CellFlagCellFlag
+##
+📄️ CollisionFlagCollisionFlag bitflag
+##
+📄️ CrowdControlTypeData.CrowdControlType
+##
+📄️ DamageTypeDamage type
+##
+📄️ DangerLevelData.DangerLevel - Spell danger level type
+##
+📄️ DragonTypeDragon type
+##
+📄️ EmoteEmote type
+##
+📄️ HitChancePrediction hit chance
+##
+📄️ IssueOrderTypeIssueOrder type
+##
+📄️ ObjectTypeGameObject type
+##
+📄️ OrbwalkerModeOrbwalkerMode bitflag
+##
+📄️ PingTypePing type
+##
+📄️ SkillshotTypeSkillshot type
+##
+📄️ SpellSlotSpell slot
+##
+📄️ SpellSlotTypeData.SpellSlotType - Spell slot type
+##
+📄️ SpellStateSpellState bitflag
+##
+📄️ TeamGame team type
+##
+📄️ TeleportStatusTeleport status
+##
+📄️ TeleportTypeTeleport type

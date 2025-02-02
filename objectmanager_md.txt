@@ -1,0 +1,166 @@
+ObjectManager
+ObjectManager contains some list of objects.
+Properties
+​
+enemyHeroes
+: list
+​
+enemyLaneMinions
+: list
+​
+allyHeroes
+: list
+​
+activeAllyWindWalls
+: list
+​
+activeEnemyWindWalls
+: list
+​
+allAIBaseClients
+: list
+​
+allAttackableUnits
+: list
+​
+allGameObjects
+: list
+​
+allMissileClients
+: list
+​
+enemyMinions
+: list
+​
+enemyPets
+: list
+​
+enemyStructures
+: list
+​
+enemyTurrets
+: list
+​
+enemyWards
+: list
+​
+allyLaneMinions
+: list
+​
+allyMinions
+: list
+​
+allyPets
+: list
+​
+allyTurrets
+: list
+​
+allyWards
+: list
+​
+barrels
+: list
+​
+jungleMinions
+: list
+​
+plants
+: list
+​
+spellFarmMinions
+: list
+​
+A list of all minions and objects which can be hit with spells. For example it doesn't include Teemo Mushrooms.
+Functions
+​
+ResolveHandle
+​
+ObjectManager.ResolveHandle(
+handle
+: number  - integer
+)
+→
+GameObject
+Argument
+Type
+Description
+handle
+number  - integer
+Handle for query.
+Get an object by handle
+(
+if failed, returns nil
+)
+.
+ResolveNetworkId
+​
+ObjectManager.ResolveNetworkId(
+networkId
+: number  - integer
+)
+→
+GameObject
+Argument
+Type
+Description
+networkId
+number  - integer
+Network handle for query.
+Get an object by networkId
+(
+if failed, returns nil
+)
+.
+Examples
+​
+Find first immobile enemy and cast Q
+for
+_
+,
+entity
+in
+ObjectManager
+.
+enemyHeroes
+:
+pairs
+(
+)
+do
+if
+entity
+:
+IsValidTarget
+(
+Q
+.
+range
+)
+and
+not
+Champions
+.
+CanMove
+(
+entity
+,
+0.1
+)
+and
+Q
+:
+Cast
+(
+entity
+,
+menu
+.
+Q
+.
+hitChanceQ
+)
+then
+return
+end
+end
